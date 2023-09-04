@@ -8,6 +8,8 @@ title: "Digital Mapping 2"
 
 ### Recap of continuous vs discrete colour scales
 
+### Creating colour bins
+
 ## Choropleth/thematic maps
 
 ### Purpose
