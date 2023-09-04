@@ -340,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>us_counties <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">'ne_10m_admin_2_counties/ne_10m_admin_2_counties.shp'</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>election_2020 <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'/Users/Yann/Downloads/US_County_Level_Election_Results_08-20-master/2020_US_County_Level_Presidential_Results.csv'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>election_2020 <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'US_County_Level_Election_Results_08-20-master/2020_US_County_Level_Presidential_Results.csv'</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>election_2020 <span class="ot">=</span> election_2020 <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(county_name, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>state_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Alaska'</span>, <span class="st">'Hawaii'</span>))</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>

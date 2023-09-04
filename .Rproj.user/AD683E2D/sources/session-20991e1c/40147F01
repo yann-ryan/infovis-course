@@ -3,7 +3,7 @@
     "path": "~/Documents/non-Github/datavis-course/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "3191388621",
     "contents": "",
     "dirty": false,
     "created": 1692869571226.0,
@@ -16,16 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "0",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "2:0",
+        "rmdVisualModeLocation": "5293:2325",
         "cursorPosition": "130,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1693582408,
+    "lastKnownWriteTime": 1693819660,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1693582408722,
+    "last_content_update": 1693819661010,
     "read_only": false,
     "read_only_alternatives": []
 }

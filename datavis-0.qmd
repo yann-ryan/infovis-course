@@ -180,7 +180,7 @@ library(sf)
 
 us_counties = st_read('ne_10m_admin_2_counties/ne_10m_admin_2_counties.shp', quiet = TRUE)
 
-election_2020 = read_csv('/Users/Yann/Downloads/US_County_Level_Election_Results_08-20-master/2020_US_County_Level_Presidential_Results.csv')
+election_2020 = read_csv('US_County_Level_Election_Results_08-20-master/2020_US_County_Level_Presidential_Results.csv')
 election_2020 = election_2020 %>% distinct(county_name, .keep_all = TRUE) %>% 
   filter(!state_name %in% c('Alaska', 'Hawaii'))
 
