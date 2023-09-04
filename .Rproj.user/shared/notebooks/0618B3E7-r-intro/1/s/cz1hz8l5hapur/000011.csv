@@ -1,0 +1,4 @@
+"0","grouped_fruit = group_by(fruit_data, fruit)"
+"2","Error in exists(cacheKey, where = .rs.WorkingDataEnv, inherits = FALSE) : 
+  invalid first argument
+"

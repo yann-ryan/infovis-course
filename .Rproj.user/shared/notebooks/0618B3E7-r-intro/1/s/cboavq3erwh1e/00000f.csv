@@ -1,0 +1,5 @@
+"0","fruit_data = data.frame(fruit, colour, amount,amount_last_week, stringsAsFactors = FALSE)"
+"2","Error in exists(cacheKey, where = .rs.WorkingDataEnv, inherits = FALSE) : 
+  invalid first argument
+"
+"0","fruit_data %>% kableExtra::kbl()"

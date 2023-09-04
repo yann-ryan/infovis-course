@@ -1,0 +1,29 @@
+---
+title: "Digital mapping 1"
+---
+
+## Overview
+
+## Basemaps
+
+### Rnaturalearth
+
+### Demonstration
+
+### Importing from other sources
+
+## Geographic data
+
+### Longitude/latitude
+
+### Summarising geographic data
+
+## sf package
+
+### sf Objects
+
+### Demonstration - mapping points on top of a basemap
+
+Including size, colour, transparency
+
+## Exercises

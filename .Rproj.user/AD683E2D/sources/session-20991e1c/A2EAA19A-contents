@@ -1,0 +1,94 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+gapminder_df = read_csv('/Users/Yann/Documents/non-Github/datavis-course/gapminder_data.csv')
+```
+
+```{r}
+gapminder_2007_df = gapminder_df %>% filter(year == 2007)
+```
+
+```{r}
+p = gapminder_2007_df %>% 
+  filter(!continent %in% c('Asia', "Africa")) %>% 
+    ggplot(aes(text = country)) + geom_point(aes(x =lifeExp, y =gdpPercap, color = continent, size = pop))
+
+plotly::ggplotly(p)
+```
+
+g
+
+```{r}
+
+
+library(igraph)
+library(ggraph)
+library(tidygraph)
+
+star_wars_edges = read_csv('/Users/Yann/Downloads/StarWars_Social_Network/json_to_csv/starwars-episode-4-interactions.edges.csv')
+
+star_wars_nodes = read_csv('/Users/Yann/Downloads/StarWars_Social_Network/json_to_csv/starwars-episode-4-interactions.nodes.csv')
+
+g = star_wars_edges %>% 
+  as_tbl_graph() %>% 
+  mutate(degree = centrality_degree()) %>% 
+  left_join(star_wars_nodes %>% mutate(Id = as.character(Id)), by = c('name' = 'Id')) %>% 
+  mutate(name.y = snakecase::to_title_case(name.y))
+
+g %>% ggraph(layout = 'linear', circular = TRUE) + 
+  geom_node_point() + 
+  geom_node_text(aes(label = name.y, angle = node_angle(x, y)), hjust = -0.5, size = 3) + 
+  geom_edge_arc(aes(alpha = value, color = value))+
+  coord_fixed(xlim = c(-1.4, 1.4), ylim = c(-1.4, 1.4)) +
+  guides(fill = guide_none()) +
+  theme_fivethirtyeight() + 
+  theme(legend.position = 'none',
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())  + 
+  scale_edge_color_viridis(direction = -1) + 
+  labs(title = "Star Wars Social Network", 
+       subtitle = "Episode IV: A New Hope")
+
+```
+
+```{r}
+install.packages('refugees')
+```
+
+```{r}
+library(refugees)
+
+r_flow = refugees::flows
+
+worldmap = rnaturalearth::ne_countries(scale = 'medium', returnclass = 'sf')
+
+
+worldmap = st_transform(worldmap, 8857)
+
+nl_refugees = r_flow %>% 
+  filter(year == 2022) %>% 
+  filter(coa == 'NET') %>% 
+  filter(!is.na(asylum_seekers))%>%
+  mutate(coa_iso == 'NLD')
+
+worldmap_r = worldmap %>% 
+  left_join(nl_refugees, by = c('iso_a3' = 'coo_iso')) %>% 
+  filter(name != 'Antarctica')
+
+
+
+worldmap_r%>% 
+  ggplot() + 
+  geom_sf(aes(fill = asylum_seekers)) + 
+  scale_fill_viridis_c() + 
+  theme_map() + 
+  labs(title = "Country of origin for Asylum Seekers to the Netherlands, 2022") + theme(plot.title = element_text(size = 14, face = 'bold'))
+
+```

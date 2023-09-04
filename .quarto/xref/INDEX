@@ -1,0 +1,29 @@
+{
+  "index.qmd": {
+    "index.html": "fda6cc4c"
+  },
+  "intro.qmd": {
+    "intro.html": "e874de5f"
+  },
+  "summary.qmd": {
+    "summary.html": "8d8fb3a1"
+  },
+  "references.qmd": {
+    "references.html": "226ac12b"
+  },
+  "r-markdown.qmd": {
+    "r-markdown.html": "bee69c20"
+  },
+  "r-intro.qmd": {
+    "r-intro.html": "45afac20"
+  },
+  "datavis-0.qmd": {
+    "datavis-0.html": "8c5f02e8"
+  },
+  "digital-mapping-1.qmd": {
+    "digital-mapping-1.html": "40f69559"
+  },
+  "digital-mapping-2.qmd": {
+    "digital-mapping-2.html": "ee61ef0d"
+  }
+}

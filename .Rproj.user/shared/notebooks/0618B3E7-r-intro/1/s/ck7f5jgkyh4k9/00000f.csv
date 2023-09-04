@@ -1,0 +1,19 @@
+"0","glimpse(fruit_data)"
+"1","Rows: 4"
+"1",""
+"1","
+"
+"1","Columns: 4"
+"1",""
+"1","
+"
+"1","$ fruit            [3m[38;5;246m<chr>[39m[23m ""apples"", ""bananas"", ""oranges"", ""apples""
+$ colour           [3m[38;5;246m<chr>[39m[23m ""green"", ""yellow"", ""orange"", ""red""
+$ amount           [3m[38;5;246m<dbl>[39m[23m 2, 5, 10, 8
+$ amount_last_week [3m[38;5;246m<dbl>[39m[23m 1, 10, 3, 6"
+"1",""
+"1","
+"
+"2","Error in exists(cacheKey, where = .rs.WorkingDataEnv, inherits = FALSE) : 
+  invalid first argument
+"
