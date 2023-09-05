@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,7 +91,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -113,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r-intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -499,13 +500,13 @@ $ amount_last_week &lt;dbl&gt; 1, 10, 3, 6</code></pre>
 </section>
 <section id="group_by-summarise-tally" class="level3">
 <h3 class="anchored" data-anchor-id="group_by-summarise-tally">group_by(), summarise(), tally()</h3>
-<p>The next group of functions group things together and count them.</p>
-<p><code>group_by()</code> puts rows with the same value in a column of your dataframe into a group. Once they’re in a group, you can count them or summarise them by another variable.</p>
-<p>First you need to create a new dataframe with the grouped fruit.</p>
+<p>A very useful function is <code>group_by()</code>. By itself, it groups rows of your data together based on . Once this is done, you can apply a function to each group. A useful and simple example is <code>tally()</code>. Using <code>tally()</code> on your grouped dataset will count the number of rows in each group. The diagram below is an attempt to explain how grouping works. First, the <code>group_by()</code> function takes a dataset of fruit observations, and puts them into their relevant groups. Next, <code>count()</code> or <code>tally()</code> will count the number of fruit in each group.</p>
+<p><img src="images/group_by_count.drawio.png" class="img-fluid" width="400"></p>
+<p>To do this in R, first you need to create a new dataframe with the grouped fruit.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>grouped_fruit <span class="ot">=</span> <span class="fu">group_by</span>(fruit_data, fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Next we use <code>tally()</code>. This counts all the instances of each fruit group.</p>
+<p>Next, use <code>tally()</code> on new dataset. This counts all the instances of each fruit group.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(grouped_fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -518,6 +519,9 @@ $ amount_last_week &lt;dbl&gt; 1, 10, 3, 6</code></pre>
 </div>
 </div>
 <p>See? Now the apples are grouped together rather than being two separate rows, and there’s a new column called <code>n</code>, which contains the result of the count.</p>
+<p>Sometimes, we’ll want to add up the totals for some other measurement of the data. Imagine our fruit dataset also contained the cost of each fruit for each observation.</p>
+<p>We could produce a new summary of the data which calculated the total cost for each group, with a small change to the method, as in this diagram:</p>
+<p><img src="images/group_by_count_weight.drawio.png" class="img-fluid" width="800"></p>
 <p>If we specify that we want to count by something else, we can add that in as a ‘weight’, by adding <code>wt =</code> as an argument in the function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(grouped_fruit, <span class="at">wt =</span> amount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

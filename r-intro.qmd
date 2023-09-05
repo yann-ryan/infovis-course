@@ -168,13 +168,13 @@ Every time we create an object like this, it will appear within RStudio's enviro
 
 You can see the objects in the environment in the top-right corner (the screenshot below will only show in the book version:
 
-![](images/Screenshot 2023-08-31 at 12.15.19.png){width="600"}
+![](images/Screenshot%202023-08-31%20at%2012.15.19.png){width="600"}
 
 Here you'll see everything we've created, and a preview of what it contains. It's divided into `Data` and `Values`. Values are the simple things we have created. We can see that x, for example, is a single number: 4. `amount` is a vector of numbers.
 
 Data contains any dataframes we have created. We can see we have created one, called `fruit_data`. We can also click on the `fruit_data` object to open it:
 
-![](images/Screenshot 2023-08-31 at 12.18.31.png)
+![](images/Screenshot%202023-08-31%20at%2012.18.31.png)
 
 Clicking on it will open a view of the dataframe in the top-left pane. You'll see it looks much like a spreadsheet with rows and columns. This can be very useful to see how your data looks and how it has been imported.
 
@@ -235,23 +235,29 @@ select(fruit_data, 1:2)
 
 ### group_by(), summarise(), tally()
 
-The next group of functions group things together and count them.
+A very useful function is `group_by()`. By itself, it groups rows of your data together based on . Once this is done, you can apply a function to each group. A useful and simple example is `tally()`. Using `tally()` on your grouped dataset will count the number of rows in each group. The diagram below is an attempt to explain how grouping works. First, the `group_by()` function takes a dataset of fruit observations, and puts them into their relevant groups. Next, `count()` or `tally()` will count the number of fruit in each group.
 
-`group_by()` puts rows with the same value in a column of your dataframe into a group. Once they're in a group, you can count them or summarise them by another variable.
+![](images/group_by_count.drawio.png){width="400"}
 
-First you need to create a new dataframe with the grouped fruit.
+To do this in R, first you need to create a new dataframe with the grouped fruit.
 
 ```{r}
 grouped_fruit = group_by(fruit_data, fruit)
 ```
 
-Next we use `tally()`. This counts all the instances of each fruit group.
+Next, use `tally()` on new dataset. This counts all the instances of each fruit group.
 
 ```{r}
 tally(grouped_fruit)
 ```
 
 See? Now the apples are grouped together rather than being two separate rows, and there's a new column called `n`, which contains the result of the count.
+
+Sometimes, we'll want to add up the totals for some other measurement of the data. Imagine our fruit dataset also contained the cost of each fruit for each observation.
+
+We could produce a new summary of the data which calculated the total cost for each group, with a small change to the method, as in this diagram:
+
+![](images/group_by_count_weight.drawio.png){width="800"}
 
 If we specify that we want to count by something else, we can add that in as a 'weight', by adding `wt =` as an argument in the function.
 
@@ -499,7 +505,7 @@ library(tidyverse)
 
 Upload a file to your workspace. The file is called `gapminder.csv` and it is available [here](https://swcarpentry.github.io/r-novice-gapminder/data/gapminder_data.csv). Download it to your local machine first and then upload to RStudio.
 
-#### Exercise 5 
+#### Exercise 5
 
 In a new code cell, read the file `top_movie.csv` into R. Give it the name `df_movie`.
 
@@ -511,7 +517,7 @@ df_movie = read_csv('top_movie.csv')
 
 ```
 
-#### Exercise 6 
+#### Exercise 6
 
 In a new cell, create a new version of `df_movie`, called `df_movie_cleaned` which:
 
