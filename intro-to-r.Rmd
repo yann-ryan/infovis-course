@@ -1,6 +1,8 @@
 ---
-title: "R Notebook"
-output: html_notebook
+title: "Introduction to R"
+execute:
+  warning: false
+  message: false
 ---
 
 ## Class Objectives
@@ -108,6 +110,8 @@ z = x * y
 z
 ```
 
+#### Comparisons
+
 You can compare numbers or variables using `==` (equals), `>` (greater than), `<`, (less than) `!=` (not equal to). These return either `TRUE` or `FALSE`, which you'll see if you run this cell:
 
 ```{r}
@@ -136,10 +140,12 @@ x
 Next is a vector. A vector is a list of **elements**. A vector is created with the command `c()`, with each item in the vector placed between the brackets, and followed by a comma. If your vector is a vector of words, the words need to be in inverted commas or quotation marks.
 
 ```{r}
-fruit = c("apples", "bananas", "oranges", "apples")
-colour = c("green", "yellow", "orange", "red")
-amount = c(2,5,10,8)
-amount_last_week = c(1,10,3,6)
+
+piece = c(1,2,3,4,5,6,7,8,9,10)
+fruit = c("oranges", "apples", "oranges", "oranges", "apples", "oranges", "apples", "bananas", "bananas", "bananas", "oranges", "bananas")
+colour = c("orange", "red", "orange", "orange", "red", "orange", "green", "yellow", "yellow", "yellow", "orange", "yellow")
+cost = c(5,10,4,6,9,5,11,3,3,4,2,2)
+cost_last_week = c(7,12,6,8,11,7,13,5,5,6,4,4)
 ```
 
 Next are dataframes. These are the spreadsheet-like objects, with rows and columns, which you'll use in most analyses.
@@ -147,7 +153,7 @@ Next are dataframes. These are the spreadsheet-like objects, with rows and colum
 You can create a dataframe using the `data.frame()` command. You just need to pass the function each of your vectors, which will become your columns. Don't worry about the code `kableExtra::kbl()` for now: it simply prints the table in a way which makes it very clear.
 
 ```{r}
-fruit_data = data.frame(fruit, colour, amount,amount_last_week, stringsAsFactors = FALSE)
+fruit_data = data.frame(fruit, colour, cost,cost_last_week, stringsAsFactors = FALSE)
 
 fruit_data %>% kableExtra::kbl()
 ```
@@ -158,9 +164,27 @@ We can also use the `glimpse()` or `str()` commands to view some basic informati
 glimpse(fruit_data)
 ```
 
+### Environment
+
+Every time we create an object like this, it will appear within RStudio's environment. This means it has been saved in memory as an object which can be used for other purposes. When we close RStudio, the environment disappears.
+
+You can see the objects in the environment in the top-right corner (the screenshot below will only show in the book version):
+
+![](images/Screenshot%202023-08-31%20at%2012.15.19.png){width="600"}
+
+Here you'll see everything we've created, and a preview of what it contains. It's divided into `Data` and `Values`. Values are the simple things we have created. We can see that x, for example, is a single number: 4. `amount` is a vector of numbers.
+
+Data contains any dataframes we have created. We can see we have created one, called `fruit_data`. We can also click on the `fruit_data` object to open it:
+
+![](images/Screenshot%202023-08-31%20at%2012.18.31.png)
+
+Clicking on it will open a view of the dataframe in the top-left pane. You'll see it looks much like a spreadsheet with rows and columns. This can be very useful to see how your data looks and how it has been imported.
+
+You can close this tab or switch back to the .Rmd file to continue.
+
 ### Data types
 
-Notice that to the right of the third column, the amount, has `<dbl>`under it, whereas the other two have `<chr>`? That's because R is treating the third as a number and others as a string of characters. It's often important to know which data type your data is in: you can't do arithmetic on characters, for example. R has 6 data types:
+Return again at the output under the cell with the code `glimpse(fruit_data)`. Notice that to the right of the third column, the amount, has `<dbl>`under it, whereas the other two have `<chr>`? That's because R is treating the third as a number and others as a string of characters. It's often important to know which data type your data is in: you can't do arithmetic on characters, for example. R has 6 data types:
 
 -   character
 -   numeric (real or decimal)
@@ -169,7 +193,7 @@ Notice that to the right of the third column, the amount, has `<dbl>`under it, w
 -   complex
 -   Raw
 
-The most commonly-used ones you'll come across are `character`, `numeric`, and `logical`. `logical` is data which is either `TRUE` or `FALSE`. In R, all the items in a vector are *coerced* to the same type. So if you try to make a vector with a combination of numbers and strings, the numbers will be converted to strings, as in the example below:
+The most commonly-used ones we'll use in this course are `character`, `numeric`, and `logical`. `logical` is data which is either `TRUE` or `FALSE`. In R, all the items in a vector are *coerced* to the same type. So if you try to make a vector with a combination of numbers and strings, the numbers will be converted to strings, as in the example below:
 
 ```{r}
 fruit = c("apples", 5, "oranges", 3)
@@ -211,19 +235,19 @@ Select the first two columns:
 select(fruit_data, 1:2)
 ```
 
-### group_by(), tally(), summarise()
+### group_by(), summarise(), tally()
 
-The next group of functions group things together and count them. Sounds boring but you would be amazed by how much of data science just seems to be doing those two things in various combinations.
+A very useful function is `group_by()`. By itself, it groups rows of your data together based on . Once this is done, you can apply a function to each group. A useful and simple example is `tally()`. Using `tally()` on your grouped dataset will count the number of rows in each group. The diagram below is an attempt to explain how grouping works. First, the `group_by()` function takes a dataset of fruit observations, and puts them into their relevant groups. Next, `count()` or `tally()` will count the number of fruit in each group.
 
-`group_by()` puts rows with the same value in a column of your dataframe into a group. Once they're in a group, you can count them or summarise them by another variable.
+![](images/group_by_count.drawio.png){width="400"}
 
-First you need to create a new dataframe with the grouped fruit.
+To do this in R, first you need to create a new dataframe with the grouped fruit.
 
 ```{r}
 grouped_fruit = group_by(fruit_data, fruit)
 ```
 
-Next we use `tally()`. This counts all the instances of each fruit group.
+Next, use `tally()` on new dataset. This counts all the instances of each fruit group.
 
 ```{r}
 tally(grouped_fruit)
@@ -231,19 +255,27 @@ tally(grouped_fruit)
 
 See? Now the apples are grouped together rather than being two separate rows, and there's a new column called `n`, which contains the result of the count.
 
+Sometimes, we'll want to add up the totals for some other measurement of the data. Imagine our fruit dataset also contained the cost of each fruit for each observation.
+
+We could produce a new summary of the data which calculated the total cost for each group, with a small change to the method, as in this diagram:
+
+![](images/group_by_count_weight.drawio.png){width="800"}
+
 If we specify that we want to count by something else, we can add that in as a 'weight', by adding `wt =` as an argument in the function.
 
 ```{r}
-tally(grouped_fruit, wt = amount)
+tally(grouped_fruit, wt = cost)
 ```
 
 That counts the amounts of each fruit, ignoring the colour.
 
 ### filter()
 
-![Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads "dplyr::mutate - add columns, keep existing." Source: https://allisonhorst.com/r-packages-functions](images/cb8d9c50-f48e-4c6d-a5b3-1d30ce0be2ad.png){width="600"}
+![Source: https://allisonhorst.com/r-packages-functions](images/cb8d9c50-f48e-4c6d-a5b3-1d30ce0be2ad.png){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads \"dplyr::mutate - add columns, keep existing.\"" width="600"}
 
-Another quite obviously useful function. This filters the dataframe based on a condition which you set within the function. The first argument is the data to be filtered. The second is a condition (or multiple condition). The function will return every row where that condition is true.
+The `filter()` function keeps only certain rows in a dataframe, based on a condition which you set within the function. This is very useful when working with data visualisations, because often you will want to focus on a small amount of the data, or perhaps a single category.
+
+In the `filter` function, the first argument is the data to be filtered. The second is a condition (or multiple conditions). The function will return every row where that condition is true.
 
 Just red fruit:
 
@@ -251,10 +283,10 @@ Just red fruit:
 filter(fruit_data, colour == 'red')
 ```
 
-Just fruit with at least 5 pieces:
+Just fruit which cost at least 5:
 
 ```{r}
-filter(fruit_data, amount >=5)
+filter(fruit_data, cosy >=5)
 ```
 
 You can also filter with multiple terms by using a vector (as above), and the special command `%in%`:
@@ -267,45 +299,45 @@ filter(fruit_data, colour %in% c('red', 'green'))
 
 Mutate creates new columns in your dataframe, based on existing columns or variables.
 
-![Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads "dplyr::mutate - add columns, keep existing." Source: https://allisonhorst.com/r-packages-functions](images/bd4ae264-ae51-4d18-bd60-7a058ab42fba.png){width="600"}
+![Source: https://allisonhorst.com/r-packages-functions](images/bd4ae264-ae51-4d18-bd60-7a058ab42fba.png){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads \"dplyr::mutate - add columns, keep existing.\"" width="600"}
 
-For example, we can use `mutate()` to create a new column, adding the results of `amount` and `amount_last_week`. Here, we are telling mutate to create a new column called `total_amount`, and for each row, that column should be the result of summing together the other two columns:
+For example, we can use `mutate()` to create a new column, adding the results of `cost` and `cost_last_week`. Here, we are telling mutate to create a new column called `total_cost`, and for each row, that column should be the result of adding together the other two columns:
 
 ```{r}
-mutate(fruit_data, total_amount = amount + amount_last_week) %>% 
+mutate(fruit_data, total_cost = cost + cost_last_week) %>% 
   kableExtra::kbl()
 ```
 
 ### slice_max(), slice_min()
 
-These functions return the top or bottom number of rows, ordered by the data in a particular column.
+These functions return the top or bottom number of rows, ordered by the data in a particular column. We set two parameters: `order_by`, which tells the function which value to use, and `n`, which specifies the number of rows we want to return.
 
 ```{r}
-fruit_data %>% slice_max(order_by = amount, n = 1)
+fruit_data %>% slice_max(order_by = cost, n = 1)
 
-fruit_data %>% slice_min(order_by = amount, n = 1)
+fruit_data %>% slice_min(order_by = cost, n = 1)
 ```
 
 These can also be used with `group_by()`, to give the top rows for each group:
 
 ```{r}
-fruit_data %>% group_by(fruit) %>% slice_max(order_by = amount, n  =  1)
+fruit_data %>% group_by(fruit) %>% slice_max(order_by = cost, n  =  1)
 ```
 
-Notice it has kept only one row per fruit type, meaning it has kept only the apple row with the highest amount?
+Notice it has kept only one row per fruit type, meaning it has kept only the apple row with the highest amount.
 
 ### sort(), arrange()
 
 Another useful set of functions, often you want to sort things. The function `arrange()` does this very nicely. You specify the data frame, and the variable you would like to sort by.
 
 ```{r}
-arrange(fruit_data, amount)
+arrange(fruit_data, cost)
 ```
 
 Sorting is ascending by default, but you can specify descending using `desc()`:
 
 ```{r}
-arrange(fruit_data, desc(amount))
+arrange(fruit_data, desc(cost))
 ```
 
 If you \`sort`arrange()` by a list of characters, you'll get alphabetical order:
@@ -317,10 +349,10 @@ arrange(fruit_data, fruit)
 You can sort by multiple things:
 
 ```{r}
-arrange(fruit_data, fruit, desc(amount))
+arrange(fruit_data, fruit, desc(cost))
 ```
 
-Notice that now red apples are first.
+Notice that now green apples are first.
 
 ### left_join(), inner_join(), anti_join()
 
@@ -361,41 +393,11 @@ Another useful feature of the tidyverse is that you can 'pipe' commands through 
 fruit_data %>% 
   filter(colour != 'yellow') %>% # remove any yellow colour fruit
   group_by(fruit) %>% # group the fruit by type
-  tally(amount) %>% # count each group
+  tally(cost) %>% # count each group
   arrange(desc(n)) # arrange in descending order of the count
 ```
 
-That code block, written in prose: "take fruit data, remove any yellow colour fruit, count the fruits by type and amount, and arrange in descending order of the total"
-
-## Plotting using ggplot()
-
-![Source: https://allisonhorst.com/r-packages-functions](images/352c905d-7be3-4808-9514-1fac3b0fe2fc.png){fig-alt="A group of fuzzy round monsters with binoculars, backpacks and guide books looking up a graphs flying around with wings (like birders, but with exploratory data visualizations). Stylized text reads “ggplot2: visual data exploration.”"}
-
-The tidyverse includes a plotting library called `ggplot2`. Almost all of the practical parts of this course will use it, so it's good to start practising. Don't worry if you don't get it at first - we'll come back to the basics over the next few weeks.
-
-To use it, first type the function `ggplot()` and specify the dataset you wish to graph using `data =`. Next, add what is known as a 'geom': a function which tells the package to represent the data using a particular geometric form (such as a bar, or a line). These functions begin with the standard form `geom_`.
-
-Within this geom, you'll add 'aesthetics', which specify to the package which part of the data needs to be mapped to which particular element of the geom. The most common ones include `x` and `y` for the x and y axes, `color` or `fill` to map colors in your plot to particular data.
-
-Some examples using the fruit data:
-
-Bar chart of different types of fruit (one each of bananas and oranges, two types of apple)
-
-```{r}
-ggplot(data = fruit_data) + geom_col(aes(x = fruit, y = amount))
-```
-
-Counting the total amount of fruit:
-
-```{r}
-ggplot(fruit_data) + geom_col(aes(x = fruit, y = amount))
-```
-
-Charting amounts and fruit colours:
-
-```{r}
-ggplot(data = fruit_data) + geom_bar(aes(x = fruit, weight = amount, fill = colour)) 
-```
+That code block, written in prose: "take fruit data, remove any yellow colour fruit, count the fruits by type and cost, and arrange in descending order of the total"
 
 ## Reading in external data
 
@@ -421,26 +423,132 @@ First, create a new markdown notebook, following the instructions from last week
 
 Next, complete the following exercises. Type the name of the exercise, and then create a separate code cell for each one.
 
-#### Exercise 0: load the tidyverse library
+You don't need to complete them all - get as far as you can in the rest of the time of the class, and submit. If you have unfinished code, you'll need to delete it. .Rmd files only 'knit' when the code can successfully complete.
+
+#### 
 
 Load the tidyverse library into your markdown file (for any markdown file, you need to load all the packages you use within it. It doesn't matter if you have already loaded the packages separately.
 
-#### Exercise 1: read the file `top_movie.csv` into R. Give it the name `df_movie`.
+#### Exercise 1
 
-#### Exercise 2: Create a new version of `df_movie`, called `df_movie_cleaned` which:
+What will be the value of each variable after each statement in the following program? Write the answers as text directly in the Markdown document.
+
+```{r}
+mass <- 47.5
+age <- 122
+mass <- mass * 2.3
+age <- age - 20
+```
+
+#### Exercise 2
+
+Enter the code from the previous exercise into your .Rmd file, and write a command to compare mass to age (see the section on comparisons above). Is mass larger than age?
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+mass <- 47.5
+age <- 122
+mass <- mass * 2.3
+age <- age - 20
+
+mass > age
+
+```
+
+#### Exercise 3
+
+In a new code cell, write code to install the `gapminder` library. When it is finished, load this library and the `tidyverse` library.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+install.packages('gapminder')
+
+library(gapminder)
+
+library(tidyverse)
+
+```
+
+#### Exercise 4
+
+Upload a file to your workspace. The file is called `gapminder.csv` and it is available [here](https://swcarpentry.github.io/r-novice-gapminder/data/gapminder_data.csv). Download it to your local machine first and then upload to RStudio.
+
+#### Exercise 5
+
+In a new code cell, read the file `top_movie.csv` into R. Give it the name `df_movie`.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+df_movie = read_csv('top_movie.csv')
+
+```
+
+#### Exercise 6
+
+In a new cell, create a new version of `df_movie`, called `df_movie_cleaned` which:
 
 -   Only includes the years 2000 to 2020.
 
 -   Only contains the `year`, `movie`, `distributor` and `total_in_2022_dollars` columns.
 
-#### Exercise 3: summarise the data. Print the following under the cell output:
+```{r}
+#| eval: false
+#| code-fold: true
+
+df_movie_cleaned = select(df_movie, year, movie, distributor, total_in_2022_dollars)
+
+df_movie_cleaned = filter(df_movie_cleaned, year %in% 2000:2020)
+
+```
+
+#### Exercise 7
+
+Summarise the `df_movie_cleaned` data. Print the following under the cell output:
 
 -   A count of the number of titles in `df_movie_cleaned` per each distributor.
 
 -   A count of the total box office takings for each distributor.
 
-#### Exercise 5: Sort the data:
+```{r}
+#| eval: false
+#| code-fold: true
 
-Sort by this latter amount in descending order, and print this result under the cell.
+grouped = group_by(df_movie_cleaned, distributor)
+
+tally(grouped)
+
+```
+
+#### Exercise 8
+
+Sort the data. Sort by the total box office takings amount in descending order, and print this result under the cell.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+arrange(tally(grouped), desc(n))
+
+```
+
+#### Exercise 9
+
+Edit df_movie_cleaned to only include the ten highest-ranked movies, by the total box office taking.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+slice_max(df_movie_cleaned, order_by = total_in_2022_dollars, n = 10)
+
+```
+
+#### Finished?
 
 Save and knit the markdown file, submit under 'weekly tasks' for week 3.

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Information Visualization and the Humanities - 4&nbsp; Digital mapping 1</title>
+<title>Information Visualization and the Humanities - 6&nbsp; Assignment 1: Visualize This!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./digital-mapping-2.html" rel="next">
-<link href="./datavis-0.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./digital-mapping-2.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital-mapping-1.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Digital mapping 1</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./assignment-1.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assignment 1: Visualize This!</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./digital-mapping-1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./digital-mapping-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Digital mapping 1</span></span></a>
   </div>
 </li>
@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment-1.html" class="sidebar-item-text sidebar-link">
+  <a href="./assignment-1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assignment 1: Visualize This!</span></span></a>
   </div>
 </li>
@@ -153,37 +153,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#basemaps" id="toc-basemaps" class="nav-link" data-scroll-target="#basemaps">Basemaps</a>
-  <ul class="collapse">
-  <li><a href="#rnaturalearth" id="toc-rnaturalearth" class="nav-link" data-scroll-target="#rnaturalearth">Rnaturalearth</a></li>
-  <li><a href="#demonstration" id="toc-demonstration" class="nav-link" data-scroll-target="#demonstration">Demonstration</a></li>
-  <li><a href="#importing-from-other-sources" id="toc-importing-from-other-sources" class="nav-link" data-scroll-target="#importing-from-other-sources">Importing from other sources</a></li>
-  </ul></li>
-  <li><a href="#geographic-data" id="toc-geographic-data" class="nav-link" data-scroll-target="#geographic-data">Geographic data</a>
-  <ul class="collapse">
-  <li><a href="#longitudelatitude" id="toc-longitudelatitude" class="nav-link" data-scroll-target="#longitudelatitude">Longitude/latitude</a></li>
-  <li><a href="#summarising-geographic-data" id="toc-summarising-geographic-data" class="nav-link" data-scroll-target="#summarising-geographic-data">Summarising geographic data</a></li>
-  </ul></li>
-  <li><a href="#sf-package" id="toc-sf-package" class="nav-link" data-scroll-target="#sf-package">sf package</a>
-  <ul class="collapse">
-  <li><a href="#sf-objects" id="toc-sf-objects" class="nav-link" data-scroll-target="#sf-objects">sf Objects</a></li>
-  <li><a href="#demonstration---mapping-points-on-top-of-a-basemap" id="toc-demonstration---mapping-points-on-top-of-a-basemap" class="nav-link" data-scroll-target="#demonstration---mapping-points-on-top-of-a-basemap">Demonstration - mapping points on top of a basemap</a></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Digital mapping 1</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assignment 1: Visualize This!</span></h1>
 </div>
 
 
@@ -198,42 +175,31 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-</section>
-<section id="basemaps" class="level2">
-<h2 class="anchored" data-anchor-id="basemaps">Basemaps</h2>
-<section id="rnaturalearth" class="level3">
-<h3 class="anchored" data-anchor-id="rnaturalearth">Rnaturalearth</h3>
-</section>
-<section id="demonstration" class="level3">
-<h3 class="anchored" data-anchor-id="demonstration">Demonstration</h3>
-</section>
-<section id="importing-from-other-sources" class="level3">
-<h3 class="anchored" data-anchor-id="importing-from-other-sources">Importing from other sources</h3>
-</section>
-</section>
-<section id="geographic-data" class="level2">
-<h2 class="anchored" data-anchor-id="geographic-data">Geographic data</h2>
-<section id="longitudelatitude" class="level3">
-<h3 class="anchored" data-anchor-id="longitudelatitude">Longitude/latitude</h3>
-</section>
-<section id="summarising-geographic-data" class="level3">
-<h3 class="anchored" data-anchor-id="summarising-geographic-data">Summarising geographic data</h3>
-</section>
-</section>
-<section id="sf-package" class="level2">
-<h2 class="anchored" data-anchor-id="sf-package">sf package</h2>
-<section id="sf-objects" class="level3">
-<h3 class="anchored" data-anchor-id="sf-objects">sf Objects</h3>
-</section>
-<section id="demonstration---mapping-points-on-top-of-a-basemap" class="level3">
-<h3 class="anchored" data-anchor-id="demonstration---mapping-points-on-top-of-a-basemap">Demonstration - mapping points on top of a basemap</h3>
-<p>Including size, colour, transparency</p>
-</section>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="deadline-14-11-2021-before-9.00am" class="level4">
+<h4 class="anchored" data-anchor-id="deadline-14-11-2021-before-9.00am"><strong>Deadline: 14-11-2021 (Before 9.00AM)</strong></h4>
+<ul>
+<li><p>Explore the dataset of gifts given to US federal employees by foreign representatives, and find a story within it.</p>
+<ul>
+<li><p>The dataset is based on data from the Federal Registry and can be found <a href="https://infovis.lucdh.nl/datasets/#presidentialgifts">on the Datasets page</a>.</p></li>
+<li><p>Adding other sources is allowed, but not mandatory.&nbsp;</p></li>
+</ul></li>
+<li><p>Visualize the story in a static visualization using a graph that <em>compares categories</em>, shows a ratio <em>part-to-whole</em>, or shows <em>relationship</em>.</p>
+<ul>
+<li>Use the fantastic <a href="https://iibawards-prod.s3.amazonaws.com/projects/images/000/000/611/large.jpg?1467151571">The Graphic Continuum</a> to see which types of graphs you can use for that.</li>
+</ul></li>
+<li><p>Hand in via Brighstpace a .zip file with:</p>
+<ul>
+<li><p>A html report made using R markdown, containing the code, the visualisation, plus a short report which covers:</p>
+<ul>
+<li><p>What's the visualization's <strong>story</strong> you try to convey&nbsp;</p></li>
+<li><p>Listing and (briefly) discussing <strong>all</strong> your design choices pertinent to that story.</p></li>
+<li><p>Any challenges or opportunities met along the way (if any), to indicate your learning process</p></li>
+</ul></li>
+<li><p>The source code (.Rmd file) for the report.</p></li>
+<li><p>The dataset used (you’ll need to upload this to Posit cloud, then export it along with the other two items. Ask if you’re not sure!</p></li>
+</ul></li>
+<li><p>The assignment should take you about 10 hours.</p></li>
+</ul>
 
 
 </section>
@@ -474,13 +440,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./datavis-0.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation 0</span></span>
+      <a href="./digital-mapping-2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Digital Mapping 2</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./digital-mapping-2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Digital Mapping 2</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

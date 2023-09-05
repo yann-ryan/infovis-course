@@ -12,6 +12,7 @@ book:
     - datavis-0.qmd
     - digital-mapping-1.qmd
     - digital-mapping-2.qmd
+    - assignment-1.qmd
     - references.qmd
 
 bibliography: references.bib

@@ -140,10 +140,12 @@ x
 Next is a vector. A vector is a list of **elements**. A vector is created with the command `c()`, with each item in the vector placed between the brackets, and followed by a comma. If your vector is a vector of words, the words need to be in inverted commas or quotation marks.
 
 ```{r}
-fruit = c("apples", "bananas", "oranges", "apples")
-colour = c("green", "yellow", "orange", "red")
-amount = c(2,5,10,8)
-amount_last_week = c(1,10,3,6)
+
+piece = c(1,2,3,4,5,6,7,8,9,10)
+fruit = c("oranges", "apples", "oranges", "oranges", "apples", "oranges", "apples", "bananas", "bananas", "bananas", "oranges", "bananas")
+colour = c("orange", "red", "orange", "orange", "red", "orange", "green", "yellow", "yellow", "yellow", "orange", "yellow")
+cost = c(5,10,4,6,9,5,11,3,3,4,2,2)
+cost_last_week = c(7,12,6,8,11,7,13,5,5,6,4,4)
 ```
 
 Next are dataframes. These are the spreadsheet-like objects, with rows and columns, which you'll use in most analyses.
@@ -151,7 +153,7 @@ Next are dataframes. These are the spreadsheet-like objects, with rows and colum
 You can create a dataframe using the `data.frame()` command. You just need to pass the function each of your vectors, which will become your columns. Don't worry about the code `kableExtra::kbl()` for now: it simply prints the table in a way which makes it very clear.
 
 ```{r}
-fruit_data = data.frame(fruit, colour, amount,amount_last_week, stringsAsFactors = FALSE)
+fruit_data = data.frame(fruit, colour, cost,cost_last_week, stringsAsFactors = FALSE)
 
 fruit_data %>% kableExtra::kbl()
 ```
@@ -166,15 +168,15 @@ glimpse(fruit_data)
 
 Every time we create an object like this, it will appear within RStudio's environment. This means it has been saved in memory as an object which can be used for other purposes. When we close RStudio, the environment disappears.
 
-You can see the objects in the environment in the top-right corner (the screenshot below will only show in the book version:
+You can see the objects in the environment in the top-right corner (the screenshot below will only show in the book version):
 
-![](images/Screenshot%202023-08-31%20at%2012.15.19.png){width="600"}
+![](images/Screenshot 2023-09-05 at 15.26.02.png)
 
 Here you'll see everything we've created, and a preview of what it contains. It's divided into `Data` and `Values`. Values are the simple things we have created. We can see that x, for example, is a single number: 4. `amount` is a vector of numbers.
 
 Data contains any dataframes we have created. We can see we have created one, called `fruit_data`. We can also click on the `fruit_data` object to open it:
 
-![](images/Screenshot%202023-08-31%20at%2012.18.31.png)
+![](images/Screenshot 2023-09-05 at 15.26.17.png)
 
 Clicking on it will open a view of the dataframe in the top-left pane. You'll see it looks much like a spreadsheet with rows and columns. This can be very useful to see how your data looks and how it has been imported.
 
@@ -237,7 +239,7 @@ select(fruit_data, 1:2)
 
 A very useful function is `group_by()`. By itself, it groups rows of your data together based on . Once this is done, you can apply a function to each group. A useful and simple example is `tally()`. Using `tally()` on your grouped dataset will count the number of rows in each group. The diagram below is an attempt to explain how grouping works. First, the `group_by()` function takes a dataset of fruit observations, and puts them into their relevant groups. Next, `count()` or `tally()` will count the number of fruit in each group.
 
-![](images/group_by_count.drawio.png){width="400"}
+![](images/group_by_count.drawio.png){width="600"}
 
 To do this in R, first you need to create a new dataframe with the grouped fruit.
 
@@ -257,12 +259,12 @@ Sometimes, we'll want to add up the totals for some other measurement of the dat
 
 We could produce a new summary of the data which calculated the total cost for each group, with a small change to the method, as in this diagram:
 
-![](images/group_by_count_weight.drawio.png){width="800"}
+![](images/group_by_count_weight.drawio.png){width="600"}
 
 If we specify that we want to count by something else, we can add that in as a 'weight', by adding `wt =` as an argument in the function.
 
 ```{r}
-tally(grouped_fruit, wt = amount)
+tally(grouped_fruit, wt = cost)
 ```
 
 That counts the amounts of each fruit, ignoring the colour.
@@ -281,10 +283,10 @@ Just red fruit:
 filter(fruit_data, colour == 'red')
 ```
 
-Just fruit with at least 5 pieces:
+Just fruit which cost at least 5:
 
 ```{r}
-filter(fruit_data, amount >=5)
+filter(fruit_data, cost >=5)
 ```
 
 You can also filter with multiple terms by using a vector (as above), and the special command `%in%`:
@@ -299,10 +301,10 @@ Mutate creates new columns in your dataframe, based on existing columns or varia
 
 ![Source: https://allisonhorst.com/r-packages-functions](images/bd4ae264-ae51-4d18-bd60-7a058ab42fba.png){fig-alt="Cartoon of cute fuzzy monsters dressed up as different X-men characters, working together to add a new column to an existing data frame. Stylized title text reads \"dplyr::mutate - add columns, keep existing.\"" width="600"}
 
-For example, we can use `mutate()` to create a new column, adding the results of `amount` and `amount_last_week`. Here, we are telling mutate to create a new column called `total_amount`, and for each row, that column should be the result of adding together the other two columns:
+For example, we can use `mutate()` to create a new column, adding the results of `cost` and `cost_last_week`. Here, we are telling mutate to create a new column called `total_cost`, and for each row, that column should be the result of adding together the other two columns:
 
 ```{r}
-mutate(fruit_data, total_amount = amount + amount_last_week) %>% 
+mutate(fruit_data, total_cost = cost + cost_last_week) %>% 
   kableExtra::kbl()
 ```
 
@@ -311,31 +313,31 @@ mutate(fruit_data, total_amount = amount + amount_last_week) %>%
 These functions return the top or bottom number of rows, ordered by the data in a particular column. We set two parameters: `order_by`, which tells the function which value to use, and `n`, which specifies the number of rows we want to return.
 
 ```{r}
-fruit_data %>% slice_max(order_by = amount, n = 1)
+fruit_data %>% slice_max(order_by = cost, n = 1)
 
-fruit_data %>% slice_min(order_by = amount, n = 1)
+fruit_data %>% slice_min(order_by = cost, n = 1)
 ```
 
 These can also be used with `group_by()`, to give the top rows for each group:
 
 ```{r}
-fruit_data %>% group_by(fruit) %>% slice_max(order_by = amount, n  =  1)
+fruit_data %>% group_by(fruit) %>% slice_max(order_by = cost, n  =  1)
 ```
 
-Notice it has kept only one row per fruit type, meaning it has kept only the apple row with the highest amount?
+Notice it has kept only one row per fruit type, meaning it has kept only the apple row with the highest amount.
 
 ### sort(), arrange()
 
 Another useful set of functions, often you want to sort things. The function `arrange()` does this very nicely. You specify the data frame, and the variable you would like to sort by.
 
 ```{r}
-arrange(fruit_data, amount)
+arrange(fruit_data, cost)
 ```
 
 Sorting is ascending by default, but you can specify descending using `desc()`:
 
 ```{r}
-arrange(fruit_data, desc(amount))
+arrange(fruit_data, desc(cost))
 ```
 
 If you \`sort`arrange()` by a list of characters, you'll get alphabetical order:
@@ -347,10 +349,10 @@ arrange(fruit_data, fruit)
 You can sort by multiple things:
 
 ```{r}
-arrange(fruit_data, fruit, desc(amount))
+arrange(fruit_data, fruit, desc(cost))
 ```
 
-Notice that now red apples are first.
+Notice that now green apples are first.
 
 ### left_join(), inner_join(), anti_join()
 
@@ -391,41 +393,11 @@ Another useful feature of the tidyverse is that you can 'pipe' commands through 
 fruit_data %>% 
   filter(colour != 'yellow') %>% # remove any yellow colour fruit
   group_by(fruit) %>% # group the fruit by type
-  tally(amount) %>% # count each group
+  tally(cost) %>% # count each group
   arrange(desc(n)) # arrange in descending order of the count
 ```
 
-That code block, written in prose: "take fruit data, remove any yellow colour fruit, count the fruits by type and amount, and arrange in descending order of the total"
-
-## Plotting using ggplot()
-
-![Source: https://allisonhorst.com/r-packages-functions](images/352c905d-7be3-4808-9514-1fac3b0fe2fc.png){fig-alt="A group of fuzzy round monsters with binoculars, backpacks and guide books looking up a graphs flying around with wings (like birders, but with exploratory data visualizations). Stylized text reads “ggplot2: visual data exploration.”"}
-
-The tidyverse includes a plotting library called `ggplot2`. Almost all of the practical parts of this course will use it, so it's good to start practising. Don't worry if you don't get it at first - we'll come back to the basics over the next few weeks.
-
-To use it, first type the function `ggplot()` and specify the dataset you wish to graph using `data =`. Next, add what is known as a 'geom': a function which tells the package to represent the data using a particular geometric form (such as a bar, or a line). These functions begin with the standard form `geom_`.
-
-Within this geom, you'll add 'aesthetics', which specify to the package which part of the data needs to be mapped to which particular element of the geom. The most common ones include `x` and `y` for the x and y axes, `color` or `fill` to map colors in your plot to particular data.
-
-Some examples using the fruit data:
-
-Bar chart of different types of fruit (one each of bananas and oranges, two types of apple)
-
-```{r}
-ggplot(data = fruit_data) + geom_col(aes(x = fruit, y = amount))
-```
-
-Counting the total amount of fruit:
-
-```{r}
-ggplot(fruit_data) + geom_col(aes(x = fruit, y = amount))
-```
-
-Charting amounts and fruit colours:
-
-```{r}
-ggplot(data = fruit_data) + geom_bar(aes(x = fruit, weight = amount, fill = colour)) 
-```
+That code block, written in prose: "take fruit data, remove any yellow colour fruit, count the fruits by type and cost, and arrange in descending order of the total"
 
 ## Reading in external data
 
