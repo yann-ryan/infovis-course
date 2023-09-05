@@ -1,5 +1,0 @@
-"0","slice_max(df_movie_cleaned, order_by = total_in_2022_dollars, n = 10)
-"
-"2","Error in exists(cacheKey, where = .rs.WorkingDataEnv, inherits = FALSE) : 
-  invalid first argument
-"

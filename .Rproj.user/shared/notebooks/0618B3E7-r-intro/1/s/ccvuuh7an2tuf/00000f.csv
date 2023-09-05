@@ -1,1 +1,0 @@
-"0","mutate(fruit_data, total_amount = amount + amount_last_week)"
