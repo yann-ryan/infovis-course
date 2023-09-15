@@ -170,13 +170,13 @@ Every time we create an object like this, it will appear within RStudio's enviro
 
 You can see the objects in the environment in the top-right corner (the screenshot below will only show in the book version):
 
-![](images/Screenshot 2023-09-05 at 15.26.02.png)
+![](images/Screenshot%202023-09-05%20at%2015.26.02.png)
 
 Here you'll see everything we've created, and a preview of what it contains. It's divided into `Data` and `Values`. Values are the simple things we have created. We can see that x, for example, is a single number: 4. `amount` is a vector of numbers.
 
 Data contains any dataframes we have created. We can see we have created one, called `fruit_data`. We can also click on the `fruit_data` object to open it:
 
-![](images/Screenshot 2023-09-05 at 15.26.17.png)
+![](images/Screenshot%202023-09-05%20at%2015.26.17.png)
 
 Clicking on it will open a view of the dataframe in the top-left pane. You'll see it looks much like a spreadsheet with rows and columns. This can be very useful to see how your data looks and how it has been imported.
 

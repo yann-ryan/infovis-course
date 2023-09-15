@@ -2,23 +2,27 @@
 title: "Assignment 1: Visualize This!"
 ---
 
-#### **Deadline: 14-11-2021 (Before 9.00AM)**
+#### **Deadline: 20-11-2021 (Before 9.00AM)**
 
--   Explore the dataset of gifts given to US federal employees by foreign representatives, and find a story within it.
+For the first assignment, create a static visualisation based on the topic and datasets you identified in week 2.
 
-    -   The dataset is based on data from the Federal Registry and can be found [on the Datasets page](https://infovis.lucdh.nl/datasets/#presidentialgifts).
+-   You can either use some data you have found and we have discussed in class, or one of the datasets [on the Datasets page](https://infovis.lucdh.nl/datasets/#presidentialgifts). The Federal Gifts Register is a good option if you don't have a strong preference for your own story at this stage.
 
-    -   Adding other sources is allowed, but not mandatory. 
+-   Adding other sources is allowed, but not mandatory. 
 
 -   Visualize the story in a static visualization using a graph that *compares categories*, shows a ratio *part-to-whole*, or shows *relationship*.
 
     -   Use the fantastic [The Graphic Continuum](https://iibawards-prod.s3.amazonaws.com/projects/images/000/000/611/large.jpg?1467151571) to see which types of graphs you can use for that.
 
+-   Show some basic evidence of data wrangling, e.g. filtering, summarising or joining the data.
+
 -   Hand in via Brighstpace a .zip file with:
 
-    -   A html report made using R markdown, containing the code, the visualisation, plus a short report which covers:
+    -   A html report made using R markdown, containing the code (including data importing and processing/wrangling steps, the visualisation, plus a short report (500 - 1000 words) which covers:
 
-        -   What\'s the visualization\'s **story** you try to convey 
+        -   The context and motivation behind the visualisation
+
+        -   The visualization's **story** you are trying to convey 
 
         -   Listing and (briefly) discussing **all** your design choices pertinent to that story.
 

@@ -196,6 +196,8 @@ Some examples are here:
 
 -   [UNHCR Refugee Data Finder](https://www.unhcr.org/refugee-statistics/). A recent favourite of mine, this resource contains data on displaced persons and flows from 1962 to 2022. It's also available as a [package for R](https://www.unhcr.org/refugee-statistics/insights/explainers/refugees-r-package.html), making it very easy to work with (I can help with this).
 
+-   [Rainbow Map](https://www.rainbow-europe.org/): data on the legal status and social climate for LGBTI people in Europe (click download data button).
+
 -   [Overheid.nl](https://data.overheid.nl/en): Portal contain thousands of datasets published and shared by the Dutch government.
 
 -   [IATI Registry:](https://www.iatiregistry.org/dataset) A portal where major developmental NGOs provide information on the projects they undertake in as transparent a way as possible.
