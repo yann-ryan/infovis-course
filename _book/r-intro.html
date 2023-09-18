@@ -1098,6 +1098,18 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 </details>
 </div>
 </section>
+<section id="exercise-10" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-10">Exercise 10</h4>
+<p><strong>You’ll need to have installed and loaded the <code>gapminder</code> library from the above exercise to complete this</strong>. Gapminder is a dataset of basic statistics for world countries over the past half a century. To load it into R, make a new cell, and create a new object called <code>gapminder_df</code> using the code <code>gapminder_df = gapminder</code>. Check your enviroment to ensure it has loaded correctly.</p>
+<p>Using the pipe function described in the section above, perform the following tasks in a single code cell:</p>
+<ol type="1">
+<li><p>Take the gapminder dataset, filter to include only data from the continent <code>Asia</code>.</p></li>
+<li><p>Select the <code>country</code>, <code>continent</code>, <code>lifeExp</code> and <code>gdpPercap</code> columns</p></li>
+<li><p>Create a new column, called <code>gdp_lifeExp</code>, which is the result of dividing the <code>gdpPercap</code> column by the <code>lifeExp</code> column.</p></li>
+<li><p>Calculate the <strong>mean (i.e.&nbsp;average)</strong> life expectancy for each <strong>country.</strong></p></li>
+<li><p>(if you’re finding this easy). <code>filter()</code> can be used to filter by much more complex conditions. One powerful tool is filtering by matching string patterns, using a special language called <strong>regular expressions.</strong> For a final challenge, take your new dataset of summarised life expectancies, and filter to include only countries which <em>end</em> in the letters <strong>stan</strong>. The function you need to include in your filter is <code>str_detect()</code>.</p></li>
+</ol>
+</section>
 <section id="finished" class="level4">
 <h4 class="anchored" data-anchor-id="finished">Finished?</h4>
 <p>Save and knit the markdown file, submit under ‘weekly tasks’ for week 3.</p>

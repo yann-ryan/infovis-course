@@ -549,6 +549,22 @@ slice_max(df_movie_cleaned, order_by = total_in_2022_dollars, n = 10)
 
 ```
 
+#### Exercise 10
+
+**You'll need to have installed and loaded the `gapminder` library from the above exercise to complete this**. Gapminder is a dataset of basic statistics for world countries over the past half a century. To load it into R, make a new cell, and create a new object called `gapminder_df` using the code `gapminder_df = gapminder`. Check your enviroment to ensure it has loaded correctly.
+
+Using the pipe function described in the section above, perform the following tasks in a single code cell:
+
+1.  Take the gapminder dataset, filter to include only data from the continent `Asia`.
+
+2.  Select the `country`, `continent`, `lifeExp` and `gdpPercap` columns
+
+3.  Create a new column, called `gdp_lifeExp`, which is the result of dividing the `gdpPercap` column by the `lifeExp` column.
+
+4.  Calculate the **mean (i.e. average)** life expectancy for each **country.**
+
+5.   (if you're finding this easy). `filter()` can be used to filter by much more complex conditions. One powerful tool is filtering by matching string patterns, using a special language called **regular expressions.** For a final challenge, take your new dataset of summarised life expectancies, and filter to include only countries which *end* in the letters **stan**. The function you need to include in your filter is `str_detect()`.
+
 #### Finished?
 
 Save and knit the markdown file, submit under 'weekly tasks' for week 3.
