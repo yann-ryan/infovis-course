@@ -174,83 +174,83 @@ So we can use and think about the themes of Martijn's lecture, after this we'll 
 
 After this, we'll go back to learning about conventional data visualisations, followed by a section on networks. In the final weeks of the course, we'll learn about putting the finishing touches on your work, talk about the final project, and there will be some space for you to do some experiments in some additional areas of interest.
 
-+------------+------------+--------------------------------------------------------+
-| Week       | **Date**   | **Course topic**                                       |
-+============+============+========================================================+
-| 1          | 2023-09-11 | **Introduction**                                       |
-|            |            |                                                        |
-|            |            | -   Introduction to and history of data visualisation. |
-|            |            |                                                        |
-|            |            | -   Signing up to Posit Cloud                          |
-|            |            |                                                        |
-|            |            | -   Creating a Markdown document                       |
-+------------+------------+--------------------------------------------------------+
-| 2          | 2023-09-18 | **Introduction to R**                                  |
-|            |            |                                                        |
-|            |            | -   Data wrangling.                                    |
-|            |            |                                                        |
-|            |            | -   FAIR data principles                               |
-+------------+------------+--------------------------------------------------------+
-| 3          | 2023-09-25 | **Data Visualisation 0**                               |
-|            |            |                                                        |
-|            |            | -   Data visualisation principles                      |
-|            |            |                                                        |
-|            |            | -   Making data visualisations with R                  |
-+------------+------------+--------------------------------------------------------+
-| 4          | 2023-10-09 | **Data visualisation 1:**                              |
-|            |            |                                                        |
-|            |            | -   Basic principles                                   |
-|            |            |                                                        |
-|            |            | -   Chart suitability for different data types         |
-|            |            |                                                        |
-|            |            | -   Color theory and types                             |
-+------------+------------+--------------------------------------------------------+
-| 5          | 2023-10-16 | **Data visualisation 2**                               |
-|            |            |                                                        |
-|            |            | -   Advanced chart types                               |
-|            |            |                                                        |
-|            |            | -   Ethics and accessibility                           |
-+------------+------------+--------------------------------------------------------+
-| 6          | 2023-10-23 | **Field trip to the library**                          |
-+------------+------------+--------------------------------------------------------+
-| 7          | 2023-11-06 | **Digital mapping 1**                                  |
-|            |            |                                                        |
-|            |            | -   The `sf` package                                   |
-|            |            |                                                        |
-|            |            | -   Creating a 'base map' with `rnaturalearth`         |
-|            |            |                                                        |
-|            |            | -   Mapping data points                                |
-+------------+------------+--------------------------------------------------------+
-| 8          | 2023-11-13 | **Digital mapping 2**                                  |
-|            |            |                                                        |
-|            |            | -   Choropleth (thematic) maps                         |
-|            |            |                                                        |
-|            |            | -   Using Open Street Map                              |
-+------------+------------+--------------------------------------------------------+
-| 9          | 2023-11-20 | **Network visualisation 1:**                           |
-|            |            |                                                        |
-|            |            | -   Network theory and data types                      |
-|            |            |                                                        |
-|            |            | -   Basic network visualisations                       |
-+------------+------------+--------------------------------------------------------+
-| 10         | 2023-11-27 | **Network visualisation 2**                            |
-|            |            |                                                        |
-|            |            | -   Advanced network visualisations                    |
-+------------+------------+--------------------------------------------------------+
-| 11         | 2023-12-04 | **Finishing touches**                                  |
-|            |            |                                                        |
-|            |            | -   Aesthetics and design choices                      |
-|            |            |                                                        |
-|            |            | -   Annotations, titles                                |
-|            |            |                                                        |
-|            |            | -   Colour and pre-attentive features                  |
-+------------+------------+--------------------------------------------------------+
-| 12         | 2023-12-11 | **Final class**                                        |
-|            |            |                                                        |
-|            |            | -   Final project discussion                           |
-|            |            |                                                        |
-|            |            | -   Individual interests                               |
-+------------+------------+--------------------------------------------------------+
++------+------------+--------------------------------------------------------+
+| Week | **Date**   | **Course topic**                                       |
++======+============+========================================================+
+| 1    | 2023-09-11 | **Introduction**                                       |
+|      |            |                                                        |
+|      |            | -   Introduction to and history of data visualisation. |
+|      |            |                                                        |
+|      |            | -   Signing up to Posit Cloud                          |
+|      |            |                                                        |
+|      |            | -   Creating a Markdown document                       |
++------+------------+--------------------------------------------------------+
+| 2    | 2023-09-18 | **Introduction to R**                                  |
+|      |            |                                                        |
+|      |            | -   Data wrangling.                                    |
+|      |            |                                                        |
+|      |            | -   FAIR data principles                               |
++------+------------+--------------------------------------------------------+
+| 3    | 2023-09-25 | **Data Visualisation 0**                               |
+|      |            |                                                        |
+|      |            | -   Data visualisation principles                      |
+|      |            |                                                        |
+|      |            | -   Making data visualisations with R                  |
++------+------------+--------------------------------------------------------+
+| 4    | 2023-10-09 | **Data visualisation 1:**                              |
+|      |            |                                                        |
+|      |            | -   Basic principles                                   |
+|      |            |                                                        |
+|      |            | -   Chart suitability for different data types         |
+|      |            |                                                        |
+|      |            | -   Color theory and types                             |
++------+------------+--------------------------------------------------------+
+| 5    | 2023-10-16 | **Data visualisation 2**                               |
+|      |            |                                                        |
+|      |            | -   Advanced chart types                               |
+|      |            |                                                        |
+|      |            | -   Ethics and accessibility                           |
++------+------------+--------------------------------------------------------+
+| 6    | 2023-10-23 | **Field trip to the library**                          |
++------+------------+--------------------------------------------------------+
+| 7    | 2023-11-06 | **Digital mapping 1**                                  |
+|      |            |                                                        |
+|      |            | -   The `sf` package                                   |
+|      |            |                                                        |
+|      |            | -   Creating a 'base map' with `rnaturalearth`         |
+|      |            |                                                        |
+|      |            | -   Mapping data points                                |
++------+------------+--------------------------------------------------------+
+| 8    | 2023-11-13 | **Digital mapping 2**                                  |
+|      |            |                                                        |
+|      |            | -   Choropleth (thematic) maps                         |
+|      |            |                                                        |
+|      |            | -   Using Open Street Map                              |
++------+------------+--------------------------------------------------------+
+| 9    | 2023-11-20 | **Network visualisation 1:**                           |
+|      |            |                                                        |
+|      |            | -   Network theory and data types                      |
+|      |            |                                                        |
+|      |            | -   Basic network visualisations                       |
++------+------------+--------------------------------------------------------+
+| 10   | 2023-11-27 | **Network visualisation 2**                            |
+|      |            |                                                        |
+|      |            | -   Advanced network visualisations                    |
++------+------------+--------------------------------------------------------+
+| 11   | 2023-12-04 | **Finishing touches**                                  |
+|      |            |                                                        |
+|      |            | -   Aesthetics and design choices                      |
+|      |            |                                                        |
+|      |            | -   Annotations, titles                                |
+|      |            |                                                        |
+|      |            | -   Colour and pre-attentive features                  |
++------+------------+--------------------------------------------------------+
+| 12   | 2023-12-11 | **Final class**                                        |
+|      |            |                                                        |
+|      |            | -   Final project discussion                           |
+|      |            |                                                        |
+|      |            | -   Individual interests                               |
++------+------------+--------------------------------------------------------+
 
 : Course Schedule {.striped}
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Information Visualization and the Humanities - 2&nbsp; Introduction to R</title>
+<title>Introduction to R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,179 +57,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./datavis-0.html" rel="next">
-<link href="./r-markdown.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 20,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
-  }
-}</script>
+<script src="intro-to-r_files/libs/clipboard/clipboard.min.js"></script>
+<script src="intro-to-r_files/libs/quarto-html/quarto.js"></script>
+<script src="intro-to-r_files/libs/quarto-html/popper.min.js"></script>
+<script src="intro-to-r_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="intro-to-r_files/libs/quarto-html/anchor.min.js"></script>
+<link href="intro-to-r_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="intro-to-r_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="intro-to-r_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="intro-to-r_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="intro-to-r_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="intro-to-r_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="intro-to-r_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="fullcontent">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r-intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Information Visualization and the Humanities</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Course Overview</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./r-markdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction and Using R Markdown</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./r-intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./datavis-0.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation 0</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./digital-mapping-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Digital mapping 1</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./digital-mapping-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Digital Mapping 2</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Assignment 1: Visualize This!</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#class-objectives" id="toc-class-objectives" class="nav-link active" data-scroll-target="#class-objectives">Class Objectives</a>
-  <ul class="collapse">
-  <li><a href="#what-if-i-get-stuck" id="toc-what-if-i-get-stuck" class="nav-link" data-scroll-target="#what-if-i-get-stuck">What if I get stuck?</a></li>
-  </ul></li>
-  <li><a href="#load-r-studio-using-posit-cloud" id="toc-load-r-studio-using-posit-cloud" class="nav-link" data-scroll-target="#load-r-studio-using-posit-cloud">Load R Studio using Posit cloud</a></li>
-  <li><a href="#open-the-.rmd-file" id="toc-open-the-.rmd-file" class="nav-link" data-scroll-target="#open-the-.rmd-file">Open the .Rmd file</a></li>
-  <li><a href="#r-code" id="toc-r-code" class="nav-link" data-scroll-target="#r-code">R code</a></li>
-  <li><a href="#installing-and-loading-packages" id="toc-installing-and-loading-packages" class="nav-link" data-scroll-target="#installing-and-loading-packages">Installing and loading packages</a></li>
-  <li><a href="#loading-existing-packages" id="toc-loading-existing-packages" class="nav-link" data-scroll-target="#loading-existing-packages">Loading existing packages</a>
-  <ul class="collapse">
-  <li><a href="#base-r." id="toc-base-r." class="nav-link" data-scroll-target="#base-r.">‘Base’ R.</a></li>
-  <li><a href="#basic-r-data-structures" id="toc-basic-r-data-structures" class="nav-link" data-scroll-target="#basic-r-data-structures">Basic R data structures</a></li>
-  <li><a href="#environment" id="toc-environment" class="nav-link" data-scroll-target="#environment">Environment</a></li>
-  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data types</a></li>
-  </ul></li>
-  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">Tidyverse</a>
-  <ul class="collapse">
-  <li><a href="#select-pull" id="toc-select-pull" class="nav-link" data-scroll-target="#select-pull">select(), pull()</a></li>
-  <li><a href="#group_by-summarise-tally" id="toc-group_by-summarise-tally" class="nav-link" data-scroll-target="#group_by-summarise-tally">group_by(), summarise(), tally()</a></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter">filter()</a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">mutate()</a></li>
-  <li><a href="#slice_max-slice_min" id="toc-slice_max-slice_min" class="nav-link" data-scroll-target="#slice_max-slice_min">slice_max(), slice_min()</a></li>
-  <li><a href="#sort-arrange" id="toc-sort-arrange" class="nav-link" data-scroll-target="#sort-arrange">sort(), arrange()</a></li>
-  <li><a href="#left_join-inner_join-anti_join" id="toc-left_join-inner_join-anti_join" class="nav-link" data-scroll-target="#left_join-inner_join-anti_join">left_join(), inner_join(), anti_join()</a></li>
-  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping">Piping</a></li>
-  </ul></li>
-  <li><a href="#reading-in-external-data" id="toc-reading-in-external-data" class="nav-link" data-scroll-target="#reading-in-external-data">Reading in external data</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></h1>
+<h1 class="title">Introduction to R</h1>
 </div>
 
 
@@ -256,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="load-r-studio-using-posit-cloud" class="level2">
 <h2 class="anchored" data-anchor-id="load-r-studio-using-posit-cloud">Load R Studio using Posit cloud</h2>
 <p>As last week, we’ll open R using Posit cloud. Use the sidebar to switch to the ‘Information Visualisation and the Humanities’ Workspace, and click on the new assignment, for week 2, called ‘Week 2: Introduction to R’:</p>
-<p><img src="images/Screenshot 2023-08-31 at 11.59.31.png" class="img-fluid" width="800"></p>
+<p><img src="images/Screenshot%202023-08-31%20at%2011.59.31.png" class="img-fluid" width="800"></p>
 <p>You’ll see an existing .Rmd file in the file manager in the bottom right. This is a ‘live’ version of this book chapter. It contains code cells and text. The first part of this practical session simply involves running these cells in the correct order, and looking at the output.</p>
 <p>You should now switch to reading this in the .Rmd file in Posit studio. I’ll explain and demonstrate each cell, and then you can run them for yourself.</p>
 <p>Following that, you’ll create your own new markdown notebook, and practice some of the techniques we’ve learned- and submit it to Brightspace as a weekly task.</p>
@@ -368,14 +221,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Next are dataframes. These are the spreadsheet-like objects, with rows and columns, which you’ll use in most analyses.</p>
 <p>You can create a dataframe using the <code>data.frame()</code> command. You just need to pass the function each of your vectors, which will become your columns. Don’t worry about the code <code>kableExtra::kbl()</code> for now: it simply prints the table in a way which makes it very clear.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fruit_data <span class="ot">=</span> <span class="fu">data.frame</span>(piece, fruit, colour, cost,cost_last_week, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fruit_data <span class="ot">=</span> <span class="fu">data.frame</span>(fruit, colour, cost,cost_last_week, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>fruit_data <span class="sc">%&gt;%</span> kableExtra<span class="sc">::</span><span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">piece</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">fruit</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">colour</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">cost</th>
@@ -384,84 +236,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">1</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">7</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">2</td>
 <td style="text-align: left;">apples</td>
 <td style="text-align: left;">red</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">12</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">3</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">8</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5</td>
 <td style="text-align: left;">apples</td>
 <td style="text-align: left;">red</td>
 <td style="text-align: right;">9</td>
 <td style="text-align: right;">11</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">6</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">7</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">7</td>
 <td style="text-align: left;">apples</td>
 <td style="text-align: left;">green</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">13</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">8</td>
 <td style="text-align: left;">bananas</td>
 <td style="text-align: left;">yellow</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">9</td>
 <td style="text-align: left;">bananas</td>
 <td style="text-align: left;">yellow</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">10</td>
 <td style="text-align: left;">bananas</td>
 <td style="text-align: left;">yellow</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">6</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">12</td>
 <td style="text-align: left;">bananas</td>
 <td style="text-align: left;">yellow</td>
 <td style="text-align: right;">2</td>
@@ -478,8 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(fruit_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 12
-Columns: 5
-$ piece          &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+Columns: 4
 $ fruit          &lt;chr&gt; "oranges", "apples", "oranges", "oranges", "apples", "o…
 $ colour         &lt;chr&gt; "orange", "red", "orange", "orange", "red", "orange", "…
 $ cost           &lt;dbl&gt; 5, 10, 4, 6, 9, 5, 11, 3, 3, 4, 2, 2
@@ -491,10 +330,10 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <h3 class="anchored" data-anchor-id="environment">Environment</h3>
 <p>Every time we create an object like this, it will appear within RStudio’s environment. This means it has been saved in memory as an object which can be used for other purposes. When we close RStudio, the environment disappears.</p>
 <p>You can see the objects in the environment in the top-right corner (the screenshot below will only show in the book version):</p>
-<p><img src="images/Screenshot 2023-09-05 at 15.26.02.png" class="img-fluid"></p>
+<p><img src="images/Screenshot%202023-08-31%20at%2012.15.19.png" class="img-fluid" width="600"></p>
 <p>Here you’ll see everything we’ve created, and a preview of what it contains. It’s divided into <code>Data</code> and <code>Values</code>. Values are the simple things we have created. We can see that x, for example, is a single number: 4. <code>amount</code> is a vector of numbers.</p>
 <p>Data contains any dataframes we have created. We can see we have created one, called <code>fruit_data</code>. We can also click on the <code>fruit_data</code> object to open it:</p>
-<p><img src="images/Screenshot 2023-09-05 at 15.26.17.png" class="img-fluid"></p>
+<p><img src="images/Screenshot%202023-08-31%20at%2012.18.31.png" class="img-fluid"></p>
 <p>Clicking on it will open a view of the dataframe in the top-left pane. You’ll see it looks much like a spreadsheet with rows and columns. This can be very useful to see how your data looks and how it has been imported.</p>
 <p>You can close this tab or switch back to the .Rmd file to continue.</p>
 </section>
@@ -554,45 +393,45 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(fruit_data, <span class="sc">-</span>colour)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   piece   fruit cost cost_last_week
-1      1 oranges    5              7
-2      2  apples   10             12
-3      3 oranges    4              6
-4      4 oranges    6              8
-5      5  apples    9             11
-6      6 oranges    5              7
-7      7  apples   11             13
-8      8 bananas    3              5
-9      9 bananas    3              5
-10    10 bananas    4              6
-11    11 oranges    2              4
-12    12 bananas    2              4</code></pre>
+<pre><code>     fruit cost cost_last_week
+1  oranges    5              7
+2   apples   10             12
+3  oranges    4              6
+4  oranges    6              8
+5   apples    9             11
+6  oranges    5              7
+7   apples   11             13
+8  bananas    3              5
+9  bananas    3              5
+10 bananas    4              6
+11 oranges    2              4
+12 bananas    2              4</code></pre>
 </div>
 </div>
 <p>Select the first two columns:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(fruit_data, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   piece   fruit
-1      1 oranges
-2      2  apples
-3      3 oranges
-4      4 oranges
-5      5  apples
-6      6 oranges
-7      7  apples
-8      8 bananas
-9      9 bananas
-10    10 bananas
-11    11 oranges
-12    12 bananas</code></pre>
+<pre><code>     fruit colour
+1  oranges orange
+2   apples    red
+3  oranges orange
+4  oranges orange
+5   apples    red
+6  oranges orange
+7   apples  green
+8  bananas yellow
+9  bananas yellow
+10 bananas yellow
+11 oranges orange
+12 bananas yellow</code></pre>
 </div>
 </div>
 </section>
 <section id="group_by-summarise-tally" class="level3">
 <h3 class="anchored" data-anchor-id="group_by-summarise-tally">group_by(), summarise(), tally()</h3>
 <p>A very useful function is <code>group_by()</code>. By itself, it groups rows of your data together based on . Once this is done, you can apply a function to each group. A useful and simple example is <code>tally()</code>. Using <code>tally()</code> on your grouped dataset will count the number of rows in each group. The diagram below is an attempt to explain how grouping works. First, the <code>group_by()</code> function takes a dataset of fruit observations, and puts them into their relevant groups. Next, <code>count()</code> or <code>tally()</code> will count the number of fruit in each group.</p>
-<p><img src="images/group_by_count.drawio.png" class="img-fluid" width="600"></p>
+<p><img src="images/group_by_count.drawio.png" class="img-fluid" width="400"></p>
 <p>To do this in R, first you need to create a new dataframe with the grouped fruit.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>grouped_fruit <span class="ot">=</span> <span class="fu">group_by</span>(fruit_data, fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -612,7 +451,7 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <p>See? Now the apples are grouped together rather than being two separate rows, and there’s a new column called <code>n</code>, which contains the result of the count.</p>
 <p>Sometimes, we’ll want to add up the totals for some other measurement of the data. Imagine our fruit dataset also contained the cost of each fruit for each observation.</p>
 <p>We could produce a new summary of the data which calculated the total cost for each group, with a small change to the method, as in this diagram:</p>
-<p><img src="images/group_by_count_weight.drawio.png" class="img-fluid" width="600"></p>
+<p><img src="images/group_by_count_weight.drawio.png" class="img-fluid" width="800"></p>
 <p>If we specify that we want to count by something else, we can add that in as a ‘weight’, by adding <code>wt =</code> as an argument in the function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(grouped_fruit, <span class="at">wt =</span> cost)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -641,32 +480,32 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(fruit_data, colour <span class="sc">==</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  piece  fruit colour cost cost_last_week
-1     2 apples    red   10             12
-2     5 apples    red    9             11</code></pre>
+<pre><code>   fruit colour cost cost_last_week
+1 apples    red   10             12
+2 apples    red    9             11</code></pre>
 </div>
 </div>
 <p>Just fruit which cost at least 5:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(fruit_data, cost <span class="sc">&gt;=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  piece   fruit colour cost cost_last_week
-1     1 oranges orange    5              7
-2     2  apples    red   10             12
-3     4 oranges orange    6              8
-4     5  apples    red    9             11
-5     6 oranges orange    5              7
-6     7  apples  green   11             13</code></pre>
+<pre><code>    fruit colour cost cost_last_week
+1 oranges orange    5              7
+2  apples    red   10             12
+3 oranges orange    6              8
+4  apples    red    9             11
+5 oranges orange    5              7
+6  apples  green   11             13</code></pre>
 </div>
 </div>
 <p>You can also filter with multiple terms by using a vector (as above), and the special command <code>%in%</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(fruit_data, colour <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'red'</span>, <span class="st">'green'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  piece  fruit colour cost cost_last_week
-1     2 apples    red   10             12
-2     5 apples    red    9             11
-3     7 apples  green   11             13</code></pre>
+<pre><code>   fruit colour cost cost_last_week
+1 apples    red   10             12
+2 apples    red    9             11
+3 apples  green   11             13</code></pre>
 </div>
 </div>
 </section>
@@ -687,7 +526,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">piece</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">fruit</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">colour</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">cost</th>
@@ -697,7 +535,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">1</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">5</td>
@@ -705,7 +542,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">12</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">2</td>
 <td style="text-align: left;">apples</td>
 <td style="text-align: left;">red</td>
 <td style="text-align: right;">10</td>
@@ -713,7 +549,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">22</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">3</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">4</td>
@@ -721,7 +556,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">10</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">6</td>
@@ -729,7 +563,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">14</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5</td>
 <td style="text-align: left;">apples</td>
 <td style="text-align: left;">red</td>
 <td style="text-align: right;">9</td>
@@ -737,7 +570,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">20</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">6</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">5</td>
@@ -745,7 +577,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">12</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">7</td>
 <td style="text-align: left;">apples</td>
 <td style="text-align: left;">green</td>
 <td style="text-align: right;">11</td>
@@ -753,7 +584,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">24</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">8</td>
 <td style="text-align: left;">bananas</td>
 <td style="text-align: left;">yellow</td>
 <td style="text-align: right;">3</td>
@@ -761,7 +591,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">8</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">9</td>
 <td style="text-align: left;">bananas</td>
 <td style="text-align: left;">yellow</td>
 <td style="text-align: right;">3</td>
@@ -769,7 +598,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">8</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">10</td>
 <td style="text-align: left;">bananas</td>
 <td style="text-align: left;">yellow</td>
 <td style="text-align: right;">4</td>
@@ -777,7 +605,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">10</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">oranges</td>
 <td style="text-align: left;">orange</td>
 <td style="text-align: right;">2</td>
@@ -785,7 +612,6 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">12</td>
 <td style="text-align: left;">bananas</td>
 <td style="text-align: left;">yellow</td>
 <td style="text-align: right;">2</td>
@@ -805,27 +631,27 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>fruit_data <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(<span class="at">order_by =</span> cost, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  piece  fruit colour cost cost_last_week
-1     7 apples  green   11             13</code></pre>
+<pre><code>   fruit colour cost cost_last_week
+1 apples  green   11             13</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>fruit_data <span class="sc">%&gt;%</span> <span class="fu">slice_min</span>(<span class="at">order_by =</span> cost, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  piece   fruit colour cost cost_last_week
-1    11 oranges orange    2              4
-2    12 bananas yellow    2              4</code></pre>
+<pre><code>    fruit colour cost cost_last_week
+1 oranges orange    2              4
+2 bananas yellow    2              4</code></pre>
 </div>
 </div>
 <p>These can also be used with <code>group_by()</code>, to give the top rows for each group:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>fruit_data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(fruit) <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(<span class="at">order_by =</span> cost, <span class="at">n  =</span>  <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 5
+<pre><code># A tibble: 3 × 4
 # Groups:   fruit [3]
-  piece fruit   colour  cost cost_last_week
-  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;          &lt;dbl&gt;
-1     7 apples  green     11             13
-2    10 bananas yellow     4              6
-3     4 oranges orange     6              8</code></pre>
+  fruit   colour  cost cost_last_week
+  &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;          &lt;dbl&gt;
+1 apples  green     11             13
+2 bananas yellow     4              6
+3 oranges orange     6              8</code></pre>
 </div>
 </div>
 <p>Notice it has kept only one row per fruit type, meaning it has kept only the apple row with the highest amount.</p>
@@ -836,76 +662,76 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(fruit_data, cost)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   piece   fruit colour cost cost_last_week
-1     11 oranges orange    2              4
-2     12 bananas yellow    2              4
-3      8 bananas yellow    3              5
-4      9 bananas yellow    3              5
-5      3 oranges orange    4              6
-6     10 bananas yellow    4              6
-7      1 oranges orange    5              7
-8      6 oranges orange    5              7
-9      4 oranges orange    6              8
-10     5  apples    red    9             11
-11     2  apples    red   10             12
-12     7  apples  green   11             13</code></pre>
+<pre><code>     fruit colour cost cost_last_week
+1  oranges orange    2              4
+2  bananas yellow    2              4
+3  bananas yellow    3              5
+4  bananas yellow    3              5
+5  oranges orange    4              6
+6  bananas yellow    4              6
+7  oranges orange    5              7
+8  oranges orange    5              7
+9  oranges orange    6              8
+10  apples    red    9             11
+11  apples    red   10             12
+12  apples  green   11             13</code></pre>
 </div>
 </div>
 <p>Sorting is ascending by default, but you can specify descending using <code>desc()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(fruit_data, <span class="fu">desc</span>(cost))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   piece   fruit colour cost cost_last_week
-1      7  apples  green   11             13
-2      2  apples    red   10             12
-3      5  apples    red    9             11
-4      4 oranges orange    6              8
-5      1 oranges orange    5              7
-6      6 oranges orange    5              7
-7      3 oranges orange    4              6
-8     10 bananas yellow    4              6
-9      8 bananas yellow    3              5
-10     9 bananas yellow    3              5
-11    11 oranges orange    2              4
-12    12 bananas yellow    2              4</code></pre>
+<pre><code>     fruit colour cost cost_last_week
+1   apples  green   11             13
+2   apples    red   10             12
+3   apples    red    9             11
+4  oranges orange    6              8
+5  oranges orange    5              7
+6  oranges orange    5              7
+7  oranges orange    4              6
+8  bananas yellow    4              6
+9  bananas yellow    3              5
+10 bananas yellow    3              5
+11 oranges orange    2              4
+12 bananas yellow    2              4</code></pre>
 </div>
 </div>
 <p>If you `sort<code>arrange()</code> by a list of characters, you’ll get alphabetical order:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(fruit_data, fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   piece   fruit colour cost cost_last_week
-1      2  apples    red   10             12
-2      5  apples    red    9             11
-3      7  apples  green   11             13
-4      8 bananas yellow    3              5
-5      9 bananas yellow    3              5
-6     10 bananas yellow    4              6
-7     12 bananas yellow    2              4
-8      1 oranges orange    5              7
-9      3 oranges orange    4              6
-10     4 oranges orange    6              8
-11     6 oranges orange    5              7
-12    11 oranges orange    2              4</code></pre>
+<pre><code>     fruit colour cost cost_last_week
+1   apples    red   10             12
+2   apples    red    9             11
+3   apples  green   11             13
+4  bananas yellow    3              5
+5  bananas yellow    3              5
+6  bananas yellow    4              6
+7  bananas yellow    2              4
+8  oranges orange    5              7
+9  oranges orange    4              6
+10 oranges orange    6              8
+11 oranges orange    5              7
+12 oranges orange    2              4</code></pre>
 </div>
 </div>
 <p>You can sort by multiple things:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(fruit_data, fruit, <span class="fu">desc</span>(cost))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   piece   fruit colour cost cost_last_week
-1      7  apples  green   11             13
-2      2  apples    red   10             12
-3      5  apples    red    9             11
-4     10 bananas yellow    4              6
-5      8 bananas yellow    3              5
-6      9 bananas yellow    3              5
-7     12 bananas yellow    2              4
-8      4 oranges orange    6              8
-9      1 oranges orange    5              7
-10     6 oranges orange    5              7
-11     3 oranges orange    4              6
-12    11 oranges orange    2              4</code></pre>
+<pre><code>     fruit colour cost cost_last_week
+1   apples  green   11             13
+2   apples    red   10             12
+3   apples    red    9             11
+4  bananas yellow    4              6
+5  bananas yellow    3              5
+6  bananas yellow    3              5
+7  bananas yellow    2              4
+8  oranges orange    6              8
+9  oranges orange    5              7
+10 oranges orange    5              7
+11 oranges orange    4              6
+12 oranges orange    2              4</code></pre>
 </div>
 </div>
 <p>Notice that now green apples are first.</p>
@@ -935,19 +761,19 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>joined_fruit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   piece   fruit colour cost cost_last_week   weekday
-1      1 oranges orange    5              7    Friday
-2      2  apples    red   10             12    Monday
-3      3 oranges orange    4              6    Friday
-4      4 oranges orange    6              8    Friday
-5      5  apples    red    9             11    Monday
-6      6 oranges orange    5              7    Friday
-7      7  apples  green   11             13    Monday
-8      8 bananas yellow    3              5 Wednesday
-9      9 bananas yellow    3              5 Wednesday
-10    10 bananas yellow    4              6 Wednesday
-11    11 oranges orange    2              4    Friday
-12    12 bananas yellow    2              4 Wednesday</code></pre>
+<pre><code>     fruit colour cost cost_last_week   weekday
+1  oranges orange    5              7    Friday
+2   apples    red   10             12    Monday
+3  oranges orange    4              6    Friday
+4  oranges orange    6              8    Friday
+5   apples    red    9             11    Monday
+6  oranges orange    5              7    Friday
+7   apples  green   11             13    Monday
+8  bananas yellow    3              5 Wednesday
+9  bananas yellow    3              5 Wednesday
+10 bananas yellow    4              6 Wednesday
+11 oranges orange    2              4    Friday
+12 bananas yellow    2              4 Wednesday</code></pre>
 </div>
 </div>
 <p>In this new dataframe, the correct weekday is now listed beside the relevant fruit type.</p>
@@ -1101,12 +927,11 @@ $ cost_last_week &lt;dbl&gt; 7, 12, 6, 8, 11, 7, 13, 5, 5, 6, 4, 4</code></pre>
 <section id="finished" class="level4">
 <h4 class="anchored" data-anchor-id="finished">Finished?</h4>
 <p>Save and knit the markdown file, submit under ‘weekly tasks’ for week 3.</p>
-
-
 </section>
 </section>
 
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1340,18 +1165,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./r-markdown.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction and Using R Markdown</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./datavis-0.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation 0</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

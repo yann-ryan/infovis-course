@@ -141,7 +141,7 @@ Next is a vector. A vector is a list of **elements**. A vector is created with t
 
 ```{r}
 
-piece = c(1,2,3,4,5,6,7,8,9,10)
+piece = c(1,2,3,4,5,6,7,8,9,10,11,12)
 fruit = c("oranges", "apples", "oranges", "oranges", "apples", "oranges", "apples", "bananas", "bananas", "bananas", "oranges", "bananas")
 colour = c("orange", "red", "orange", "orange", "red", "orange", "green", "yellow", "yellow", "yellow", "orange", "yellow")
 cost = c(5,10,4,6,9,5,11,3,3,4,2,2)
@@ -286,7 +286,7 @@ filter(fruit_data, colour == 'red')
 Just fruit which cost at least 5:
 
 ```{r}
-filter(fruit_data, cosy >=5)
+filter(fruit_data, cost >=5)
 ```
 
 You can also filter with multiple terms by using a vector (as above), and the special command `%in%`:

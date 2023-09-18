@@ -141,7 +141,7 @@ Next is a vector. A vector is a list of **elements**. A vector is created with t
 
 ```{r}
 
-piece = c(1,2,3,4,5,6,7,8,9,10)
+piece = c(1,2,3,4,5,6,7,8,9,10,11,12)
 fruit = c("oranges", "apples", "oranges", "oranges", "apples", "oranges", "apples", "bananas", "bananas", "bananas", "oranges", "bananas")
 colour = c("orange", "red", "orange", "orange", "red", "orange", "green", "yellow", "yellow", "yellow", "orange", "yellow")
 cost = c(5,10,4,6,9,5,11,3,3,4,2,2)
@@ -153,7 +153,7 @@ Next are dataframes. These are the spreadsheet-like objects, with rows and colum
 You can create a dataframe using the `data.frame()` command. You just need to pass the function each of your vectors, which will become your columns. Don't worry about the code `kableExtra::kbl()` for now: it simply prints the table in a way which makes it very clear.
 
 ```{r}
-fruit_data = data.frame(fruit, colour, cost,cost_last_week, stringsAsFactors = FALSE)
+fruit_data = data.frame(piece, fruit, colour, cost,cost_last_week, stringsAsFactors = FALSE)
 
 fruit_data %>% kableExtra::kbl()
 ```
