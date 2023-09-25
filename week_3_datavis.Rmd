@@ -1,243 +1,53 @@
 ---
-title: "Data Visualisation 0"
+title: "R Notebook"
+output: html_notebook
 ---
 
-## Data Visualisation Principles
 
-This week, we'll begin working with data visualisations. We'll introduce in a very general sense the different ways we can draw things with data visualisation software. We won't think too much about the specifics of making charts for different purposes - just get used to the general syntax and most common chart types.
+## Follow-up from last week: using summarise
 
-### Aims of Information Design
+In the final exercise, you were asked to calculate the mean (average) value life expectancy for each country. To do this, you need to use another function called `summarise()`. 
 
-To begin with, we should think about the purpose of data visualisation. Essentially, the purpose is to aid cognition, usually of large-scale or complex data which otherwise is difficult to grasp. Some examples of how it aids cognition include using infovis to:
+`summarise()` applies a function to the groups in your data. 
 
--   Understand, explore and remember information
+Remember when we used `group_by`() and `count()` to count the number of fruit types? Under the hood, the code is actually using a function called `summarise()`. The difference between `summarise()`and `count()` is that with summarise you can apply different functions to the groups, not just telling R to count them. In this instance, the function you use is `mean()`
 
--   Take in large amounts of data at once
-
--   Make comparisons
-
--   Read millions of data points or understand complex structures (e.g. hierarchies or networks)
-
--   Understand temporal information, e.g. logic of going from earlier to later time
-
-The reason data visualisation works is because our brains tend to make judgements about values based on visual elements. For example, if given two circles, one small and one big, and are asked which we think represents the larger value, you would likely pick the bigger one.
-
-Similarly, we associate 'hotter' colours with larger values than colder ones.
-
-We associate transparency or opacity with strength. And so forth..
-
-We can use these principles in data visualisations. By mapping data to these visual elements, we can aid in the understanding of a given dataset by viewers.
-
-### Mapping Data to Aesthetics
-
-Another word for these visual elements are *aesthetics.* There are many possible aesthetics, but some of the most commonly-found in infovis are:
-
-![](images/common-aesthetics-1.png){width="600"}
-
-Another important one not pictured here is *transparency.*
-
-We can use these aesthetics to tell lots of different stories within our data. For example, we can use them to indicate the magnitude of a value, to draw attention to different categories, or simply to highlight information we wish the viewer to pay attention to.
-
-So how can we use each of these? Let's look at some examples using a dataset containing observations about the physical characteristics of some penguins.
-
-### Position
-
-All data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. In the example below, position is used to highlight a relationship between two variables. From a dataset of penguin observations, the **bill length** of the penguins is assigned to the `x` or horizontal position, and the **flipper length** is assigned to the `y`, or vertical position.
-
-The resulting *scatterplot* shows clearly a relationship between the two variables: a larger bill generally means that the penguin also has larger flippers, and the other way around.
+To do this for the exercise from last week, you could use the following code:
 
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
 
-library(palmerpenguins)
+library(gapminder)
 library(tidyverse)
 
-penguins %>% 
-  ggplot() + geom_point(aes(x = bill_length_mm, y = flipper_length_mm))
-```
+gapminder_df = gapminder
 
-### Size
-
-Size is often mapped to amounts or magnitude (we naturally understand that these two things map together). In this case, we've taken the visualisation above, and mapped the **body mass** of each penguin to the `size` of the points. In this way, we can visualise more pieces of information about the penguins.
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-
-
-penguins %>% 
-  ggplot() + 
-  geom_point(aes(x = bill_length_mm, y = flipper_length_mm, size = body_mass_g), pch = 21, fill = 'white', color = 'black') + 
-  scale_size_continuous(range = c(.1, 10)) + theme(legend.position = 'bottom')
-```
-
-### Colour
-
-Color can be used for many purposes in visualisations. Here, it is used to distinguish between two categories: male and female penguins.
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-
-
-penguins %>% 
-  ggplot() + geom_point(aes(x = bill_length_mm, y = flipper_length_mm, color = sex))
-```
-
-### Linetype/width
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-
-penguins %>% group_by(sex, year) %>% 
-  summarise(avg_mass = mean(body_mass_g)) %>% 
-  filter(!is.na(sex)) %>% 
-  ggplot() + geom_line(aes(x = year, y = avg_mass, linetype = sex), size = 2)
-```
-
-Here, linetype is used to distinguish between the sex attribute.
-
-### Shape
-
-Shape is usually used to distinguish between categories. Here, the sex of the penguin is mapped to different shapes. This might be useful if colour was not an option, for example:
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-penguins %>% 
-  ggplot() + 
-  geom_point(aes(x = bill_length_mm, y = flipper_length_mm, shape = sex), size = 3) + 
-  scale_size_area()
-```
-
-### Transparency
-
-Finally, transparency. Here, the opacity of the points are assigned to the `body mass` of the penguins.
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-penguins %>% 
-  ggplot() + 
-  geom_point(aes(x = bill_length_mm, y = flipper_length_mm, alpha = body_mass_g)) + 
-  scale_size_area()
-
-```
-
-## Scales
-
-In order to correctly map data to aesthetics, we use what are called *scales.* A scale defines a unique mapping between data and aesthetics. A scale might say, for example, each year of a line chart should correspond to exactly 50 pixels in a chart. One important distinction between data visualisation and say, graphic design, is that scales - what is mapped to data and how - need to be consistent within a chart.
-
-How exactly the scales are picked depends on the type of data. Generally, there are two types of scales: continuous and discrete. Most of the time, these values are picked by ggplot2 software for you, but understanding how they work is important.
-
-**Continuous** scales are ones where arbitrarily small intermediates exist, for example time and weight. They are generally numerical, or quantitative data.
-
-Discrete scales are ones where only finite numbers exist. Often, but not always, these are categorical, or qualititative data. For example, nationality, or the genre of a book.
-
-However, discrete scales can be numerical too: for example, a count of your siblings (you can't have 2.4 siblings).
-
-Some aesthetics are generally only mapped to one or the other.
-
-Size, for example, should usually be continuous - it needs a numerical value set to the size of something.
-
-Shape is the opposite. It doesn't make sense to map continuous variables to shapes - there are only a limited, set number of shapes.
-
-Position can be either, which we'll go through in examples later.
-
-### Colour Scales
-
-Colour is perhaps the most complicated and interesting. Colour is frequently mapped to both continuous and discrete scales, but behaves differently depending on which one is used. For instance, a *continuous* colour scale would mean one where any possible value is possible. This is usually where something like hue is mapped to a numerical value. A *discrete* colour scale is one where colour is used to distinguish between categories.
-
-To illustrate the difference between the two colour scales, take these two data maps of the US.
-
-The first maps a *discrete* or *qualitative* piece of data: whether a county voted a majority for the Republican candidate in the 2020 election, or the Democrat.
-
-The data being mapped is a simple text category, either 'Republican' or 'Democrat'.
-
-The correct colour scale for this is *discrete*. The colours are not mapped to a numerical value, but chosen to be easily distinguishable from each other, for each category. Red and green, used here, are on opposite sides of the colour wheel and are easy to distinguish (except for some of those with colour vision deficiency, but we'll deal with that later).
-
-```{r}
-#| code-fold: true
-#| message: false
-#| warning: false
-#| error: false
+gapminder_df %>% 
+  filter(continent == 'Asia') %>% 
+  select(country, continent, lifeExp, gdpPercap) %>% 
+  mutate(gdp_lifeExp = gdpPercap / lifeExp) %>% 
+  group_by(country) %>% 
+  summarise(ave_exp = mean(lifeExp, na.rm = TRUE)) %>% 
+  filter(str_detect(country, "stan$"))
   
 
-
-
-library(tidyverse)
-library(sf)
-
-us_counties = st_read('ne_10m_admin_2_counties/ne_10m_admin_2_counties.shp', quiet = TRUE)
-
-election_2020 = read_csv('US_County_Level_Election_Results_08-20-master/2020_US_County_Level_Presidential_Results.csv')
-election_2020 = election_2020 %>% distinct(county_name, .keep_all = TRUE) %>% 
-  filter(!state_name %in% c('Alaska', 'Hawaii'))
-
-us_map = us_counties %>% 
-  inner_join(election_2020, by = c('NAME_ALT' = 'county_name')) 
-
-us_map = us_map %>%
-  mutate(result = ifelse(votes_gop > votes_dem, 'Republican', 'Democrat'))
-
-us_map %>% ggplot() + geom_sf(aes(fill = result)) + 
-  labs(fill = 'Result: ', title = "US Presidential Election Results by County, 2020") + theme_void()
-
 ```
 
-In this second map, we visualise the **mean household income** for the same set of US counties. This data value is quantitative and numerical.
+Summarise works a bit like mutate(). You'll specify the output column name of the summary using the name followed by the equals sign. 
+After the equal sign, specify the function you want to use (in this case, `mean()`), and the data column you want to apply the function to (in this case, `lifeExp`).
 
-The correct colour scale for this map is a *continuous* one. The range of values are mapped to a spectrum of colours running from dark blue to light yellow: the higher the income, the lighter the hue on this spectrum. In this way, we can easily distinguish the highest-income, the lower-income, and those in between.
+You can create multiple pieces of information in the same summarise, just repeat the above, followed by a comma. 
 
-```{r}
-#| code-fold: true
-#| message: false
-#| warning: false
+Summarise exercises:
 
-library(tidyverse)
-library(sf)
+Calculate the average life expectancy for each continent:
 
-us_counties = st_read('ne_10m_admin_2_counties/ne_10m_admin_2_counties.shp', quiet = TRUE)
+Calculate the average life expectancy *per year* for each country:
 
-county_data = usdata::county_2019
+Calculate the average life expectancy AND the *total* gdp per year for each continent:
 
-county_data = county_data %>% 
-  filter(!state %in% c('Alaska', 'Hawaii'))
-
-us_map = us_counties %>% 
-  inner_join(county_data, by = c('NAME_ALT' = 'name')) 
-
-us_map %>% 
-  ggplot() + 
-  geom_sf(aes(fill = mean_household_income, color =mean_household_income)) + 
-  theme_void() + 
-  labs(fill = '', title = "Mean Household Income per County, 2020 (in dollars)") + 
-  scale_color_viridis_c(guide = 'none') + 
-  scale_fill_viridis_c()
+Calculate the minimum, maximum and average life expectancy for each country. The three functions to use are `min()`, `max()`, and `mean()`.
 
 
-
-
-```
-
-We'll return to colour scales in more detail, later in the course.
-
-## Putting this into practice
-
-Similarly to last week, go to your Posit cloud workspace, and open the assignment called **Week 3: data visualisation 0**. As before, there is an existing .Rmd file, which contains the same code and text as this book chapter. You can use this to follow along and run the code yourself. For the exercises, create a new .Rmd file. Create new code cells and enter your answers within them. When you're finished, knit and export the .Rmd and html output.
 
 ### Load ggplot2
 
@@ -394,7 +204,7 @@ Save it as an object called `gapminder_df`
 
 ```{r}
 #| code-fold: true
-#| eval: true
+#| eval: false
 
 gapminder_df = read_csv('gapminder_data.csv')
 
@@ -407,8 +217,6 @@ Open `gapminder_df` in your environment. Write the number of columns it contains
 #### Exercise 4
 
 Restrict the data to latest year in the data: 2007. Call it a new object `gapminder_2007_df`.
-
-In later exercises you'll need to do this yourself, but for this first one I have given you the code. Copy the below code into a new cell in your .Rmd file and run it:
 
 ```{r}
 #| code-fold: true
@@ -472,7 +280,7 @@ Create a new object, `gapminder_netherlands_df`. Filter the full data to only in
 
 Draw a plot which shows the change in the `lifeExp` variable in the Netherlands over time.
 
-You should choose an appropriate `geom` for your plot.
+You should choose an appropriate `geom_`, or graphical type, for your plot.
 
 #### Exercise 10
 
@@ -500,12 +308,12 @@ To do this, you'll probably need the following information:
 #| code-fold: true
 #| echo: false
 
-average_life_exp = gapminder_df %>% 
+average_life_exp = gapminder_data %>% 
   group_by(continent, year,) %>% 
   mutate(avg = mean(lifeExp))
 
 ggplot() + 
-  geom_line(data = gapminder_df %>% 
+  geom_line(data = gapminder_data %>% 
               filter(continent!= 'Oceania'), 
             aes(x = year, y = lifeExp, group = country)) + 
   geom_line(data = average_life_exp %>% 
@@ -515,10 +323,10 @@ ggplot() +
 
 ```
 
+
 If you'd like another challenge:
 
--   Re-do the above, but don't create a new dataframe with the averages. Include the averages as an additional column in the original dataframe. You'll need to use `group_by()` and `mutate()` for this. You'll also need to adjust the ggplot code. 
-
+-   Re-do the above, but don't create a new dataframe with the averages. Instead, include the averages as an additional column in the original dataframe. You'll need to use `group_by()` and `mutate()` for this. You'll also need to adjust the ggplot code. 
 
 
 

@@ -298,7 +298,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="linetypewidth" class="level3">
 <h3 class="anchored" data-anchor-id="linetypewidth">Linetype/width</h3>
-<p>Example coming soon! (when I think of a good one)</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Here, linetype is used to distinguish between the sex attribute.</p>
 </section>
 <section id="shape" class="level3">
 <h3 class="anchored" data-anchor-id="shape">Shape</h3>
@@ -787,8 +792,18 @@ dbl (4): year, total_for_year, total_in_2022_dollars, tickets_sold
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>gapminder_df <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'gapminder.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>gapminder_df <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'gapminder_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1704 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): country, continent
+dbl (4): year, pop, lifeExp, gdpPercap
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
 </div>
 </section>
 <section id="exercise-3" class="level4">
@@ -802,7 +817,7 @@ dbl (4): year, total_for_year, total_in_2022_dollars, tickets_sold
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>gapminder_2007_df <span class="ot">=</span> gapminder_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>gapminder_2007_df <span class="ot">=</span> gapminder_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -812,8 +827,8 @@ dbl (4): year, total_for_year, total_in_2022_dollars, tickets_sold
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> pop)) <span class="sc">+</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> pop)) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -823,8 +838,8 @@ dbl (4): year, total_for_year, total_in_2022_dollars, tickets_sold
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>How would you interpret this data visualisation? Write the answer below your code.</p>
@@ -835,8 +850,8 @@ dbl (4): year, total_for_year, total_in_2022_dollars, tickets_sold
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">y =</span> gdpPercap, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">y =</span> gdpPercap, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>IF YOU GET TO THIS STAGE, WELL DONE!</p>
@@ -856,6 +871,27 @@ dbl (4): year, total_for_year, total_in_2022_dollars, tickets_sold
 <h4 class="anchored" data-anchor-id="exercise-10">Exercise 10</h4>
 <p>Look at the dataframe in your environment, and choose a set of five countries. Filter the data (create a new dataframe object if needed) to only these five countries.</p>
 <p>Draw a chart which compares the life expectancy of those countries and its change over time.</p>
+</section>
+<section id="exercise-11-bonus-will-require-external-information" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-11-bonus-will-require-external-information">Exercise 11 (bonus, will require external information!)</h4>
+<p>Use <code>summarise()</code> to calculate the average life expectancy for each continent, for each year. Save this as a new object called <code>average_life_exp</code>.</p>
+<p>This chart should contain four separate panels: one for each of the continents of Asia, Europe, Americas, and Africa (e.g., you need to remove Oceania). For each panel, use a line chart to separately display the change in life expectancy over time, for each country. Use the original gapminder data for this. Render the data for each country as a thin, black line.</p>
+<p>Next, use the dataframe with the averages you created above to draw an extra layer, of the average life expectancy. This should be drawn as a thicker, blue line, with an opacity (alpha) of 50%.</p>
+<p>To do this, you’ll probably need the following information:</p>
+<ul>
+<li><p>To render each country’s data as a separate line, you’ll have to specify the <code>group = country</code> within the <code>aes()</code>.</p></li>
+<li><p>To render each continent as a separate panel, you’ll need the layer facet_wrap(). You can find out more information about how to use this here: <a href="https://ggplot2-book.org/getting-started#sec-qplot-faceting" class="uri">https://ggplot2-book.org/getting-started#sec-qplot-faceting</a></p></li>
+<li><p>To add both the individual and average values to the plot, you’ll need to add them both as separate layers. This is done using the + symbol. However, because each layer is using a separate data source, rather than include the information on aesthetics and so forth within the ggplot() function, you’ll need to move this information, in the same format, to each of the individual <code>geom_</code> layers.</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If you’d like another challenge:</p>
+<ul>
+<li>Re-do the above, but don’t create a new dataframe with the averages. Include the averages as an additional column in the original dataframe. You’ll need to use <code>group_by()</code> and <code>mutate()</code> for this. You’ll also need to adjust the ggplot code.</li>
+</ul>
 </section>
 <section id="finished" class="level4">
 <h4 class="anchored" data-anchor-id="finished">Finished?</h4>
