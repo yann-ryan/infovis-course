@@ -1,0 +1,43 @@
+---
+title: "Final Project"
+---
+
+## Instructions
+
+-   For the final project, you should create a 'data story' with a dataset of your choice.
+
+-   Your data story should be a publication-quality article aimed at a general interested reader, for example in an academic journal, a 'long read' article in a magazine, or a report for an NGO or non-profit. . It should weave in text, visualisations, and the underlying code.
+
+-   It should contain at least **four** separate visualisations. However, two of these should be unique types, and the other two can be simpler derivatives (e.g. focusing on a certain range through filter, or perhaps highlighting different parts of the visualisation through annotation or color highlighting.
+
+-   The text should be approximately 1000 - 1500 words in total.
+
+-   You can use any dataset you like - there are many examples and links to further datasets to be found throughout the course book.
+
+## To get a high grade, consider the following:
+
+-   The visualisations should be interspersed with your story, e.g. the background, the data (what you had to do to it), then a narrative of the process for creating the visualisations, findings, and a conclusion.
+
+-   The report as a whole should have a **strong, cohesive narrative** (don't just make a bunch of disconnected graphs and call it a day).
+
+-   The publication as a whole should be **reproducible**. By this I mean, I should be able to run your code and get the same results. You should include the code and datasets used in your final submission.
+
+-   The visualisations, as far as possible, should be **self-contained**. If someone shared on social media for example, they would stand along without explanation and not be mis-interpreted. Use titles, subtitles, annotations, and captions. Optionally, make your visualisations interactive - but explain how a viewer should use it within your report.
+
+-   The whole report should be of **publication quality.** Make effective use of the markdown techniques we learned early in the course, such as headers, bullet points, and even inserting additional images. Ideally, hide the code output from the html version (we'll do this next week).
+
+## Submission
+
+As with the other assignments, submit a .zip folder containing the following:
+
+-   The code, in the form of an .Rmd file.
+
+-   The final publication, as an .html
+
+-   Any datasets needed to reproduce the code.
+
+## Deadline
+
+The final deadline for this is **14 January 2024.**
+
+As I realise that some aspects can be unnecessarily tricky (e.g. the markdown formatting), I invite you to submit a **draft version** a week earlier, on **7 January 2024**, which I will comment on, mostly in terms of technical issues.

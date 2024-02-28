@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Information Visualization and the Humanities - 3&nbsp; Data Visualisation 0</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./data-visualisation-1.html" rel="next">
+<link href="./r-intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./datavis-0.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation 0</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Information Visualization and the Humanities</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction and Using R Markdown</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datavis-0.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation 0</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualisation-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Visualisation 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualisation-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Visualisation 2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digital-mapping-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Digital mapping 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digital-mapping-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Digital Mapping 2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digital-mapping-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./network-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Network Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Finishing Touches: Creating Narratives with Your Datavis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./final-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Final Project</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Assignment 1: Visualize This!</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Assignment 2: Make a map</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-visualisation-principles" id="toc-data-visualisation-principles" class="nav-link active" data-scroll-target="#data-visualisation-principles">Data Visualisation Principles</a>
+  <ul class="collapse">
+  <li><a href="#aims-of-information-design" id="toc-aims-of-information-design" class="nav-link" data-scroll-target="#aims-of-information-design">Aims of Information Design</a></li>
+  <li><a href="#mapping-data-to-aesthetics" id="toc-mapping-data-to-aesthetics" class="nav-link" data-scroll-target="#mapping-data-to-aesthetics">Mapping Data to Aesthetics</a></li>
+  <li><a href="#position" id="toc-position" class="nav-link" data-scroll-target="#position">Position</a></li>
+  <li><a href="#size" id="toc-size" class="nav-link" data-scroll-target="#size">Size</a></li>
+  <li><a href="#colour" id="toc-colour" class="nav-link" data-scroll-target="#colour">Colour</a></li>
+  <li><a href="#linetypewidth" id="toc-linetypewidth" class="nav-link" data-scroll-target="#linetypewidth">Linetype/width</a></li>
+  <li><a href="#shape" id="toc-shape" class="nav-link" data-scroll-target="#shape">Shape</a></li>
+  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency">Transparency</a></li>
+  </ul></li>
+  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales">Scales</a>
+  <ul class="collapse">
+  <li><a href="#colour-scales" id="toc-colour-scales" class="nav-link" data-scroll-target="#colour-scales">Colour Scales</a></li>
+  </ul></li>
+  <li><a href="#putting-this-into-practice" id="toc-putting-this-into-practice" class="nav-link" data-scroll-target="#putting-this-into-practice">Putting this into practice</a>
+  <ul class="collapse">
+  <li><a href="#load-ggplot2" id="toc-load-ggplot2" class="nav-link" data-scroll-target="#load-ggplot2">Load ggplot2</a></li>
+  <li><a href="#bar-charts-with-geom_col" id="toc-bar-charts-with-geom_col" class="nav-link" data-scroll-target="#bar-charts-with-geom_col">Bar charts with geom_col</a></li>
+  <li><a href="#scatterplots-with-geom_point" id="toc-scatterplots-with-geom_point" class="nav-link" data-scroll-target="#scatterplots-with-geom_point">Scatterplots with geom_point</a></li>
+  <li><a href="#line-charts-with-geom_line" id="toc-line-charts-with-geom_line" class="nav-link" data-scroll-target="#line-charts-with-geom_line">Line charts with geom_line</a></li>
+  <li><a href="#color" id="toc-color" class="nav-link" data-scroll-target="#color">Color</a></li>
+  <li><a href="#what-is-aes" id="toc-what-is-aes" class="nav-link" data-scroll-target="#what-is-aes">What is aes()?</a></li>
+  <li><a href="#scales-1" id="toc-scales-1" class="nav-link" data-scroll-target="#scales-1">Scales</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation 0</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="data-visualisation-principles" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualisation-principles">Data Visualisation Principles</h2>
+<p>This week, we’ll begin working with data visualisations. We’ll introduce in a very general sense the different ways we can draw things with data visualisation software. We won’t think too much about the specifics of making charts for different purposes - just get used to the general syntax and most common chart types.</p>
+<section id="aims-of-information-design" class="level3">
+<h3 class="anchored" data-anchor-id="aims-of-information-design">Aims of Information Design</h3>
+<p>To begin with, we should think about the purpose of data visualisation. Essentially, the purpose is to aid cognition, usually of large-scale or complex data which otherwise is difficult to grasp. Some examples of how it aids cognition include using infovis to:</p>
+<ul>
+<li><p>Understand, explore and remember information</p></li>
+<li><p>Take in large amounts of data at once</p></li>
+<li><p>Make comparisons</p></li>
+<li><p>Read millions of data points or understand complex structures (e.g.&nbsp;hierarchies or networks)</p></li>
+<li><p>Understand temporal information, e.g.&nbsp;logic of going from earlier to later time</p></li>
+</ul>
+<p>The reason data visualisation works is because our brains tend to make judgements about values based on visual elements. For example, if given two circles, one small and one big, and are asked which we think represents the larger value, you would likely pick the bigger one.</p>
+<p>Similarly, we associate ‘hotter’ colours with larger values than colder ones.</p>
+<p>We associate transparency or opacity with strength. And so forth..</p>
+<p>We can use these principles in data visualisations. By mapping data to these visual elements, we can aid in the understanding of a given dataset by viewers.</p>
+</section>
+<section id="mapping-data-to-aesthetics" class="level3">
+<h3 class="anchored" data-anchor-id="mapping-data-to-aesthetics">Mapping Data to Aesthetics</h3>
+<p>Another word for these visual elements are <em>aesthetics.</em> There are many possible aesthetics, but some of the most commonly-found in infovis are:</p>
+<p><img src="images/common-aesthetics-1.png" class="img-fluid" width="600"></p>
+<p>Another important one not pictured here is <em>transparency.</em></p>
+<p>We can use these aesthetics to tell lots of different stories within our data. For example, we can use them to indicate the magnitude of a value, to draw attention to different categories, or simply to highlight information we wish the viewer to pay attention to.</p>
+<p>So how can we use each of these? Let’s look at some examples using a dataset containing observations about the physical characteristics of some penguins.</p>
+</section>
+<section id="position" class="level3">
+<h3 class="anchored" data-anchor-id="position">Position</h3>
+<p>All data visualisations need to be positioned in some kind of space. In this course, that space will be 2D, but 3D visualisations are also possible. In the example below, position is used to highlight a relationship between two variables. From a dataset of penguin observations, the <strong>bill length</strong> of the penguins is assigned to the <code>x</code> or horizontal position, and the <strong>flipper length</strong> is assigned to the <code>y</code>, or vertical position.</p>
+<p>The resulting <em>scatterplot</em> shows clearly a relationship between the two variables: a larger bill generally means that the penguin also has larger flippers, and the other way around.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="size" class="level3">
+<h3 class="anchored" data-anchor-id="size">Size</h3>
+<p>Size is often mapped to amounts or magnitude (we naturally understand that these two things map together). In this case, we’ve taken the visualisation above, and mapped the <strong>body mass</strong> of each penguin to the <code>size</code> of the points. In this way, we can visualise more pieces of information about the penguins.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="colour" class="level3">
+<h3 class="anchored" data-anchor-id="colour">Colour</h3>
+<p>Color can be used for many purposes in visualisations. Here, it is used to distinguish between two categories: male and female penguins.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="linetypewidth" class="level3">
+<h3 class="anchored" data-anchor-id="linetypewidth">Linetype/width</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Here, linetype is used to distinguish between the sex attribute.</p>
+</section>
+<section id="shape" class="level3">
+<h3 class="anchored" data-anchor-id="shape">Shape</h3>
+<p>Shape is usually used to distinguish between categories. Here, the sex of the penguin is mapped to different shapes. This might be useful if colour was not an option, for example:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="transparency" class="level3">
+<h3 class="anchored" data-anchor-id="transparency">Transparency</h3>
+<p>Finally, transparency. Here, the opacity of the points are assigned to the <code>body mass</code> of the penguins.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="scales" class="level2">
+<h2 class="anchored" data-anchor-id="scales">Scales</h2>
+<p>In order to correctly map data to aesthetics, we use what are called <em>scales.</em> A scale defines a unique mapping between data and aesthetics. A scale might say, for example, each year of a line chart should correspond to exactly 50 pixels in a chart. One important distinction between data visualisation and say, graphic design, is that scales - what is mapped to data and how - need to be consistent within a chart.</p>
+<p>How exactly the scales are picked depends on the type of data. Generally, there are two types of scales: continuous and discrete. Most of the time, these values are picked by ggplot2 software for you, but understanding how they work is important.</p>
+<p><strong>Continuous</strong> scales are ones where arbitrarily small intermediates exist, for example time and weight. They are generally numerical, or quantitative data.</p>
+<p>Discrete scales are ones where only finite numbers exist. Often, but not always, these are categorical, or qualititative data. For example, nationality, or the genre of a book.</p>
+<p>However, discrete scales can be numerical too: for example, a count of your siblings (you can’t have 2.4 siblings).</p>
+<p>Some aesthetics are generally only mapped to one or the other.</p>
+<p>Size, for example, should usually be continuous - it needs a numerical value set to the size of something.</p>
+<p>Shape is the opposite. It doesn’t make sense to map continuous variables to shapes - there are only a limited, set number of shapes.</p>
+<p>Position can be either, which we’ll go through in examples later.</p>
+<section id="colour-scales" class="level3">
+<h3 class="anchored" data-anchor-id="colour-scales">Colour Scales</h3>
+<p>Colour is perhaps the most complicated and interesting. Colour is frequently mapped to both continuous and discrete scales, but behaves differently depending on which one is used. For instance, a <em>continuous</em> colour scale would mean one where any possible value is possible. This is usually where something like hue is mapped to a numerical value. A <em>discrete</em> colour scale is one where colour is used to distinguish between categories.</p>
+<p>To illustrate the difference between the two colour scales, take these two data maps of the US.</p>
+<p>The first maps a <em>discrete</em> or <em>qualitative</em> piece of data: whether a county voted a majority for the Republican candidate in the 2020 election, or the Democrat.</p>
+<p>The data being mapped is a simple text category, either ‘Republican’ or ‘Democrat’.</p>
+<p>The correct colour scale for this is <em>discrete</em>. The colours are not mapped to a numerical value, but chosen to be easily distinguishable from each other, for each category. Red and green, used here, are on opposite sides of the colour wheel and are easy to distinguish (except for some of those with colour vision deficiency, but we’ll deal with that later).</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>us_counties <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">'ne_10m_admin_2_counties/ne_10m_admin_2_counties.shp'</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>election_2020 <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'US_County_Level_Election_Results_08-20-master/2020_US_County_Level_Presidential_Results.csv'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>election_2020 <span class="ot">=</span> election_2020 <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(county_name, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>state_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Alaska'</span>, <span class="st">'Hawaii'</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>us_map <span class="ot">=</span> us_counties <span class="sc">%&gt;%</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(election_2020, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'NAME_ALT'</span> <span class="ot">=</span> <span class="st">'county_name'</span>)) </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>us_map <span class="ot">=</span> us_map <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">result =</span> <span class="fu">ifelse</span>(votes_gop <span class="sc">&gt;</span> votes_dem, <span class="st">'Republican'</span>, <span class="st">'Democrat'</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>us_map <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> result)) <span class="sc">+</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">'Result: '</span>, <span class="at">title =</span> <span class="st">"US Presidential Election Results by County, 2020"</span>) <span class="sc">+</span> <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In this second map, we visualise the <strong>mean household income</strong> for the same set of US counties. This data value is quantitative and numerical.</p>
+<p>The correct colour scale for this map is a <em>continuous</em> one. The range of values are mapped to a spectrum of colours running from dark blue to light yellow: the higher the income, the lighter the hue on this spectrum. In this way, we can easily distinguish the highest-income, the lower-income, and those in between.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>us_counties <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">'ne_10m_admin_2_counties/ne_10m_admin_2_counties.shp'</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>county_data <span class="ot">=</span> usdata<span class="sc">::</span>county_2019</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>county_data <span class="ot">=</span> county_data <span class="sc">%&gt;%</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'Alaska'</span>, <span class="st">'Hawaii'</span>))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>us_map <span class="ot">=</span> us_counties <span class="sc">%&gt;%</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(county_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'NAME_ALT'</span> <span class="ot">=</span> <span class="st">'name'</span>)) </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>us_map <span class="sc">%&gt;%</span> </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> mean_household_income, <span class="at">color =</span>mean_household_income)) <span class="sc">+</span> </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">''</span>, <span class="at">title =</span> <span class="st">"Mean Household Income per County, 2020 (in dollars)"</span>) <span class="sc">+</span> </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">guide =</span> <span class="st">'none'</span>) <span class="sc">+</span> </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We’ll return to colour scales in more detail, later in the course.</p>
+</section>
+</section>
+<section id="putting-this-into-practice" class="level2">
+<h2 class="anchored" data-anchor-id="putting-this-into-practice">Putting this into practice</h2>
+<p>Similarly to last week, go to your Posit cloud workspace, and open the assignment called <strong>Week 3: data visualisation 0</strong>. As before, there is an existing .Rmd file, which contains the same code and text as this book chapter. You can use this to follow along and run the code yourself. For the exercises, create a new .Rmd file. Create new code cells and enter your answers within them. When you’re finished, knit and export the .Rmd and html output.</p>
+<section id="load-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="load-ggplot2">Load ggplot2</h3>
+<p>All the visualisations we create on this course will be made using a package for R called <code>ggplot2</code>. Before we do anything else, you’ll need to load this package. The easiest way to do this is load the ‘meta-package’ <code>tidyverse</code>, which will include <code>ggplot2</code>.</p>
+<p>As last week, use <code>library()</code> to load the package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The basis of all <code>ggplot2</code> visualisations is a function called <code>ggplot()</code>. Think of this as the foundation of your visualisation. You’ll tell the <code>ggplot()</code> function what data it should use and which attributes of that data it should map to specific aesthetics.</p>
+<p>The <code>ggplot()</code> function doesn’t produce any visualisation on its own, however. For that, you’ll need to add what are called ‘geoms’. A geom can be thought of as the further ‘layers’ you build on top of the <code>ggplot()</code> foundation.</p>
+<p>In simple terms, geometries can be considered as shape types: some examples include columns, points, or lines. When we connect these to our data correctly, we’ll produce data visualisations.</p>
+</section>
+<section id="bar-charts-with-geom_col" class="level3">
+<h3 class="anchored" data-anchor-id="bar-charts-with-geom_col">Bar charts with geom_col</h3>
+<p>As an example, let’s draw a simple bar chart using ggplot. We want to make a simple bar chart from the top box office movies data we used last week: each movie will be a separate bar, organised horizontally, and the height of each bar should correspond to the total box office takings for that movie.</p>
+<p>In ggplot, a bar chart is created using the geom <code>geom_col()</code>. <code>geom_col()</code>, like all geoms, has a set of aesthetics which must be specified. In this case, we must at least specific the <code>x</code> and <code>y</code> aesthetics. These correspond to the horizontal and vertical position of the bars. When we give these aesthetics to geom_col, it will automatically figure out what to do with them.</p>
+<p>First, load the box office data as a dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top_movies <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'top_movie.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 29 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): movie, distributor
+dbl (4): year, total_for_year, total_in_2022_dollars, tickets_sold
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>top_movies <span class="sc">%&gt;%</span> kableExtra<span class="sc">::</span><span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">year</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">movie</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">distributor</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">total_for_year</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">total_in_2022_dollars</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">tickets_sold</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1995</td>
+<td style="text-align: left;">Batman Forever</td>
+<td style="text-align: left;">Warner Bros.</td>
+<td style="text-align: right;">184.0311</td>
+<td style="text-align: right;">445.4822</td>
+<td style="text-align: right;">42306002</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1996</td>
+<td style="text-align: left;">Independence Day</td>
+<td style="text-align: left;">20th Century Fox</td>
+<td style="text-align: right;">306.1693</td>
+<td style="text-align: right;">729.4032</td>
+<td style="text-align: right;">69269062</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1997</td>
+<td style="text-align: left;">Men in Black</td>
+<td style="text-align: left;">Sony Pictures</td>
+<td style="text-align: right;">250.6501</td>
+<td style="text-align: right;">575.0207</td>
+<td style="text-align: right;">54607854</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1998</td>
+<td style="text-align: left;">Titanic</td>
+<td style="text-align: left;">Paramount Pictures</td>
+<td style="text-align: right;">443.3191</td>
+<td style="text-align: right;">995.3411</td>
+<td style="text-align: right;">94524324</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1999</td>
+<td style="text-align: left;">Star Wars Ep. I: The Phantom Menace</td>
+<td style="text-align: left;">20th Century Fox</td>
+<td style="text-align: right;">430.4434</td>
+<td style="text-align: right;">892.2379</td>
+<td style="text-align: right;">84732942</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2000</td>
+<td style="text-align: left;">How the Grinch Stole Christmas</td>
+<td style="text-align: left;">Universal</td>
+<td style="text-align: right;">253.3675</td>
+<td style="text-align: right;">494.9832</td>
+<td style="text-align: right;">47006948</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2001</td>
+<td style="text-align: left;">Harry Potter and the Sorcerer’s Stone</td>
+<td style="text-align: left;">Warner Bros.</td>
+<td style="text-align: right;">300.4044</td>
+<td style="text-align: right;">558.8796</td>
+<td style="text-align: right;">53074988</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2002</td>
+<td style="text-align: left;">Spider-Man</td>
+<td style="text-align: left;">Sony Pictures</td>
+<td style="text-align: right;">403.7064</td>
+<td style="text-align: right;">731.6744</td>
+<td style="text-align: right;">69484746</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2003</td>
+<td style="text-align: left;">Finding Nemo</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">339.7144</td>
+<td style="text-align: right;">593.2325</td>
+<td style="text-align: right;">56337374</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2004</td>
+<td style="text-align: left;">Shrek 2</td>
+<td style="text-align: left;">Dreamworks SKG</td>
+<td style="text-align: right;">441.2262</td>
+<td style="text-align: right;">748.1662</td>
+<td style="text-align: right;">71050925</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2005</td>
+<td style="text-align: left;">Star Wars Ep. III: Revenge of the Sith</td>
+<td style="text-align: left;">20th Century Fox</td>
+<td style="text-align: right;">380.2706</td>
+<td style="text-align: right;">624.6878</td>
+<td style="text-align: right;">59324582</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2006</td>
+<td style="text-align: left;">Pirates of the Caribbean: Dead Man’s Chest</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">423.3158</td>
+<td style="text-align: right;">680.5367</td>
+<td style="text-align: right;">64628368</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2007</td>
+<td style="text-align: left;">Spider-Man 3</td>
+<td style="text-align: left;">Sony Pictures</td>
+<td style="text-align: right;">336.5303</td>
+<td style="text-align: right;">515.0675</td>
+<td style="text-align: right;">48914288</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2008</td>
+<td style="text-align: left;">The Dark Knight</td>
+<td style="text-align: left;">Warner Bros.</td>
+<td style="text-align: right;">531.0016</td>
+<td style="text-align: right;">778.7530</td>
+<td style="text-align: right;">73955652</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2009</td>
+<td style="text-align: left;">Transformers: Revenge of the Fallen</td>
+<td style="text-align: left;">Paramount Pictures</td>
+<td style="text-align: right;">402.1119</td>
+<td style="text-align: right;">564.5651</td>
+<td style="text-align: right;">53614916</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2010</td>
+<td style="text-align: left;">Toy Story 3</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">415.0049</td>
+<td style="text-align: right;">553.8658</td>
+<td style="text-align: right;">52598844</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2011</td>
+<td style="text-align: left;">Harry Potter and the Deathly Hallows: Part II</td>
+<td style="text-align: left;">Warner Bros.</td>
+<td style="text-align: right;">381.0112</td>
+<td style="text-align: right;">505.9329</td>
+<td style="text-align: right;">48046812</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2012</td>
+<td style="text-align: left;">The Avengers</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">623.3579</td>
+<td style="text-align: right;">824.6179</td>
+<td style="text-align: right;">78311295</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: left;">Iron Man 3</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">408.9923</td>
+<td style="text-align: right;">529.7280</td>
+<td style="text-align: right;">50306552</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2014</td>
+<td style="text-align: left;">Guardians of the Galaxy</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">333.0553</td>
+<td style="text-align: right;">429.2622</td>
+<td style="text-align: right;">40765637</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2015</td>
+<td style="text-align: left;">Star Wars Ep. VII: The Force Awakens</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">742.2089</td>
+<td style="text-align: right;">927.1008</td>
+<td style="text-align: right;">88043765</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">Finding Dory</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">486.2956</td>
+<td style="text-align: right;">591.9875</td>
+<td style="text-align: right;">56219140</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2017</td>
+<td style="text-align: left;">Star Wars Ep. VIII: The Last Jedi</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">517.2184</td>
+<td style="text-align: right;">607.1694</td>
+<td style="text-align: right;">57660910</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2018</td>
+<td style="text-align: left;">Black Panther</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">700.0596</td>
+<td style="text-align: right;">809.1797</td>
+<td style="text-align: right;">76845177</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2019</td>
+<td style="text-align: left;">Avengers: Endgame</td>
+<td style="text-align: left;">Walt Disney</td>
+<td style="text-align: right;">858.3730</td>
+<td style="text-align: right;">986.7541</td>
+<td style="text-align: right;">93708843</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2020</td>
+<td style="text-align: left;">Bad Boys For Life</td>
+<td style="text-align: left;">Sony Pictures</td>
+<td style="text-align: right;">204.4179</td>
+<td style="text-align: right;">228.7481</td>
+<td style="text-align: right;">21723470</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2021</td>
+<td style="text-align: left;">Spider-Man: No Way Home</td>
+<td style="text-align: left;">Sony Pictures</td>
+<td style="text-align: right;">572.9848</td>
+<td style="text-align: right;">580.1471</td>
+<td style="text-align: right;">55094689</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2022</td>
+<td style="text-align: left;">Top Gun: Maverick</td>
+<td style="text-align: left;">Paramount Pictures</td>
+<td style="text-align: right;">718.7328</td>
+<td style="text-align: right;">724.2351</td>
+<td style="text-align: right;">68778260</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Barbie</td>
+<td style="text-align: left;">Warner Bros.</td>
+<td style="text-align: right;">594.8010</td>
+<td style="text-align: right;">594.8010</td>
+<td style="text-align: right;">56486324</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>In order to visualise this, we’ll tell ggplot to use the <code>movie</code> column as the <code>x</code> position, and the <code>total_in_2022_dollars</code> as the y position.</p>
+<p>The first step is to tell the <code>ggplot()</code> function which dataframe it should use. To do this, set the <code>data</code> parameter to the <code>top_movies</code> object, as in the code cell below.</p>
+<p>Next we tell ggplot which columns it should use, and which aesthetics it should map these columsn to. This is also done by passing the names as parameters to <code>x</code> and <code>y</code>. First, type a comma after the <code>data = top_movies</code> code. Then, insert the code <code>aes()</code>. This tells ggplot it should interpret anything within these parentheses as aesthetic mappings. Finally, <em>within</em> the <code>aes()</code>, we’ll add the columns and aesthetics: <code>x = movie, y = total_in_2022_dollars</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_movies, <span class="fu">aes</span>(<span class="at">x =</span> movie, <span class="at">y =</span> total_in_2022_dollars)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>At this point, we have an empty visualisation which specifies the aesthetics which should be mapped. In order to draw the correct geom, or visualisation shape, we need to add it as a layer on top of the ggplot() function. To do this, we add a plus sign (<code>+</code>) followed by the code <code>geom_col()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_movies, <span class="fu">aes</span>(<span class="at">x =</span> movie, <span class="at">y =</span> total_in_2022_dollars)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now, we have a simple bar chart. You’ll notice that the defaults ggplot chooses are not always great ones: the names are displayed horizontally and are drawn over each other. The movies are also ordered alphabetically. We won’t worry about this now, but these things are very easy to change later.</p>
+</section>
+<section id="scatterplots-with-geom_point" class="level3">
+<h3 class="anchored" data-anchor-id="scatterplots-with-geom_point">Scatterplots with geom_point</h3>
+<p>Next, let’s try another geom and see the difference. This time, we’ll draw a scatterplot. Scatterplots are often used to draw attention to some kind of relationship between two variables. In ggplot, scatterplots are drawn using <code>geom_point()</code>. As with <code>geom_col</code>, we need to at a minimum set the <code>x</code> and <code>y</code> aesthetics. In <code>geom_point()</code>, these refer to the x and y coordinates of the points. For our scatterplot, we want to plot the ticket sales against the takings, to see the relationship between the two.</p>
+<p>As before, we start with <code>ggplot()</code>, and tell it what to use as the <code>x</code> and <code>y</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_movies, <span class="fu">aes</span>(<span class="at">x =</span> tickets_sold, <span class="at">y =</span> total_in_2022_dollars))  <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Unsurprisingly, there’s an almost perfectly straight line: the more tickets sold, the higher the takings…</p>
+</section>
+<section id="line-charts-with-geom_line" class="level3">
+<h3 class="anchored" data-anchor-id="line-charts-with-geom_line">Line charts with geom_line</h3>
+<p>As a final example, let’s use <code>geom_line()</code>. This draws a line between points in some kind of order. It’s often useful to show some kind of trend, such as change over time.</p>
+<p>We’ll draw a chart which draws a line through all the <code>year</code> values:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_movies, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> total_in_2022_dollars)) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In this example, the line chart clearly shows the huge drop in the first pandemic year, 2020.</p>
+</section>
+<section id="color" class="level3">
+<h3 class="anchored" data-anchor-id="color">Color</h3>
+<p>We can add new aesthetics to our visualisations as well as the positions (<code>x</code> and <code>y</code>). The most common additional one is colour, which can be used to represent a value in our data.</p>
+</section>
+<section id="what-is-aes" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-aes">What is aes()?</h3>
+<p>This is a good point to explain why we put <code>x</code> and <code>y</code> within <code>aes()</code>. By doing so, we tell ggplot that it should look at the <em>data</em>, and relate the aesthetic to the data itself.</p>
+<p>However in some cases, we just want to set all of the chart to a certain fixed value - the colour or transparency, for example. In this case, we put the aesthetics within the geom itself, and <em>not within</em> <code>aes()</code>, When we do this, we specify a particular value, rather than some value in the dataset.</p>
+<p>As an example, here is how we would set all the columns in our first bar chart to blue. The aesthetic we use is <code>fill</code>, which sets the fill colour of the bars (to set the colour of the border, we would use the <code>color</code> aesthetic).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_movies, <span class="fu">aes</span>(<span class="at">x =</span> movie, <span class="at">y =</span> total_in_2022_dollars)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">'blue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>However, in many cases we’ll want to map the colour to a value in the data. To do this, we will set the <code>fill</code> aesthetic within the <code>aes()</code>, as we did with <code>x</code> and <code>y</code>. To set the fill to the <code>distributor</code> column:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_movies, <span class="fu">aes</span>(<span class="at">x =</span> movie, <span class="at">y =</span> total_in_2022_dollars,<span class="at">fill =</span> distributor)) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now the column is coloured according to the distributor, and a <strong>legend</strong> has been automatically added.</p>
+</section>
+<section id="scales-1" class="level3">
+<h3 class="anchored" data-anchor-id="scales-1">Scales</h3>
+<p>The last important general point about ggplot is how it deals with different types of data. As mentioned above, data is generally found in either categorical or continuous forms. Categorical data that we have includes the distributor (a movie only has one distributor or another; it can’t be somewhere in between). Continuous data includes the box office totals (in principle, any value is possible). The <code>year</code> could potentially be interpreted as either.</p>
+<p>Ggplot will automatically make some changes to some aspects of your plots depending on the data type.</p>
+<p>In the bar chart above, the columns were coloured by a cattegorical variable: distributor. This means that ggplot gives a distinctive colour to each distibutor, so we can easily tell them apart. Let’s try, for the sake of it, to give it a numerical value. Ggplot will automatically interpret this as continuous:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> top_movies, <span class="fu">aes</span>(<span class="at">x =</span> movie, <span class="at">y =</span> total_in_2022_dollars,<span class="at">fill =</span> year)) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The difference is that now ggplot has chosen a <em>sequential</em> colour scheme: the colours run in a continuous hue from dark to light blue, depending on the numerical value of the year. Earlier years (lower values) have darker colours and higher values have lighter colours.</p>
+<p>The interpretation of continuous and categorical data effects the scales too. Scales are the labels on the x and y axes.</p>
+<p>A numerical (continuous) variable will by default be ordered in order of the values from low to high. Rather than write out every number, ggplot will display numbers as what it has chosen as a sensible interval. This is because we can infer other values in between.</p>
+<p>A categorical (text) variable will be, by default, ordered alphabetically. Each separate value will be written out, because it doesn’t make sense to only include intervals, as we can with continuous data.</p>
+</section>
+<section id="exercises" class="level3">
+<h3 class="anchored" data-anchor-id="exercises">Exercises:</h3>
+<p>Time to practice. These exercises will get progressively more difficult, and for some you’ll need to refer to the introduction to R last week, as they involve basic data wrangling. Give yourself an hour, and just try and complete as many as you can - there’s no need to complete everything.</p>
+<p>Create a new .Rmd file. Complete each exercise in code blocks within this. If you get stuck, the code answers for each are included. But please try to complete each without help first of all!</p>
+<section id="exercise-1" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-1">Exercise 1</h4>
+<p>Load the <code>tidyverse</code> package</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exercise-2" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-2">Exercise 2</h4>
+<p>Read the <code>gapminder.csv</code> data into R. You should have this file already on your local machine. To download it, click <a href="https://swcarpentry.github.io/r-novice-gapminder/data/gapminder_data.csv">here</a>. Upload it to your work space.</p>
+<p>Save it as an object called <code>gapminder_df</code></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>gapminder_df <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'gapminder_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1704 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): country, continent
+dbl (4): year, pop, lifeExp, gdpPercap
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-3">Exercise 3</h4>
+<p>Open <code>gapminder_df</code> in your environment. Write the number of columns it contains in plain text (not within a code block).</p>
+</section>
+<section id="exercise-4" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-4">Exercise 4</h4>
+<p>Restrict the data to latest year in the data: 2007. Call it a new object <code>gapminder_2007_df</code>.</p>
+<p>In later exercises you’ll need to do this yourself, but for this first one I have given you the code. Copy the below code into a new cell in your .Rmd file and run it:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>gapminder_2007_df <span class="ot">=</span> gapminder_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exercise-5" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-5">Exercise 5</h4>
+<p>Using this newly-created dataframe, draw a bar chart which plots the <code>country</code> column horizontally and <code>population</code> as the bar height.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> pop)) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exercise-6" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-6">Exercise 6</h4>
+<p>In a new code cell, create a scatterplot. Assign the <code>x</code> position to the <code>lifeExp</code> column, and the <code>y</code> position to the <code>gdpPercap</code> column.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>How would you interpret this data visualisation? Write the answer below your code.</p>
+</section>
+<section id="exercise-7" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-7">Exercise 7</h4>
+<p>Make some adjustments to the scatterplot. Copy your existing scatterplot code to a new cell. This time, assign the <code>pop</code> to the size of the points, and the <code>continent</code> to the colour.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007_df, <span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">y =</span> gdpPercap, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>IF YOU GET TO THIS STAGE, WELL DONE!</p>
+<p>The last few might take a bit longer to work out if you are a complete beginner. I also haven’t included the code solutions. You are welcome to try, or just stop here.</p>
+</section>
+<section id="exercise-8" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-8">Exercise 8</h4>
+<p>Return to the original <code>gapminder_df</code> object.</p>
+<p>Create a new object, <code>gapminder_netherlands_df</code>. Filter the full data to only include rows where the country is <code>Netherlands</code>.</p>
+</section>
+<section id="exercise-9" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-9">Exercise 9</h4>
+<p>Draw a plot which shows the change in the <code>lifeExp</code> variable in the Netherlands over time.</p>
+<p>You should choose an appropriate <code>geom</code> for your plot.</p>
+</section>
+<section id="exercise-10" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-10">Exercise 10</h4>
+<p>Look at the dataframe in your environment, and choose a set of five countries. Filter the data (create a new dataframe object if needed) to only these five countries.</p>
+<p>Draw a chart which compares the life expectancy of those countries and its change over time.</p>
+</section>
+<section id="exercise-11-bonus-will-require-external-information" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-11-bonus-will-require-external-information">Exercise 11 (bonus, will require external information!)</h4>
+<p>Use <code>summarise()</code> to calculate the average life expectancy for each continent, for each year. Save this as a new object called <code>average_life_exp</code>.</p>
+<p>This chart should contain four separate panels: one for each of the continents of Asia, Europe, Americas, and Africa (e.g., you need to remove Oceania). For each panel, use a line chart to separately display the change in life expectancy over time, for each country. Use the original gapminder data for this. Render the data for each country as a thin, black line.</p>
+<p>Next, use the dataframe with the averages you created above to draw an extra layer, of the average life expectancy. This should be drawn as a thicker, blue line, with an opacity (alpha) of 50%.</p>
+<p>To do this, you’ll probably need the following information:</p>
+<ul>
+<li><p>To render each country’s data as a separate line, you’ll have to specify the <code>group = country</code> within the <code>aes()</code>.</p></li>
+<li><p>To render each continent as a separate panel, you’ll need the layer facet_wrap(). You can find out more information about how to use this here: <a href="https://ggplot2-book.org/getting-started#sec-qplot-faceting" class="uri">https://ggplot2-book.org/getting-started#sec-qplot-faceting</a></p></li>
+<li><p>To add both the individual and average values to the plot, you’ll need to add them both as separate layers. This is done using the + symbol. However, because each layer is using a separate data source, rather than include the information on aesthetics and so forth within the ggplot() function, you’ll need to move this information, in the same format, to each of the individual <code>geom_</code> layers.</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="datavis-0_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If you’d like another challenge:</p>
+<ul>
+<li>Re-do the above, but don’t create a new dataframe with the averages. Include the averages as an additional column in the original dataframe. You’ll need to use <code>group_by()</code> and <code>mutate()</code> for this. You’ll also need to adjust the ggplot code.</li>
+</ul>
+</section>
+<section id="finished" class="level4">
+<h4 class="anchored" data-anchor-id="finished">Finished?</h4>
+<p>Render your .Rmd file, and submit the .Rmd and the html output under the weekly task.</p>
+<p>If you struggle with ‘knitting’ the .Rmd file because of errors, just submit the .Rmd file on its own.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./r-intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./data-visualisation-1.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Visualisation 1</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

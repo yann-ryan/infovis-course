@@ -1,0 +1,71 @@
+---
+title: "Extra: drawing a city basemap"
+---
+
+Use the code below to download a map which can be used as a basemap where you have
+
+```{r}
+library(sf)
+library(osmdata)
+library(magrittr)
+library(dplyr)
+library(ggplot2)
+```
+
+This next cell loads geographic data for streets in Paris
+
+You can change out the key and value entries to basically anything available here: https://wiki.openstreetmap.org/wiki/Map_features.
+
+You can also choose another geographic area. Create a bounding box using the tool here: https://boundingbox.klokantech.com/. Under the 'copy and paste' at the bottom-left, choose the 'csv' option. Paste the numbers here in place of the numbers between the `c()` at the beginning of the next cell.
+
+```{r}
+
+box = c(2.303679,48.828903,2.404616,48.886051)
+
+streets = opq(bbox = c(box[1],box[2],box[3],box[4])) %>%
+    add_osm_feature(key = 'highway', value = 'residential')%>%
+    osmdata_sf ()
+
+primary = opq(bbox = c(box[1],box[2],box[3],box[4])) %>%
+    add_osm_feature(key = 'highway', value = 'primary')%>%
+    osmdata_sf ()
+
+secondary = opq(bbox = c(box[1],box[2],box[3],box[4])) %>%
+    add_osm_feature(key = 'highway', value = 'secondary')%>%
+    osmdata_sf ()
+
+tertiary = opq(bbox = c(box[1],box[2],box[3],box[4])) %>%
+    add_osm_feature(key = 'highway', value = 'tertiary')%>%
+    osmdata_sf ()
+
+canals = opq(bbox = c(box[1],box[2],box[3],box[4])) %>%
+    add_osm_feature(key = 'waterway', value = 'canal')%>%
+    osmdata_sf ()
+
+rivers = opq(bbox = c(box[1],box[2],box[3],box[4])) %>%
+    add_osm_feature(key = 'waterway', value = 'river')%>%
+    osmdata_sf ()
+
+streets_sf = streets$osm_lines %>% st_set_crs(4326)
+canals_sf = canals$osm_lines %>% st_set_crs(4326)
+rivers_sf = rivers$osm_lines %>% st_set_crs(4326)
+
+primary_sf = primary$osm_lines %>% st_set_crs(4326)
+secondary_sf = secondary$osm_lines %>% st_set_crs(4326)
+tertiary_sf = tertiary$osm_lines %>% st_set_crs(4326)
+
+```
+
+This final cell draws a simple map. You can change the colours by swapping in different text, and make many other changes.
+
+```{r}
+ggplot() + 
+  geom_sf(data = canals_sf, color = 'lightblue', lwd = 2) + 
+  geom_sf(data = rivers_sf, color = 'lightblue', lwd = 2)+ 
+  geom_sf(data = primary_sf, color = 'gray50')+ 
+  geom_sf(data = secondary_sf, color = 'gray50')+ 
+  geom_sf(data = tertiary_sf, color = 'gray50')+ 
+  geom_sf(data = streets_sf, color = 'gray50') + 
+  coord_sf(xlim = c(box[1], box[3]), ylim = c(box[2],box[4])) + 
+  theme_void()
+```

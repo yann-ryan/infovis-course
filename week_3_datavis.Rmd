@@ -1,0 +1,337 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+## Follow-up from last week: using summarise
+
+In the final exercise, you were asked to calculate the mean (average) value life expectancy for each country. To do this, you need to use another function called `summarise()`. 
+
+`summarise()` applies a function to the groups in your data. 
+
+Remember when we used `group_by`() and `count()` to count the number of fruit types? Under the hood, the code is actually using a function called `summarise()`. The difference between `summarise()`and `count()` is that with summarise you can apply different functions to the groups, not just telling R to count them. In this instance, the function you use is `mean()`
+
+To do this for the exercise from last week, you could use the following code:
+
+```{r}
+
+library(gapminder)
+library(tidyverse)
+
+gapminder_df = gapminder
+
+gapminder_df %>% 
+  filter(continent == 'Asia') %>% 
+  select(country, continent, lifeExp, gdpPercap) %>% 
+  mutate(gdp_lifeExp = gdpPercap / lifeExp) %>% 
+  group_by(country) %>% 
+  summarise(ave_exp = mean(lifeExp, na.rm = TRUE)) %>% 
+  filter(str_detect(country, "stan$"))
+  
+
+```
+
+Summarise works a bit like mutate(). You'll specify the output column name of the summary using the name followed by the equals sign. 
+After the equal sign, specify the function you want to use (in this case, `mean()`), and the data column you want to apply the function to (in this case, `lifeExp`).
+
+You can create multiple pieces of information in the same summarise, just repeat the above, followed by a comma. 
+
+Summarise exercises:
+
+Calculate the average life expectancy for each continent:
+
+Calculate the average life expectancy *per year* for each country:
+
+Calculate the average life expectancy AND the *total* gdp per year for each continent:
+
+Calculate the minimum, maximum and average life expectancy for each country. The three functions to use are `min()`, `max()`, and `mean()`.
+
+
+
+### Load ggplot2
+
+All the visualisations we create on this course will be made using a package for R called `ggplot2`. Before we do anything else, you'll need to load this package. The easiest way to do this is load the 'meta-package' `tidyverse`, which will include `ggplot2`.
+
+As last week, use `library()` to load the package:
+
+```{r}
+#| warning: false
+#| message: false
+
+library(tidyverse)
+```
+
+The basis of all `ggplot2` visualisations is a function called `ggplot()`. Think of this as the foundation of your visualisation. You'll tell the `ggplot()` function what data it should use and which attributes of that data it should map to specific aesthetics.
+
+The `ggplot()` function doesn't produce any visualisation on its own, however. For that, you'll need to add what are called 'geoms'. A geom can be thought of as the further 'layers' you build on top of the `ggplot()` foundation.
+
+In simple terms, geometries can be considered as shape types: some examples include columns, points, or lines. When we connect these to our data correctly, we'll produce data visualisations.
+
+### Bar charts with geom_col
+
+As an example, let's draw a simple bar chart using ggplot. We want to make a simple bar chart from the top box office movies data we used last week: each movie will be a separate bar, organised horizontally, and the height of each bar should correspond to the total box office takings for that movie.
+
+In ggplot, a bar chart is created using the geom `geom_col()`. `geom_col()`, like all geoms, has a set of aesthetics which must be specified. In this case, we must at least specific the `x` and `y` aesthetics. These correspond to the horizontal and vertical position of the bars. When we give these aesthetics to geom_col, it will automatically figure out what to do with them.
+
+First, load the box office data as a dataframe:
+
+```{r}
+top_movies = read_csv('top_movie.csv')
+
+top_movies %>% kableExtra::kbl()
+
+```
+
+In order to visualise this, we'll tell ggplot to use the `movie` column as the `x` position, and the `total_in_2022_dollars` as the y position.
+
+The first step is to tell the `ggplot()` function which dataframe it should use. To do this, set the `data` parameter to the `top_movies` object, as in the code cell below.
+
+Next we tell ggplot which columns it should use, and which aesthetics it should map these columsn to. This is also done by passing the names as parameters to `x` and `y`. First, type a comma after the `data = top_movies` code. Then, insert the code `aes()`. This tells ggplot it should interpret anything within these parentheses as aesthetic mappings. Finally, *within* the `aes()`, we'll add the columns and aesthetics: `x = movie, y = total_in_2022_dollars`:
+
+```{r}
+ggplot(data = top_movies, aes(x = movie, y = total_in_2022_dollars)) 
+  
+```
+
+At this point, we have an empty visualisation which specifies the aesthetics which should be mapped. In order to draw the correct geom, or visualisation shape, we need to add it as a layer on top of the ggplot() function. To do this, we add a plus sign (`+`) followed by the code `geom_col()`:
+
+```{r}
+ggplot(data = top_movies, aes(x = movie, y = total_in_2022_dollars)) + 
+  geom_col()
+
+```
+
+Now, we have a simple bar chart. You'll notice that the defaults ggplot chooses are not always great ones: the names are displayed horizontally and are drawn over each other. The movies are also ordered alphabetically. We won't worry about this now, but these things are very easy to change later.
+
+### Scatterplots with geom_point
+
+Next, let's try another geom and see the difference. This time, we'll draw a scatterplot. Scatterplots are often used to draw attention to some kind of relationship between two variables. In ggplot, scatterplots are drawn using `geom_point()`. As with `geom_col`, we need to at a minimum set the `x` and `y` aesthetics. In `geom_point()`, these refer to the x and y coordinates of the points. For our scatterplot, we want to plot the ticket sales against the takings, to see the relationship between the two.
+
+As before, we start with `ggplot()`, and tell it what to use as the `x` and `y`:
+
+```{r}
+ggplot(data = top_movies, aes(x = tickets_sold, y = total_in_2022_dollars))  + 
+  geom_point()
+```
+
+Unsurprisingly, there's an almost perfectly straight line: the more tickets sold, the higher the takings...
+
+### Line charts with geom_line
+
+As a final example, let's use `geom_line()`. This draws a line between points in some kind of order. It's often useful to show some kind of trend, such as change over time.
+
+We'll draw a chart which draws a line through all the `year` values:
+
+```{r}
+ggplot(data = top_movies, aes(x = year, y = total_in_2022_dollars)) + 
+  geom_line()
+```
+
+In this example, the line chart clearly shows the huge drop in the first pandemic year, 2020.
+
+### Color
+
+We can add new aesthetics to our visualisations as well as the positions (`x` and `y`). The most common additional one is colour, which can be used to represent a value in our data.
+
+### What is aes()?
+
+This is a good point to explain why we put `x` and `y` within `aes()`. By doing so, we tell ggplot that it should look at the *data*, and relate the aesthetic to the data itself.
+
+However in some cases, we just want to set all of the chart to a certain fixed value - the colour or transparency, for example. In this case, we put the aesthetics within the geom itself, and *not within* `aes()`, When we do this, we specify a particular value, rather than some value in the dataset.
+
+As an example, here is how we would set all the columns in our first bar chart to blue. The aesthetic we use is `fill`, which sets the fill colour of the bars (to set the colour of the border, we would use the `color` aesthetic).
+
+```{r}
+ggplot(data = top_movies, aes(x = movie, y = total_in_2022_dollars)) + 
+  geom_col(fill = 'blue')
+```
+
+However, in many cases we'll want to map the colour to a value in the data. To do this, we will set the `fill` aesthetic within the `aes()`, as we did with `x` and `y`. To set the fill to the `distributor` column:
+
+```{r}
+ggplot(data = top_movies, aes(x = movie, y = total_in_2022_dollars,fill = distributor)) + 
+  geom_col()
+
+```
+
+Now the column is coloured according to the distributor, and a **legend** has been automatically added.
+
+### Scales
+
+The last important general point about ggplot is how it deals with different types of data. As mentioned above, data is generally found in either categorical or continuous forms. Categorical data that we have includes the distributor (a movie only has one distributor or another; it can't be somewhere in between). Continuous data includes the box office totals (in principle, any value is possible). The `year` could potentially be interpreted as either.
+
+Ggplot will automatically make some changes to some aspects of your plots depending on the data type.
+
+In the bar chart above, the columns were coloured by a cattegorical variable: distributor. This means that ggplot gives a distinctive colour to each distibutor, so we can easily tell them apart. Let's try, for the sake of it, to give it a numerical value. Ggplot will automatically interpret this as continuous:
+
+```{r}
+ggplot(data = top_movies, aes(x = movie, y = total_in_2022_dollars,fill = year)) + 
+  geom_col()
+```
+
+The difference is that now ggplot has chosen a *sequential* colour scheme: the colours run in a continuous hue from dark to light blue, depending on the numerical value of the year. Earlier years (lower values) have darker colours and higher values have lighter colours.
+
+The interpretation of continuous and categorical data effects the scales too. Scales are the labels on the x and y axes.
+
+A numerical (continuous) variable will by default be ordered in order of the values from low to high. Rather than write out every number, ggplot will display numbers as what it has chosen as a sensible interval. This is because we can infer other values in between.
+
+A categorical (text) variable will be, by default, ordered alphabetically. Each separate value will be written out, because it doesn't make sense to only include intervals, as we can with continuous data.
+
+### Exercises:
+
+Time to practice. These exercises will get progressively more difficult, and for some you'll need to refer to the introduction to R last week, as they involve basic data wrangling. Give yourself an hour, and just try and complete as many as you can - there's no need to complete everything.
+
+Create a new .Rmd file. Complete each exercise in code blocks within this. If you get stuck, the code answers for each are included. But please try to complete each without help first of all!
+
+#### Exercise 1
+
+Load the `tidyverse` package
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+library(tidyverse)
+
+```
+
+#### Exercise 2
+
+Read the `gapminder.csv` data into R. You should have this file already on your local machine. To download it, click [here](https://swcarpentry.github.io/r-novice-gapminder/data/gapminder_data.csv). Upload it to your work space.
+
+Save it as an object called `gapminder_df`
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+gapminder_df = read_csv('gapminder_data.csv')
+
+```
+
+#### Exercise 3
+
+Open `gapminder_df` in your environment. Write the number of columns it contains in plain text (not within a code block).
+
+#### Exercise 4
+
+Restrict the data to latest year in the data: 2007. Call it a new object `gapminder_2007_df`.
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+gapminder_2007_df = gapminder_df %>% filter(year == 2007)
+```
+
+#### Exercise 5
+
+Using this newly-created dataframe, draw a bar chart which plots the `country` column horizontally and `population` as the bar height.
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+ggplot(data = gapminder_2007_df, aes(x = country, y = pop)) + 
+  geom_col()
+```
+
+#### Exercise 6
+
+In a new code cell, create a scatterplot. Assign the `x` position to the `lifeExp` column, and the `y` position to the `gdpPercap` column.
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+ggplot(data = gapminder_2007_df, aes(x = lifeExp, y = gdpPercap)) + 
+  geom_point()
+
+```
+
+How would you interpret this data visualisation? Write the answer below your code.
+
+#### Exercise 7
+
+Make some adjustments to the scatterplot. Copy your existing scatterplot code to a new cell. This time, assign the `pop` to the size of the points, and the `continent` to the colour.
+
+```{r}
+#| code-fold: true
+#| eval: false
+
+ggplot(data = gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = continent, size = pop)) + 
+  geom_point()
+
+
+```
+
+IF YOU GET TO THIS STAGE, WELL DONE!
+
+The last few might take a bit longer to work out if you are a complete beginner. I also haven't included the code solutions. You are welcome to try, or just stop here.
+
+#### Exercise 8
+
+Return to the original `gapminder_df` object.
+
+Create a new object, `gapminder_netherlands_df`. Filter the full data to only include rows where the country is `Netherlands`.
+
+#### Exercise 9
+
+Draw a plot which shows the change in the `lifeExp` variable in the Netherlands over time.
+
+You should choose an appropriate `geom_`, or graphical type, for your plot.
+
+#### Exercise 10
+
+Look at the dataframe in your environment, and choose a set of five countries. Filter the data (create a new dataframe object if needed) to only these five countries.
+
+Draw a chart which compares the life expectancy of those countries and its change over time.
+
+#### Exercise 11 (bonus, will require external information!)
+
+Use `summarise()` to calculate the average life expectancy for each continent, for each year. Save this as a new object called `average_life_exp`.
+
+This chart should contain four separate panels: one for each of the continents of Asia, Europe, Americas, and Africa (e.g., you need to remove Oceania). For each panel, use a line chart to separately display the change in life expectancy over time, for each country. Use the original gapminder data for this. Render the data for each country as a thin, black line.
+
+Next, use the dataframe with the averages you created above to draw an extra layer, of the average life expectancy. This should be drawn as a thicker, blue line, with an opacity (alpha) of 50%.
+
+To do this, you'll probably need the following information:
+
+-   To render each country's data as a separate line, you'll have to specify the `group = country` within the `aes()`.
+
+-   To render each continent as a separate panel, you'll need the layer facet_wrap(). You can find out more information about how to use this here: <https://ggplot2-book.org/getting-started#sec-qplot-faceting>
+
+-   To add both the individual and average values to the plot, you'll need to add them both as separate layers. This is done using the + symbol. However, because each layer is using a separate data source, rather than include the information on aesthetics and so forth within the ggplot() function, you'll need to move this information, in the same format, to each of the individual `geom_` layers.
+
+```{r}
+#| code-fold: true
+#| echo: false
+
+average_life_exp = gapminder_data %>% 
+  group_by(continent, year,) %>% 
+  mutate(avg = mean(lifeExp))
+
+ggplot() + 
+  geom_line(data = gapminder_data %>% 
+              filter(continent!= 'Oceania'), 
+            aes(x = year, y = lifeExp, group = country)) + 
+  geom_line(data = average_life_exp %>% 
+              filter(continent!= 'Oceania'), 
+            aes(x = year, y = avg), size = 3, color = 'blue', alpha = .5) + 
+  facet_wrap(~continent)
+
+```
+
+
+If you'd like another challenge:
+
+-   Re-do the above, but don't create a new dataframe with the averages. Instead, include the averages as an additional column in the original dataframe. You'll need to use `group_by()` and `mutate()` for this. You'll also need to adjust the ggplot code. 
+
+
+
+#### Finished?
+
+Render your .Rmd file, and submit the .Rmd and the html output under the weekly task.
+
+If you struggle with 'knitting' the .Rmd file because of errors, just submit the .Rmd file on its own.

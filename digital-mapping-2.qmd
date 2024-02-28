@@ -1,0 +1,99 @@
+---
+title: "Digital Mapping 2"
+---
+
+## 9 Steps to Making a Map
+
+1.  Import your geographic data
+
+2.  Figure out the geographic unit
+
+3.  Find a base map which corresponds
+
+4.  Import your base map
+
+5.  Find the common field
+
+6.  Summarise your data
+
+7.  Join your data and the map together
+
+8.  Map with ggplot and sf
+
+9.  Finishing touches
+
+### 1: Import your geographic data
+
+Find the 'raw' dataset you want to use. This will of course have some kind of geographic information, such as country, or state, or region, as well as further information. As an example, this is a dataset of Nobel prize winners
+
+### 2: Figure out the Geographic Unit
+
+Each row of information in your data will have a geographic unit - the *type* of area on the map where it records the geographic information. These are usually based on some kind of political or geographic border. Examples include nations, regions, provinces, municipalities, election areas, and so forth. This will be recorded in a single column.
+
+Your data should only have one type of geographic unit. In other words, you shouldn't have data which mixes more than one together. For example, if you had a 'place' column, it won't work if sometimes it records the country, and sometimes the province. It can have different geographic units in *different* columns, for example one column with the country. and another with the province. If this is the case, decide which level you want to use.
+
+### 3: Find a base map which corresponds to this geographic unit.
+
+You need to find a map containing features which correspond to the geographic unit you are going to use in your data. If you have a dataset where information is recorded on the country level, you'll need a world map in which each feature is a country (as the one we used last week from R Natural Earth.
+
+If you have more specific geographic data, you'll probably need to find a corresponding 'shape file'. These are often released by official agencies and can be found through a search engine. For example, Dutch geo data can often be found through <https://www.pdok.nl/>. Shapefiles for EU regions can be found at <https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/nuts>. These use a set of boundaries called NUTS, which range from NUTS-0 (countries) to NUTS-3 (small regions).
+
+Remember that adminstrative units are often redrawn, so try to make sure that your data and map match as much as possible.
+
+In some cases, these shapefiles will contain all possible geographic units in one dataset. In that case, you'll need to filter to only include the relevant ones.
+
+### 4: Import your base map into R
+
+Using sf, import your basemap. Usually this can be done by using st_read, and giving the location of the shapefile.
+
+### 5: Find a Common Field
+
+Now, you need to look at your two datasets - your data and your shapefile - and figure out what field they have in common. This means, you need to find the column in each one which uses a standardised set of names.
+
+A simple example is where both have a column with country names.
+
+A good practice is to use a standardised code where one is available. For instance, both dataset may have a standardised 'ISO' code where the country is recorded. This is less ambiguous than a country name, which may have slight variants, or be recorded in another languages, etc.
+
+In the case of smaller regions such as EU NUTS regions, you will likely have to use a code rather than a specific name.
+
+### 6: Summarise your Data
+
+Once you have your common code, you can get your dataset ready. Usually, this will mean doing a summary (such as a count, or maybe getting an average, or perhaps some kind of proportion by population) for each entry in the geographic field you are using. For example, if the field in common is an EU NUTS region code, then you would do a summary for each NUTS region.
+
+One exception to this is if you want to draw multiple maps, one for each category. In this case, you might summarise by two variables: the category, and the region. Later, you'll need to use facet_wrap to draw each category as a separate map.
+
+At this stage, you may also want to filter your data. This might be to restrict the data to a certain year or timeframe. You will also need to filter your data if you have multiple geographic units in the same column. For instance, your data may have a 'region' column, where it records not just NUTS level 2, but also NUTS level 1 and 3. In this case you need to figure out how to restrict it to a single geographic unit.
+
+### 7: Join your data and map together.
+
+Using left_join, you will now merge together the map with the summarised dataset. If the column names are not the same, you'll have to specify which ones it should use (see previous lesson for this).
+
+### 8: Map with ggplot and geom_sf
+
+Now, you can make a map! Remember to use aes() and fill = to specify how ggplot should colour your data.
+
+### 9: Finishing Touches
+
+Now, make edits to your map to make it more readable and looking better aesthetically. You'll probably want to adjust the limits of the map using coord_df, and experiment with the scale using scale_fill\_. You could also think about binning the colors (often it's easier to interpret specific colors on maps rather than a continuous scale). This is the point where you will need to use facet_wrap() to draw maps separately, if you went down this route.
+
+You could also add a map scale bar and a compass using the package ggsn (you'll need to install it separately using install.packages.
+
+## Exercise
+
+In groups, create a data map from scratch by following the steps above.
+
+Use one of the following data sources. You'll need to summarise the data first of all, and think about what it is exactly you want your map to show. You'll also have to do some independent research to find a suitable shapefile. Once you have done this, you can read it into R using the function `st_read()`. I can help with any issues at this step!
+
+-   Nobel prize data. This dataset we worked with last week. It contains country and place of birth and death for Nobel prize winners, as well as other information. It's available [here](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/book/data/nobel-prize-winners), or you can look up the code we used to read it directly into R last week.
+
+-   [This dataset](https://github.com/the-pudding/data/blob/master/dog-shelters/allDogDescriptions.csv) of data on dog adoptions in the US. It was originally used for [this story](https://pudding.cool/2019/10/shelters/) on the news website The Pudding. The easiest way to load this into R is to directly use the 'raw' link on `read_csv` in R. You can also download the file, and then upload it to Posit, and use it that way. Learning how to use datasets directly from Github is a very useful thing to know!
+
+-   EU statistics, from the official [eurostat website](https://ec.europa.eu/eurostat/web/main/data/database). There are many datasets here. To find one which is suitable for creating a data map, look for where the geographic unit (the NUTS code) has been specified in the description.
+
+-   US Refugee arrival data, from [here](https://github.com/melaniewalsh/Intro-Cultural-Analytics/tree/master/book/data/us-refugee-arrivals). Again, you'll need to figure out how to download this from Github.
+
+-   UNHCR refugee data. The easiest way to access this is through the R package `refugees`. This can be installed using `install.packages('refugees')` . Further information on using this package can be found [here](https://www.unhcr.org/refugee-statistics/insights/explainers/refugees-r-package.html).
+
+-   Trans-Atlantic Slave Trade data. Available [here](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/data/Trans-Atlantic-Slave-Trade_Americas.csv). Again, from Github, and easiest to load by reading the 'raw' file directly into R using `read_csv()`
+
+-   Dutch war monuments dataset (from Wikipedia). In this case, I have provided both the dataset and the shapefile, available in the Posit workspace.

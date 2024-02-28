@@ -1,0 +1,337 @@
+---
+title: "Grouping Operations in R"
+output: 
+  learnr::tutorial:
+    progressive: true
+    df_print: default
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+gradethis::gradethis_setup()
+
+nobel_df = read_csv('https://raw.githubusercontent.com/melaniewalsh/Intro-Cultural-Analytics/master/book/data/nobel-prize-winners/nobel-prize-winners.csv') %>% mutate(age_when_awarded = year - year(ymd(born)))
+
+```
+
+# Introduction
+
+The following is a short reminder and primer on working with groups in R. You should run this notebook in Posit cloud. Run each cell after reading the text before it to see the result of the code. *I recommend paying really close attention to the output, so that you understand exactly what the code has done.*
+
+## Definitions
+
+The following functions are done on dataframes (the objects of rows and columns we have been working with on the course).
+
+In a dataframe, we should think of **variables** (the columns) and **observations** (the rows). In the following dataset, the variables are height, mass, hair_color, and so forth, and the observations are each row representing a character from Star Wars.
+
+```{r}
+starwars
+```
+
+## group_by()
+
+group_by simply groups together the observations in a dataframe, based on one or more variables. It takes a dataframe and one or more variables as its arguments (or parameters). The following will create a new dataframe, grouped by the `species` variable:
+
+```{r}
+by_species = starwars %>% group_by(species)
+```
+
+If you print a grouped dataframe by running its name in a cell, you'll see the groups in the output, above the dataframe itself:
+
+```{r}
+by_species
+```
+
+You can also group by multiple variables:
+
+```{r}
+by_species_homeworld = starwars %>% group_by(species, homeworld)
+
+by_species_homeworld
+```
+
+You can, if you want, remove groups using `ungroup()`
+
+```{r}
+by_species %>% ungroup()
+```
+
+
+## Using functions with groups  
+
+Groups are only useful when we apply certain functions to them. The following are some key examples. 
+
+## tally()
+
+Tally simply counts the number of observations (rows) in each group.
+
+```{r}
+by_species %>% tally(sort = TRUE)
+```
+
+```{r}
+by_species_homeworld %>% tally(sort = TRUE)
+```
+
+## summarise()
+
+**summarise computes a one-row summary for each group.**
+
+In other words, it takes each group, and performs a calculation using all the values in that group.
+
+As its parameters, the `summarise()` function takes a grouped dataframe, then a new column name (for the computed value), and lastly the desired function.
+
+The simplest calculation is to simply count the number of objects in the group. This is done using the function `n()`.
+
+```{r}
+by_species %>% summarise(total_in_group = n())
+```
+
+This is identical to `tally()`, except it hasn't been sorted from largest to smallest using `sort = TRUE`.
+
+`summarise()` can use many other functions.
+
+For instance, we can calculate the total height of each species using `sum()`, as in the following:
+
+```{r}
+by_species %>% 
+  summarise(total_height = sum(height, na.rm = TRUE))
+```
+
+Or the average height using `mean()`:
+
+```{r}
+by_species %>% summarise(average_height = mean(height, na.rm = TRUE))
+```
+
+We can also create multiple summary columns at once. The following calculates the minimum and maximum height of each species, using `min()` and `max()`. Each summary you want to perform should be separated by a comma. I have also separated each by a new line, but this is not necessary - it just makes it easier to read.
+
+```{r}
+by_species %>% summarise(min_height = min(height, na.rm = TRUE), 
+                         max_height = max(height, na.rm = TRUE))
+```
+
+We can also use summarise on multiple groups:
+
+```{r}
+by_species_homeworld %>% 
+  summarise(min_height = min(height, na.rm = TRUE), 
+                         max_height = max(height, na.rm = TRUE))
+```
+
+## count()
+
+As an aside, `count()` can be used as a shortcut for some common grouping/summarising operations. The following two are identical:
+
+```{r}
+starwars %>% group_by(species) %>% summarise(n = sum(height))
+```
+
+```{r}
+starwars %>% count(species, wt = height)
+```
+
+And the following three are identical:
+
+```{r}
+starwars %>% group_by(species) %>% summarise(n = n())
+```
+
+```{r}
+starwars %>% group_by(species) %>% tally()
+```
+
+```{r}
+starwars %>% count(species)
+```
+
+## slice\_ functions
+
+Another useful set of functions are slice_min() and slice_max(). These return the rows with the highest or lowest values in each group. We specify which value should be used with `order_by =` and how many rows should be returned using `n =`
+
+The following returns the two observations with the lowest value for height, for each group.
+
+```{r}
+by_species %>% slice_min(order_by = height, n = 2 )
+```
+
+The following returns the highest values:
+
+```{r}
+by_species %>% slice_max(order_by = height, n = 2 )
+```
+
+## Exercises
+
+The following is a dataset of all past Nobel prize winners. I have added a new column, 'age_when_awarded', which gives the age of the person in the year they received the award.
+
+```{r}
+nobel_df = read_csv('https://raw.githubusercontent.com/melaniewalsh/Intro-Cultural-Analytics/master/book/data/nobel-prize-winners/nobel-prize-winners.csv') %>% mutate(age_when_awarded = year - year(ymd(born)))
+```
+
+Carry out the following calculations:
+
+### Exercise 1
+
+The total number of winners in each `category`.
+
+```{r exercise1, exercise = TRUE}
+
+```
+
+```{r exercise1-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(category) %>% tally()
+```
+ 
+```{r exercise1-code-check}
+grade_code()
+```
+
+### Exercise 2
+
+The total number of winners by `gender`:
+
+```{r exercise2, exercise = TRUE}
+
+```
+
+```{r exercise2-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(gender) %>% tally()
+```
+ 
+```{r exercise2-code-check}
+grade_code()
+```
+
+### Exercise 3
+
+The number of winners of each category, by gender:
+
+```{r exercise3, exercise = TRUE}
+
+
+```
+
+```{r exercise3-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(category, gender) %>% tally()
+```
+ 
+```{r exercise3-code-check}
+grade_code()
+```
+
+### Exercise 4
+
+The number of winners by country of birth (specifically, the variable `bornCountry_now`.)
+
+```{r exercise4, exercise = TRUE}
+
+```
+
+```{r exercise4-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(bornCountry_now) %>% tally()
+```
+ 
+```{r exercise4-code-check}
+grade_code()
+```
+
+### Exercise 5
+
+The **sum** of all the ages of the winners when awarded, from each country of birth (again, using `bornCountry_now`). Call the summary value `n`. 
+
+```{r exercise5, exercise = TRUE}
+
+```
+
+```{r exercise5-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(bornCountry_now) %>% summarise(n = sum(age_when_awarded))
+```
+ 
+```{r exercise5-code-check}
+grade_code()
+```
+
+### Exercise 6
+
+The average age when the prize was awarded, for each category. Call the new summary value `avg_age`. Make sure you tell it to ignore NA values, as in the examples above!
+
+```{r exercise6, exercise = TRUE}
+
+```
+
+```{r exercise6-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(category) %>% summarise(avg_age = mean(age_when_awarded, na.rm = TRUE))
+```
+ 
+```{r exercise6-code-check}
+grade_code()
+```
+
+### Exercise 7
+
+The average age when the prize was awarded, for each gender. Again, call the summary value `avg_age`. 
+
+```{r exercise7, exercise = TRUE}
+
+```
+
+```{r exercise7-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(gender) %>% summarise(avg_age = mean(age_when_awarded, na.rm = TRUE))
+```
+ 
+```{r exercise7-code-check}
+grade_code()
+```
+
+### Exercise 8
+
+The oldest **and** youngest age of the winner for each category, by gender. Call the new values `min_age` and `max_age`, and don't forget to remove any NA values.  
+
+```{r exercise8, exercise = TRUE}
+
+```
+
+```{r exercise8-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(category, gender) %>% summarise(min_age = min(age_when_awarded, na.rm = TRUE), max_age = max(age_when_awarded, na.rm = TRUE))
+```
+ 
+```{r exercise8-code-check}
+grade_code()
+```
+
+### Exercise 9
+
+Return the oldest five winners for each category, but this time return the full row, using `slice_max()`.
+
+```{r exercise9, exercise = TRUE}
+
+```
+
+```{r exercise9-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(category) %>% slice_max(order_by = age_when_awarded, n = 1)
+```
+ 
+```{r exercise9-code-check}
+grade_code()
+```
+
+### Exercise 10
+
+The institution with the highest number of wins for each category (using `institutionName`). For this, you'll need to do **two** grouping operations, one after the other, using the pipe `%>%`. First, calculate the total number of wins per institution, for each category. Next, use `slice_max()` to get the largest value in each category.
+
+```{r exercise10, exercise = TRUE}
+
+
+```
+
+```{r exercise10-solution, exercise.reveal_solution = FALSE}
+nobel_df %>% group_by(category, institutionName) %>% summarise(n = n()) %>% 
+  slice_max(order_by = n, n = 1)
+```
+ 
+```{r exercise10-code-check}
+grade_code()
+```

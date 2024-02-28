@@ -1,0 +1,24 @@
+---
+title: "Themes"
+---
+
+## Themes
+
+Last week, we learned how to make adjustments to scales: how our data is mapped onto various aesthetics.
+
+This week, we'll look at how we can make changes to the purely aesthetic parts of our charts.
+
+All the aesthetic aspects which are not part of the data visualisation itself can be changed by using themes. This includes the plot title and subtitle text, the axis text and ticks, the background to the plot, and the position of the legend.
+
+In order to change these, we add the code `+theme()` to an existing plot. Within `theme()`, we specify different parts of the chart with different code. The syntax for this can be a bit difficult to follow, so if you're struggling, it's best to stick to a few key changes and try and learn them (or better still, keep a reference handy). Here is a diagram of the key changes you can make and the relevant code:
+
+![](images/ggplot2-theme-elements-reference-v2.png)
+
+This is how it works in practice. For example, if we wanted to change the plot title (we'll get on to titles properly in a later class) to the colour blue, we would add the following code to the basic plot we made above (pay attention to the final line):
+
+```{r} ggplot(data = df, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    geom_point(size = 3) +    theme(plot.title = element_text(color = 'blue'))}
+```
+
+First, we add `+theme()` to the plot. All the specific elements we want to change will be within the parentheses of `theme()`, separated by a comma.
+
+Next, we specify we want to change the title using `plot.title=`. This is taken from the diagram above.

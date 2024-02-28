@@ -1,0 +1,473 @@
+---
+title: "Data Visualisation 1"
+---
+
+## Position scales
+
+The most common scales in data visualisation are numerical position scales.
+
+The default scales are called `scale_x_continuous` and `scale_y_continuous`, which simply map linearly from a data value to a location on the plot.
+
+We generally don't need to think about these much. For example, let's load up the movies database used last week and make a basic plot.
+
+```{r}
+library(tidyverse)
+
+top_movies = read_csv('top_movie.csv')
+```
+
+```{r}
+ggplot(data = top_movies, aes(x = year, y = total_in_2022_dollars)) + 
+  geom_line()
+```
+
+Behind the scenes, ggplot tells the function to map the total in 2022 dollars to the y axis, and the year to the x axis, both linearly (1 year/dollar always represents the same amount of space).
+
+There are two useful things we can change with the default continuous scale: *limits* and *breaks*.
+
+-   Limits specify the limits of the scale - the start and end points of the x and y axes.
+
+-   Breaks specify which points and ticks should be drawn on the x and y axes.
+
+To make changes to the default scale, we add `scale_x_continuous` or `scale_y_continuous` following a + sign to the plot.
+
+To change the limits, add `limits =` followed by the start and end point of the limit you want, within `c()`, as in the example below:
+
+```{r}
+ggplot(data = top_movies, aes(x = year, y = total_in_2022_dollars)) + 
+  geom_line() + 
+  scale_x_continuous(limits = c(2000, 2010))
+```
+
+You can see that it has limited the years to 2000 at earliest and 2010 at the latest.
+
+You'll also notice that it has changed the labels and tick marks on the x axis. The new ones are not very elegant for a dataset of years - we don't have any data for 2007.5 for example, so it looks misleading.
+
+This leads on to the second element of the scale we can change: the breaks.
+
+Change the breaks by adding `breaks =` to the plot, followed by a vector (a list) of the values you want to specify. Note it doesn't change anything about the chart except aesthetically.
+
+```{r}
+
+ggplot(data = top_movies, aes(x = year, y = total_in_2022_dollars)) + 
+  geom_line() + 
+  scale_x_continuous(limits = c(2000, 2010), breaks = c(2000, 2005, 2010))
+
+```
+
+You could also use a slightly different method to show all the full years:
+
+```{r}
+ggplot(data = top_movies, aes(x = year, y = total_in_2022_dollars)) + 
+  geom_line() + 
+  scale_x_continuous(limits = c(2000, 2010), breaks = 2000:2010)
+```
+
+Also note that it changes the vertical lines in the plot. By default, ggplot draws a line for each break, as well as a fainter line in between each break.
+
+Reordering data
+
+Another useful adjustment you can make to plots is reordering.
+
+By default, ggplot orders text data alphabetically. Remember another plot from last week:
+
+```{r}
+ggplot(data = top_movies, aes(x = movie,y = total_in_2022_dollars)) + 
+  geom_col()
+```
+
+In many cases, it is more useful to order the bars by numerical data in the plot. We can do this using reorder() in the following way:
+
+```{r}
+
+ggplot(data = top_movies, aes(x = reorder(movie, total_in_2022_dollars), y = total_in_2022_dollars)) + 
+  geom_col()
+
+```
+
+## Coord_flip()
+
+A final useful function is `coord_flip`. This flips the coordinates of a plot, and reverses the position of the x and y axes. This is how it works:
+
+```{r}
+
+ggplot(data = top_movies, aes(x = reorder(movie, total_in_2022_dollars),y = total_in_2022_dollars)) + 
+  geom_col() + coord_flip()
+
+```
+
+This is particularly useful for a chart like this, because the labels are much easier to read when they are placed along the y-axis.
+
+Note that this doesn't actually change the x and y axis under the hood, but just flips how it is drawn (meaning if you want to make changes to scales, you would change the horizontal using the y scale, and vice versa).
+
+## Color scales
+
+The other key scale we will work with are colour scales. As with position scales, ggplot will pick some default values, but we can change them.
+
+GGplot will pick different basic scales depending on how the data looks. For instance, if we map colour to text data (like a category), it will give a discrete scale - each colour is meant to be easily distinguished from the last. We'll load the 'gapminder' dataset to illustrate this:
+
+```{r}
+gapminder_df = read_csv('gapminder_data.csv')
+```
+
+```{r}
+gapminder_2007_df = gapminder_df %>% filter(year == 2007)
+
+
+
+```
+
+First, we'll tell ggplot to map the color variable to the population (pop) column:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point()
+```
+
+Next, we'll tell it to map to the continent column:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = continent), size = 4)  + 
+  geom_point()
+```
+
+In both cases, a different scale has been used. Ggplot also gives a legend, which guides the reader to how the data has been mapped to colours. Both the scale and legend can be changed.
+
+This is done slightly differently depending on whether it's a continuous or discrete scale:
+
+Change to a specific palette:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_viridis_c()
+```
+
+Use `scale_color_distiller` to specify that ggplot should take a particular palette and distribute the values evenly along it. The full list of palettes can be found here: https://r-graph-gallery.com/38-rcolorbrewers-palettes.html
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_distiller(palette = "RdPu")
+```
+
+You can also 'make your own' palette. For instance, `scale_color_gradient` will create a gradient colour scale in between two colours you specify. A large list of R colour names can be found here: https://r-charts.com/colors/
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_gradient(low = 'firebrick', high ='gold')
+```
+
+An alternative is to use `scale_gradient2()`, which allows you to specify 3 colours, a low, mid and high. The function will create a scale similar to above but with a specified midpoint:
+
+```{r}
+
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_gradient2(low = 'firebrick', mid = 'white', high ='gold')
+
+```
+
+As with position scales, we can set limits and breaks. In this case, we'll see the change in the legend primarily.
+
+To set the limit, specify within the scale_x\_ or scale_y function you are using. In this, any values outside the limits will be coloured by a default NA value, in this case grey.
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_continuous(limits = c(500000,5000000 ))
+```
+
+Set the breaks using the below:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_continuous(breaks = c(100000000, 200000000, 300000000, 400000000, 500000000, 1000000000))
+```
+
+You can make changes to the legend in other ways, using the `guides()` function. Here are some examples:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_continuous(breaks = c(100000000, 200000000, 300000000, 400000000, 500000000, 1000000000))+
+  guides(colour = guide_colourbar(reverse = TRUE))
+
+
+```
+
+Use `barheight` to set the height of the legend (you can use barwidth to set the width):
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_continuous(breaks = c(100000000, 200000000, 300000000, 400000000, 500000000, 1000000000)) +
+  guides(colour = guide_colourbar(barheight = unit(5, "cm")))
+
+
+```
+
+Change from vertical to horizontal:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = pop), size = 4)  + 
+  geom_point() + 
+  scale_color_continuous(breaks = c(100000000, 200000000, 300000000, 400000000, 500000000, 1000000000)) +
+  guides(colour = guide_colourbar(direction = "horizontal"))
+```
+
+## Discrete scales
+
+In these cases, the color scale is continuous - the colour is mapped in a continuous gradient using hue, chroma, and luminance.
+
+We can also make changes to discrete scales - where text or categories are used. By default, when ggplot uses a discrete scale, it will try to evenly space out the values so they are equally spaced around the colour wheel - this is to make them easily distinguishable.
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = continent), size = 4)  + 
+  geom_point()
+```
+
+We can use `scale_color_brewer` and supply one of the palettes mentioned above:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = continent), size = 4)  + 
+  geom_point() + 
+  scale_color_brewer(palette = "Set1")
+```
+
+You can also manually set the colors - for example if you have a specific color scheme which makes sense in the context of your data. To do this, use `scale_color_manual`
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap, color = continent), size = 4)  + 
+  geom_point()+  
+  scale_color_manual(
+    values = c("sienna1", "sienna4", "hotpink1", "hotpink4", "firebrick")
+  )
+```
+
+## Chart types
+
+The geoms we have used are not the only ones available. Ggplot has many more, and there are also packages which extend ggplot with extra geoms to use. Here are some more possibilities:
+
+`geom_area()`, which is a line plot where the y-axis is filled in:
+
+```{r}
+ggplot(data = top_movies, aes(x = year, y = total_in_2022_dollars, fill = distributor)) + 
+  geom_area()
+```
+
+Geom_boxplot, which visualises distributions:
+
+```{r}
+
+ggplot(data= gapminder_2007_df, aes(x = continent, y = lifeExp, fill = continent), size = 4)  + 
+  geom_boxplot()
+
+```
+
+Geom_smooth, which adds a 'line of best fit' to a visualisation, usually used in conjunction with geom_point:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap), size = 4)  + 
+  geom_point() + 
+  geom_smooth()
+```
+
+One last useful feature is that we do not have to use the default position scale where the data is mapped linearly to the aesthetics. Another option, for example, is to use a log scale. A log scale is one where each value is exponentially larger than the previous one.
+
+This is often useful if your data is unevenly distributed (for example if you have lots of values close to each other, and then some big outliers). Using a log scale can make this easier to read:
+
+```{r}
+ggplot(data= gapminder_2007_df, aes(x = lifeExp, y = gdpPercap), size = 4)  + 
+  geom_point() + scale_y_log10()
+```
+
+## Exercises:
+
+Start a new notebook in your posit workspace, and try the following exercises:
+
+### Exercise 1:
+
+As last week, load the `revenue_by_format.tsv` file into R. To do this in a new notebook (for it to knit), you'll need to also load the tidyverse library we've used the past few weeks.
+
+.tsv is another file format, similar to .csv. You'll need to use the function `read_tsv()` to do this, in the same way you used `read_csv()` in earlier weeks.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+df = read_tsv('revenue_by_format.tsv')
+
+```
+
+### Exerise 2
+
+Filter the dataset to only include the format 'LP/EP'.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+filtered_df = df %>% filter(format == "LP/EP")
+
+```
+
+
+Create a line plot in ggplot which plots the year on the x axis, and the 'revenues_in_millions_adjusted' along the y axis.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+ggplot(data = filtered_df) + 
+  geom_line(aes(x = year, y = revenues_in_millions_adjusted))
+
+```
+
+
+### Exercise 3:
+
+Using the correct \`scale\_, restrict the limits of the plot to the years 2000 to 2020:
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+
+ggplot(data = filtered_df) + 
+  geom_line(aes(x = year, y = revenues_in_millions_adjusted)) + 
+  scale_x_continuous(limits = c(2000,2020))
+
+# A better way to do this would be to filter the dataset
+# As you can see, this just removes data outside the years but does not adjust the y-axis scale.
+
+```
+
+### Exercise 4:
+
+Set the breaks of the plot to every 2 years, starting from 2000.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+
+ggplot(data = filtered_df) + 
+  geom_line(aes(x = year, y = revenues_in_millions_adjusted)) + 
+  scale_x_continuous(limits = c(2000,2020), breaks = seq(2000, 2020, 2)) 
+```
+
+
+### Exercise 5:
+
+Go back to the original data. This time, draw a line chart which separately charts each category.
+
+(Note that to do this, you'll need to summarise the data by category and year, because there is more than one format for each category.)
+
+Set the color of the line to the category.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+df_sum = df %>% group_by(category, year) %>% summarise(n = sum(revenues_in_millions_adjusted))
+
+ggplot(data = df_sum) + 
+  geom_line(aes(x = year, y = n, color = category))
+
+```
+
+
+### Exercise 6
+
+Change the color scale of this chart to something else. From the examples above, pick the appropriate scale_color\_ function, and specify a set of colors.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+df_sum = df %>% group_by(category, year) %>% summarise(n = sum(revenues_in_millions_adjusted))
+
+ggplot(data = df_sum) + 
+  geom_line(aes(x = year, y = n, color = category)) + 
+  scale_color_manual(values = c("hotpink", "lightblue", "orange", "purple", "#F07070", "#A16166"))
+
+```
+
+### Exercise 7
+
+Make some changes to the color legend. First, reverse the order. Next, set the width of the bar to 4cm.
+
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+df_sum = df %>% group_by(category, year) %>% summarise(n = sum(revenues_in_millions_adjusted))
+
+ggplot(data = df_sum) + 
+  geom_line(aes(x = year, y = n, color = category),size = 2) + 
+  scale_color_manual(values = c("hotpink", "lightblue", "orange", "purple", "#F07070", "#A16166"))+
+  guides(colour = guide_legend(reverse = TRUE)) 
+
+```
+
+### Exercise 8
+
+Again, return to the full dataset. This time, make a count of the total in revenue_millions_adjusted, not by year.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+df_sum = df %>% group_by(category) %>% 
+  summarise(n = sum(revenues_in_millions_adjusted))
+ 
+
+```
+
+### Exercise 9
+
+Create a bar chart from this information, using geom_col. Based on the demonstrated code above, make it more readable by adjusting the axis breaks and the coordinate directions.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+ggplot(data = df_sum) + 
+  geom_col(aes(x = reorder(category,n), y = n )) + 
+  coord_flip()
+ 
+
+```
+
+### Exercise 10
+
+Color the bars in this chart by a continuous variable, revenue_millions_adjusted.
+
+Change the color scale to a gradient with two colours of your choosing.
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+ggplot(data = df_sum) + 
+  geom_col(aes(x = reorder(category,n), y = n, fill = n )) + 
+  coord_flip() + 
+  scale_fill_gradient(low = 'hotpink', high = 'forestgreen')
+ 
+
+```
+
+### Exercise 11
+
+For the final exercise, you're tasked with creating a visualisation from scratch in pairs, using a dataset of your choosing.
+
+Think about which chart type is most appropriate, use the correct geom, and write your reason in the markdown file.
+
+The chart should have at least:
+
+-   Adjusted position limits and breaks (for example highlighting a certain area or 'zooming in')
+-   A custom colour palette including specified breaks

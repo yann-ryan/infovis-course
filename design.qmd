@@ -1,0 +1,426 @@
+---
+title: "Finishing Touches: Creating Narratives with Your Datavis"
+---
+
+## Introduction
+
+Up until now, we have concentrated on the techniques for making charts and maps from data sources. This week, we'll concentrate on what I'm calling the 'finishing touches': the final parts of your charts which will make them more attractive, and most importantly, readable, to viewers.
+
+These can be divided into two categories:
+
+1.  Elements 'extra' to the chart itself, such as titles (main titles, subtitles, titles on the axes), the background color, and guide lines.
+
+2.  Elements within the chart such as labels and annotations.
+
+## Chart titles
+
+The easiest way to improve the readability of your chart is the add titles to help the reader. This is dependent on context, too. It's often not required or recommended to add a chart title in an academic book or article, but a chart in a report or piece of data journalism should usually have a chart.
+
+A good principle is to try to make your chart stand on its own without further explanation, as far as possible. Even if your visualisation is embedded within a report, readers often skip to the chart first without looking at the underlying context. And charts often get separated from their context if they are shared on social media, for example.
+
+For a chart to stand alone, consider adding the following:
+
+-   An eye-catching title, which explains the 'headline' of your chart.
+
+-   A subtitle, with further explanation
+
+-   A caption, which gives other relevant information, particularly the data source, or any necessary caveats to the data.
+
+Titles (and labels) can be added to charts in ggplot by adding the code `+ labs()`. Within `+ labs()`, you can specify `title =`, `subtitle =`, and `caption =`, which are fairly self-explanatory. Make sure to include the text of your label within quotation marks. If you would like to spread your title across multiple lines, you can specify a line break by adding the code `/n` within your title.
+
+Let's demonstrate how to make charts more readable and informative with an example.
+
+Take this basic chart which charts the number of asylum seekers by country of origin to Germany, using the UNCHR data and R package. I've made a chart which visualises as a line the count of refugees from each country of origin , for the years 2000 to 2020:
+
+```{r}
+
+options(scipen = 999999) # this means large numbers will not be drawn as scientific notation
+
+# load the UNCHR data or package and tidyverse library
+
+library(tidyverse)
+load('population.rda')
+  
+
+# first, create a count by year and country of origin:
+
+all = population %>% 
+  filter(coa_iso == 'DEU') %>% #filter to just Germany as country of arrival
+  group_by(year, coo) %>% 
+  summarise(n = sum(asylum_seekers)) %>% # sum the total number of asylum seekers for each origin and year
+  filter(year %in% c(2000:2020)) # filter to only include the years 2000-2020
+
+# next make the chart. 
+
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo)) # if we specify group as the country of origin, it will draw each as a separate line.
+
+```
+
+First, let's add a title, subtitle, and caption:
+
+```{r}
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo)) + 
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/")
+```
+
+We can also use `labs()` to specify new names for the x and y axes, or removing one by setting to `NULL`:
+
+```{r}
+
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo)) + 
+  labs(title = "Asylum seekers to Germany\nby country of origin",
+       x = NULL,
+       y = "Number seeking asylum")
+```
+
+### Exercises
+
+Copy the chart into a new cell and add the following:
+
+-   Add a subtitle with the text "2000-2020 inclusive",
+
+-   Add a caption with the text "Data from [https://www.unhcr.org/refugee-statistics/"](https://www.unhcr.org/refugee-statistics/%22)
+
+## Extra-chart elements using theme()
+
+Using the default settings will make an accurate representation of your data but there are lots of ways to make a chart more readable.
+
+Each visual part of a chart is known as an **element**, and we can make changes to each part separately. This is done by adding `+theme()` plus some extra code as a layer to your chart.
+
+Let's see how this works with an example, first. I want to change the size of the x and y axes text in the chart we made above
+
+To do this, I first add a new layer with `+ theme()` to my existing plot.
+
+Next, within this `theme()`, I add:
+
+-   The plot element I would like to change, which in this case is `axis.title` followed by an `=` sign. We can also specify separate using `axis.title.x` or `axis.title.y`.
+
+-   The type of element it is (we'll come back to this), either `element_text()`, `element_rect()`, `element_line()` or, if I want to remove it entirely, `element_blank()`.
+
+In this case, it is a text element, so we use `element_text()`.
+
+Next, within this `element_text()`, we specify the change we want to make. For a text element, we can change the `size`, the font (using `family`) and whether it is bold or italic (using `face`).
+
+To change the size of the text to 16, use the following full line of code:
+
+```{r}
+
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo)) + 
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/",
+       x = NULL,
+       y = "Number seeking asylum") + 
+  theme(axis.title = element_text(size = 16))
+```
+
+Different types of elements need to be specified in different ways, and have different aspects which can be adjusted. Below is a full list of the plot parts and their related element types:
+
+![](images/EXpD8gIWoAAhyRT.jfif)
+
+## Exercises:
+
+Copy and paste the chart above into a new cell. Make the following changes:
+
+-   Change the panel background fill to `lightblue`.
+
+-   Change the size of the title to 24, and the 'face' to bold.
+
+-   Change the panel grid to the `linetype` 'dashed'.
+
+## Drawing readers to the data in your chart
+
+The chart above might be a faithful representation of the data, but it doesn't really tell a story.
+
+To do this, we'll draw viewers' attention to particular parts of the data using a few techniques. These use a cognitive process known as 'pre-attentive processing', meaning we are drawn to certain visual elements before others. Highlighting using color and annotations are ways to use this to our advantage.
+
+### Highlighting using color
+
+One effective method to draw attention to certain elements is to highlight using colours. This can be done fairly easily using our existing toolset. The set of steps are as follows:
+
+1.  Start with your basic chart. Perhaps change colors or transparency to make the majority of the data 'fade' into the background.
+
+2.  Next create new datasets containing only the data you wish to highlight.
+
+3.  Add these as layers to your existing chart
+
+4.  Change the colors of these new elements
+
+For instance, let's highlight asylum seekers from Syria within the plot. We'll add the data for Syria as a new `geom_line()`, and we'll specify a larger size and a different color.
+
+```{r}
+
+# first all the data (we made this earlier but just to highlight)
+
+all = population %>% 
+  filter(coa_iso == 'DEU') %>% 
+  group_by(year, coo) %>% 
+  summarise(n = sum(asylum_seekers)) %>% 
+  filter(year %in% c(2000:2020)) 
+
+# now a new dataset but with an extra filter
+
+syria = population %>% 
+  filter(coa_iso == 'DEU' & coo_iso == 'SYR') %>% 
+  group_by(year, coo) %>% 
+  summarise(n = sum(asylum_seekers)) %>% 
+  filter(year %in% c(2000:2020))
+
+# create the plot
+
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo), alpha = .5) + #reduce the transparency of the other lines
+  geom_line(data =syria, aes(x = year, y = n), size = 1.5, color = 'forestgreen') + # add a new line and specify size/color
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/",
+       x = NULL,
+       y = "Number seeking asylum") + 
+  theme(axis.title = element_text(size = 16))
+
+```
+
+### Exercises:
+
+-   Add a second line with a different color, this time for asylum seekers with a country of origin Afghanistan.
+
+## Adding text and annotations
+
+Another really useful technique for creating a narrative in your data visualisation is to add annotations. This is usually to draw attention to particular aspects of the data, or to explain or give context. The idea is to guide your reader towards the story in your data.
+
+There are quite a few ways of adding text. The simplest way is to add an annotation with a layer called `annotate()`. This allows us to add text but also shapes or lines.
+
+To create a text annotation, we need to specify a few things within `annotate()`:
+
+-   The type of annotation, in this case `text`.
+
+-   The x and y position the annotation should be placed. This is done manually and usually requires a bit of experimentation.
+
+-   The actual label to be displayed
+
+-   Optionally, we can specify color, size, face, family and so forth...
+
+Let's add a label to show our readers that the highlighted line is Syria
+
+```{r}
+
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo), alpha = .5) +
+  geom_line(data =syria, aes(x = year, y = n), size = 1.5, color = 'forestgreen') + 
+  annotate('text', x = 2014, y = 75000, label = 'Syria', color = 'forestgreen', size = 5) + # add the annotation
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/",
+       x = NULL,
+       y = "Number seeking asylum") + 
+  theme(axis.title = element_text(size = 16))
+
+```
+
+### Exercises
+
+-   Add a similar label for Afghanistan. Find a suitable place on the chart where it will be readable
+
+### Adding lines as annotations
+
+Another useful technique for adding contextual information, particularly with line charts, is to add vertical lines highlighting particular points in time.
+
+This is done using another element, called `geom_vline()`. In this case, we specify where the line should be placed using `xintercept`. Optionally, we can set the `size`, the `linetype` (e.g. to `dashed`), and the transparency using `alpha`.
+
+Let's add a line to the chart to highlight an important milestone in the Syrian civil war: the beginning of revolts in March 2011. Note that because the data is not in date format but simply numbers, we have to add the line at 2011.25 to make it approximately March 2011.
+
+```{r}
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo), alpha = .5) +
+  geom_line(data =syria, aes(x = year, y = n), size = 1.5, color = 'forestgreen') + 
+  annotate(geom = 'text', x = 2014, y = 75000, label = 'Syria', color = 'forestgreen', size = 5) + 
+  geom_vline(xintercept = 2011.25, linetype = 'dashed') + # add the line, specifying the linetype. 
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/",
+       x = NULL,
+       y = "Number seeking asylum") + 
+  theme(axis.title = element_text(size = 16))
+```
+
+Exercises:
+
+-   Add a similar line for September 2015, when the German government announced that asylum seekers would be welcomed in Germany.
+
+### Text annotations and lines
+
+On their own, these lines are not enough. We can also add labels to the line. For this, we return to the `annotate()` element.
+
+First, let's draw a label in an empty area of the chart, using `annotate()`.
+
+```{r}
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo), alpha = .5) +
+  geom_line(data =syria, aes(x = year, y = n), size = 1.5, color = 'forestgreen') + 
+  annotate(geom = 'text', x = 2014, y = 75000, label = 'Syria', color = 'forestgreen', size = 5) + 
+  geom_vline(xintercept = 2011.25, linetype = 'dashed') + 
+  annotate(geom = 'text', x = 2007, y = 110000, label = "Beginning of Syrian Revolt") + 
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/",
+       x = NULL,
+       y = "Number seeking asylum") + 
+  theme(axis.title = element_text(size = 16))
+```
+
+Next we can draw a curved line to connect the text label to the vertical line.
+
+Again, we use `annotate()`. This time, the geom type is set to `curve`. When we make a curve, we need to specify the x beginning and end using `x` and `xend`, and the y beginning and end, using `y` and `yend`.
+
+```{r}
+
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo), alpha = .5) +
+  geom_line(data =syria, aes(x = year, y = n), size = 1.5, color = 'forestgreen') + 
+  annotate(geom = 'text', x = 2014, y = 75000, label = 'Syria', color = 'forestgreen', size = 5) + 
+  geom_vline(xintercept = 2011.25, linetype = 'dashed') + 
+  annotate(geom = 'text', x = 2007, y = 110000, label = "Beginning of Syrian Revolt") + 
+  annotate(geom = 'curve', x = 2007, y = 100000, xend = 2011, yend = 65000,
+    arrow = arrow(length = unit(0.3, 'cm'), type = 'closed')) + 
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/",
+       x = NULL,
+       y = "Number seeking asylum") + 
+  theme(axis.title = element_text(size = 16))
+```
+
+Optionally, we can add an arrow to the end of the line. The syntax starts to get a bit complicated, so copy and paste is your friend!
+
+First, specify to draw an arrow by placing `arrow =`within the `annotate()`. Next, we use the following code to tell it what arrow to draw:
+
+`arrow = arrow(length = unit(.3, 'cm'), type = 'closed')`
+
+Within `arrow()`, we specify the length of the arrow, within `unit()` where we also specify what time of unit (e.g. cm, mm, in). Lastly, we can specify either a 'closed' or 'open' arrow type.
+
+```{r}
+
+ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo), alpha = .5) +
+  geom_line(data =syria, aes(x = year, y = n), size = 1.5, color = 'forestgreen') + 
+  annotate(geom = 'text', x = 2014, y = 75000, label = 'Syria', color = 'forestgreen', size = 5) + 
+  geom_vline(xintercept = 2011.25, linetype = 'dashed') + 
+  annotate(geom = 'text', x = 2007, y = 110000, label = "Beginning of Syrian Revolt") + 
+  annotate(geom = 'curve', x = 2007, y = 100000, xend = 2011, yend = 65000, # add the 
+    arrow = arrow(length = unit(0.3, 'cm'), type = 'closed')) + 
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/",
+       x = NULL,
+       y = "Number seeking asylum") + 
+  theme(axis.title = element_text(size = 16))
+
+```
+
+### Exercises
+
+For both of these, use copy and paste where possible - start by copying in the identical code, and then make changes to the values as necessary.
+
+-   Add a text label for the second highlighted milestone. Find a suitable place on the chart (it can also be to the right)
+
+-   Create a connecting line from the label to the vertical line. Optionally, add an arrow.
+
+## If time: interactive charts
+
+Another way to make more readable charts is to include interactive elements. This can help viewers to find interesting points in the data by hovering and clicking, or by zooming in. This negates the need for annotations and labels in many cases, meaning we can make less cluttered visualisations.
+
+These interactive charts will display in the same .html documents we have used for the weekly exercises and assignments.
+
+In R, we can use a library called plotly to easily turn our visualisations interactive.
+
+First, create a regular ggplot plot. Importantly, you should name this plot in your environment by setting a name followed by `=`.
+
+We'll remove some unnecessary elements, such as the labels and lines, but leave in the colored extra line and the titles.
+
+```{r}
+p = ggplot() + 
+    geom_line(data = all, aes(x = year, y = n, group = coo), alpha = .5) +
+  geom_line(data =syria, aes(x = year, y = n), size = 1.5, color = 'forestgreen') + 
+  labs(title = "Asylum seekers to Germany\nby country of origin", 
+       subtitle = "2000-2020 inclusive", 
+       caption = "Data from https://www.unhcr.org/refugee-statistics/",
+       x = NULL,
+       y = "Number seeking asylum") + 
+  theme(axis.title = element_text(size = 16))
+```
+
+Now, load the library plotly. If it's not installed, install using \`install.packages('plotly').
+
+You can make plots directly in plotly using this syntax, or you can use a function called `ggplotly()` to automatically convert your static chart. Simply pass your chart name to the function:
+
+```{r}
+library(plotly)
+
+ggplotly(p)
+
+```
+
+## Interactive maps with tmap
+
+Another feature to improve your data visualisations is to use interactive maps. Again, there are several ways to do this, including the package [Leaflet](https://rstudio.github.io/leaflet/).
+
+The easiest way to create a map is with a package called tmap. This takes an sf object (similar to those we created in earlier weeks), and allows you to make a nice map using a syntax fairly similar to ggplot. Optionally, you can make these maps interactive.
+
+To demonstrate this, I'll use a dataset from the [Shakespeare & Co project at Princeton](https://shakespeareandco.princeton.edu/), which contains information on the locations of members of the famous Shakespeare & Co bookshop and lending library in Paris.
+
+First, install and load the tmap package.
+
+```{r}
+library(tmap)
+```
+
+Load the dataset:
+
+```{r}
+
+sco_data = read_csv('SCoData_members_v1.2_2022_01.csv')
+
+sco_data = sco_data %>% separate(coordinates, into = c('latitude', 'longitude'), sep = ',')
+
+```
+
+Now, create an sf object, as we learned in previous weeks
+
+```{r}
+library(sf)
+
+sco_data_sf = st_as_sf(sco_data, coords = c('longitude', 'latitude'), na.fail = FALSE)
+
+```
+
+To specify an interactive map with tmap use `tmap_mode("view")`
+
+```{r}
+tmap_mode("view")
+```
+
+Build the map. First add a 'basemap', which is a zoomable world map. A full list of options is available [here](https://leaflet-extras.github.io/leaflet-providers/preview/).
+
+Now, add the data using `tm_shape()`, and specify how it should be drawn using `tm_dots()`. The map below is interactive and clickable:
+
+```{r}
+tm_basemap('OpenStreetMap.Mapnik') + 
+  tm_shape(sco_data_sf) + 
+  tm_dots()
+```
+
+## Homework
+
+-   Write up a plan for your final project
+
+-   Where will you get the data?
+
+-   What story do you want to tell?
+
+-   We'll discuss next week.

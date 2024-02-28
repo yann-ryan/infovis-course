@@ -1,0 +1,43 @@
+---
+title: "Assignment 2: Make a map"
+---
+
+## Goal
+
+For this assignment, make either a choropleth or points map. This map should visualise some aspect of your chosen dataset, using aesthetics such as color, size and shape (depending on your map type).
+
+The map should be readable and you should make design choices to improve it where possible.
+
+For this assignment you will hand in, in one zip file via Brightspace:
+
+-   A visualization, in the form of a markdown report, containing the final map and code
+
+-   A report (500 words max) providing information on the map's design decisions made, referring to Chapter 4 of Meirelles' *Design for Information* and Chapter 15 of Claus Wilke's *Data Visualization* where appropriate. You will conclude the report by mentioning any challenges encountered (if any) and providing a project timetable.
+
+-   You should return both the .Rmd file and the HTML file in your .zip file.
+
+## Deadline
+
+The deadline to hand up this assignment is **11 December, at 09.00.**
+
+## Tips
+
+Look back over the previous weeks to find relevant code to complete the exercise. Pay particular attention to the method for joining your dataset up to a basemap from RNaturalEarth, if you're making a choropleth map.
+
+## Datasets
+
+You are welcome to use any spatial dataset you like, but here are some options if you don't have something in mind:
+
+-   The [Presidential Gifts dataset](https://infovis.lucdh.nl/wp-content/uploads/2021/09/GiftToThePresidentsV3.zip)
+
+-   The Nobel Prize dataset (the code to download this can be found in the course book, for example in Digital Mapping 3).
+
+-   People map of the UK ([explanation here](https://github.com/the-pudding/data/tree/master/people-map-uk))
+
+-   [ICE facilities in the US](https://github.com/melaniewalsh/Intro-Cultural-Analytics/blob/master/book/data/ICE-facilities.csv) (from the [Torn Apart/Separados project](https://xpmethod.columbia.edu/torn-apart/volume/1/))
+
+-   [Historical letter data](https://github.com/humanitiesplusdesign/palladio-app/tree/main/sample%20data). To use this, you would need to join the 'Letters' or 'People' data to the 'Cities' dataset, in order to join coordinates to data.
+
+-   The ['members' dataset](https://shakespeareandco.princeton.edu/about/data/) from the[Shakespeare and Co project](https://shakespeareandco.princeton.edu/), which lists the addresses of members of the famous bookshop and lending library in Paris. If you'd like to use this, you'll probably need a basemap which is at the 'zoom' level of a single city (Paris). Get in touch and I can help with this!
+
+-   You can also make your own dataset, using a geocoder, a gazetteer, or looking up coordinates manually.

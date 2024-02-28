@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Information Visualization and the Humanities - 6&nbsp; Digital mapping 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./digital-mapping-2.html" rel="next">
+<link href="./data-visualisation-2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital-mapping-1.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Digital mapping 1</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Information Visualization and the Humanities</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-markdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction and Using R Markdown</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datavis-0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation 0</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualisation-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Visualisation 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-visualisation-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Visualisation 2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digital-mapping-1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Digital mapping 1</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digital-mapping-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Digital Mapping 2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./digital-mapping-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Digital Mapping 3</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./network-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Network Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Finishing Touches: Creating Narratives with Your Datavis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./final-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Final Project</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Assignment 1: Visualize This!</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Assignment 2: Make a map</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#creating-digital-maps" id="toc-creating-digital-maps" class="nav-link" data-scroll-target="#creating-digital-maps">Creating digital maps</a></li>
+  <li><a href="#mapping-aesthetics" id="toc-mapping-aesthetics" class="nav-link" data-scroll-target="#mapping-aesthetics">Mapping Aesthetics</a>
+  <ul class="collapse">
+  <li><a href="#points-map" id="toc-points-map" class="nav-link" data-scroll-target="#points-map">Points Map</a></li>
+  <li><a href="#choropleth-maps" id="toc-choropleth-maps" class="nav-link" data-scroll-target="#choropleth-maps">Choropleth maps</a></li>
+  </ul></li>
+  <li><a href="#creating-maps-in-r" id="toc-creating-maps-in-r" class="nav-link" data-scroll-target="#creating-maps-in-r"><span class="header-section-number">7</span> Creating maps in R</a>
+  <ul class="collapse">
+  <li><a href="#coordinate-reference-system-crs" id="toc-coordinate-reference-system-crs" class="nav-link" data-scroll-target="#coordinate-reference-system-crs">Coordinate Reference System (CRS)</a></li>
+  <li><a href="#projections" id="toc-projections" class="nav-link" data-scroll-target="#projections">Projections</a></li>
+  <li><a href="#working-with-maps-the-sf-package" id="toc-working-with-maps-the-sf-package" class="nav-link" data-scroll-target="#working-with-maps-the-sf-package">Working with maps: the sf package</a></li>
+  <li><a href="#basemaps" id="toc-basemaps" class="nav-link" data-scroll-target="#basemaps">Basemaps</a></li>
+  <li><a href="#visualising-with-ggplot" id="toc-visualising-with-ggplot" class="nav-link" data-scroll-target="#visualising-with-ggplot">Visualising with ggplot</a>
+  <ul class="collapse">
+  <li><a href="#setting-limits" id="toc-setting-limits" class="nav-link" data-scroll-target="#setting-limits">Setting limits</a></li>
+  </ul></li>
+  <li><a href="#geographic-data" id="toc-geographic-data" class="nav-link" data-scroll-target="#geographic-data">Geographic data</a></li>
+  <li><a href="#adding-geographic-data" id="toc-adding-geographic-data" class="nav-link" data-scroll-target="#adding-geographic-data">Adding geographic data</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#downloading" id="toc-downloading" class="nav-link" data-scroll-target="#downloading">Downloading</a></li>
+  <li><a href="#visualising" id="toc-visualising" class="nav-link" data-scroll-target="#visualising">Visualising</a></li>
+  <li><a href="#adding-data-harder-difficulty" id="toc-adding-data-harder-difficulty" class="nav-link" data-scroll-target="#adding-data-harder-difficulty">Adding data (harder difficulty!)</a></li>
+  <li><a href="#tough-exercises" id="toc-tough-exercises" class="nav-link" data-scroll-target="#tough-exercises">Tough exercises</a></li>
+  <li><a href="#tougher-exercises" id="toc-tougher-exercises" class="nav-link" data-scroll-target="#tougher-exercises">Tougher exercises</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Digital mapping 1</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>In this part of the course, we’ll learn how to create data maps. By data maps, I mean maps in which geographic elements, such as points, lines, and polygons, which are mapped to external data, for instance cultural or political data. These kinds of maps have become very familiar and widely used in digital history, data journalism and infographics in recent years.</p>
+<p>Maps are useful because some data or information has inherently spatial aspects - <em>where</em> the data is from is as important as <em>what.</em> We might want to understand geographic patterns of a phenomenon, for instance how language is used in different regions, or the demographic and economic patterns of particular places, and so forth.</p>
+<p>On benefit of a map is that they can be useful cognitive shortcuts. Because we all have models of maps in our head already (think about how you know certain pieces of information about the borders of the provinces or positions of towns in your home country), we can often grasp very quickly lots of information. If you know the rough positions of the towns and provinces of the Netherlands, for instance, you will probably be able to understand some data about them more quickly than if the same information was presented to you in the form of a list or table.</p>
+<p>Data maps also help us to see patterns which are specifically geographic in nature - we might see, for example, that a certain data point is more common on coasts, or in particular regions, or notice differences between the centre and periphery.</p>
+</section>
+<section id="creating-digital-maps" class="level2">
+<h2 class="anchored" data-anchor-id="creating-digital-maps">Creating digital maps</h2>
+<p>In the maps lecture given by Martijn Storms, we saw maps which had mostly been created by hand. Digital mapping has its own set of techniques, as there are different methods by which we can represent geographic and physical features of the ‘real’ world as computer code.</p>
+<p>The two most common formats for doing this are called <strong>raster maps</strong> and <strong>vector maps</strong>.A raster map represents the physical elements as individual pixels. This is commonly used when we digitise a physical map - each pixel on a map will be shaded and coloured differently, and this shade will mean something. Another example of a raster map is an elevation map. Each pixel is colored by the elevation of that point, i.e.</p>
+<p><img src="images/Contour-map-of-the-Netherlands-legend-elevation-in-m-below-or-above-sea-level-Map.png" class="img-fluid"></p>
+<p>This kind of map can be read by a computer, to calculate things like travel times, or to understand ecological differences, and so forth.</p>
+<p>The other kind of map is called a vector map. A vector map represents geographic elements as a series of numerical values. These geographic elements are generally points, lines, or polygons. For instance, a point is represented by a set of two coordinates, giving the latitude and longitude on earth. A line would be represented by a series of numbers, which when joined together make up a line on a map.</p>
+<p>The main difference between the two is that vector maps contain shapes which can be specifically read by computer code. Unlike a raster map, with vector data, we can outline the shape of a river or road, or the outline of a province or other political border. This makes vector data particularly useful for creating data visualisations.</p>
+</section>
+<section id="mapping-aesthetics" class="level2">
+<h2 class="anchored" data-anchor-id="mapping-aesthetics">Mapping Aesthetics</h2>
+<p>As with all data visualisation, the process involves mapping aesthetics to values. The key difference between maps and other data visualisations is that position is usually based on geographic position, i.e.&nbsp;areal physical location on earth. The most common kinds of data maps you’ll find will use <strong>position</strong>, <strong>size</strong>, <strong>color</strong>, and <strong>shape</strong> to draw <strong>points</strong> on a map, or will use position and color (and perhaps patterns) to fill in <strong>polygons</strong>.</p>
+<p>Which is used is usually dependent on the specific kind of geographic data you have. Points ‘point’ to specific, exact places on a map, for instance a town, village, or even an exact address. Polygons are widely used when the data we have relates to political or cultural regions and borders.</p>
+<section id="points-map" class="level3">
+<h3 class="anchored" data-anchor-id="points-map">Points Map</h3>
+<p>This first graphic is an example of simply using position to create a data visualisation. Each covid death has been drawn as a single tiny black point, and through the placement of millions of these points, we can see precisely where the death toll from Covid was highest.</p>
+<p><img src="images/one-million.jpg" class="img-fluid"></p>
+<p>Just like the earlier data visualisations we made on this course, we can also map further aesthetics as well as position to the data. In this next example from the New York Times, data on weather records was mapped. The authors drew points using both colour (a categorical colour scale, either red for heat or blue for cold records) and size (the amount by which the previous record was broken) to communicate the areas where temperature records had been most extreme in that year.</p>
+<p><img src="images/nyt_weather.png" class="img-fluid"></p>
+</section>
+<section id="choropleth-maps" class="level3">
+<h3 class="anchored" data-anchor-id="choropleth-maps">Choropleth maps</h3>
+<p>A classic use of mapping data to polygons are election maps. This is because election results are usually counted by region, municipality, or other political border. In this example from the 2011 election in the Netherlands, each municipality is represented by a polygon. Each polygon is then coloured by the winning party. A discrete colour scale is used, because this is categorical data (each region has exactly one winning party).</p>
+<p><img src="images/nlelection.png" class="img-fluid"></p>
+<p>A map where colour is used to present statistical data through polygon shapes is known as a <strong>choropleth</strong> <strong>map</strong>. These maps tend to be useful when we have data which is not related to a single point (such as a town or city), but is connected to regions, such as countries, municipalities and so forth.</p>
+<p>However, there are some issues we should be aware of making choropleth maps. In the example of the election map above, about half of the map is coloured blue. This might lead us to think that the VVD party received over half of the total votes. But while they were the largest party, in fact they won 112 seats out of a total of 566 - about one-fifth of the votes.</p>
+<p>This is of course because this map hides the fact that elections are related to population rather than land area. The VVD party are bigger in rural areas which tend to be sparsely populated. Generally, when creating data visualizations, it is best practice that each pixel or piece of ‘ink’ on the page represents the same amount of numerical value. This is not the case if we use geographic data like this. In this case, the numerical unit is a vote, and some votes are represented by less area than others, because of population density.</p>
+<p>One fix for this is to create a cartogram map. This attempts to distort a map so that the area better reflects the data. This example distorts the shapes of the countries of the European Union so that the area of each is related to the amount of the budget they either contribute or receive (between 2007 and 2013, and per capita).</p>
+<p><img src="images/EU_net_budget_2007-2013_per_capita_cartogram.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="creating-maps-in-r" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Creating maps in R</h1>
+<p>In this context, ‘from scratch’ means that on this course we will learn how to create both the underlying map ‘canvas’, as well as the data points or polygons to go on top of it.</p>
+<p>This week, we’ll practise making the ‘basemaps’ onto which further data will be drawn later. We’ll also learn how to visualise some additional data as choropleth maps.</p>
+<p>It’s worth understanding a little of what happens when we want to make a map of shapes.</p>
+<p>When we want to create maps with computers, using a Geographic Information System, or GIS, the computer needs to know what to map. Essentially, it needs some data which tell it how to draw shapes. This is usually in the form of a list of coordinates, which make up a polygon. Each individual polygon (or set of polygons, to show separate islands and so forth) might represent a country, region, or municipality, such as this one of these of the country borders of Spain and the Netherlands:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Because this is vector data, we can read it into R and make changes to it, for example adjusting the ‘fill’ color, and changing the color and thickness of the border lines.</p>
+<section id="coordinate-reference-system-crs" class="level3">
+<h3 class="anchored" data-anchor-id="coordinate-reference-system-crs">Coordinate Reference System (CRS)</h3>
+<p>These polygons are not just regular shapes, because they contain geographic information, which consists of information relating to position on the earth’s surface. In the previous example, we need to know how the two shapes relate to each other on the earth, and if we wanted to add more data, we would need to be sure it was using the same system.</p>
+<p>This position is usually expressed as latitude and longitude coordinates. A set of latitude/longitude coordinates relate to a single position. For example, the coordinates 52.160114, 4.497010 refer to a point which is 52.160114 degrees North of the Equator, and 4.49 degrees East of the prime meridian (Greenwich in London).</p>
+<p>There is one further complication with maps. Because they are not a flat surface but a sphere, and, furthermore, that sphere is not perfect but has a slightly different set of distortions depending on where you are in the world.</p>
+<p>To account for this, any geographic object also needs a coordinate reference system or CRS. This tells the map maker or map-making software how to interpret the coordinates on a sphere. It can also include information on the projection to be used. We won’t need to worry too much about the specifics of this when creating our own maps, except to know that if we want to combine multiple geographic sources, they must use the same CRS.</p>
+</section>
+<section id="projections" class="level3">
+<h3 class="anchored" data-anchor-id="projections">Projections</h3>
+<p>A second complication arises when we try to turn a 3D object (the earth) into a flat, two-dimensional one (a map). In order to do this, mapmakers have to decide how to do it, using a technique called a projection, which projects a 3D object onto a 2D plane.</p>
+<p>There are lots of ways of doing this, and they can be controversial. Essentially, when making projections, mapmakers have to balance accurate shapes with accurate areas.</p>
+<p>The most famous and widely-used projection is Mercator. This preserves the shape of the world quite well, but it distorts the areas quite a bit, depending on how far or close they are to the equator. Consequently, this projection makes countries in the global south much smaller than they are in reality. This is a good example of how the decisions on how maps are made, and who made them (in this case, western Europeans), can have a huge effect on the perception on places.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lo8s9pt3frr11.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">The mercator projection, with the ‘true’ size of countries overlaid in darker blue</figcaption>
+</figure>
+</div>
+</section>
+<section id="working-with-maps-the-sf-package" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-maps-the-sf-package">Working with maps: the sf package</h2>
+<p>To build a map, we need to import special data into R. To do this we’ll use a package called sf. sf stands for simple features. It is a data format specially made for geographic data. Essentially, a simple features object looks like the dataframes (the rows and columns) we have been working with all along, except with one new column, called geometry. Each row of the data can be considered a ‘feature’, meaning a single point, line, or polygon.</p>
+<p>So each row contains a single feature. Usually, these will have additional information about them. For example, one ‘feature’ might be a polygon shape for a single country. This might have a row of information with the country name, ISO code, even population and so forth.</p>
+<p>The special ‘geometry’ column is what makes it geographic information. This contains the geographic information for that feature. In the case of a polygon shape for a country, it will contain a list of the points which, joined together, make up the shape of that polygon. A points feature will contain a single set of geographic coordinates, and a line will contain a list of points, but it won’t be joined-up, like a polygon. Each sf object will only contain one type of feature.</p>
+<p>As well as this geometry column, each sf object will have a further piece of information attached to it - a CRS or coordinate reference system. Often, if you download a map file from the internet, it may already have one of these embedded. If you make your own set of features (a set of points, for example), then you will need to add a CRS yourself. In order to add maps together (for example, to have a baselayer of polygons and a layer of points over that), they’ll both need to have the same CRS. We’ll learn how to add this later.</p>
+<p>The good news about sf objects is that they behave just like dataframes. This means that we can apply all the techniques and code we learned over the past few weeks to these objects. For example, if you have a sf object which is a list of countries and you want to map only a few of them, you could do this with filter(). Or, you can use group_by() and summarise() if you have a group of points and you want to group them all together.</p>
+<p>sf also has many additional features to to complicated calculations and transformations of geographic data. If you are interested in learning more, I highly recommend reading all or part of <a href="https://r.geocompx.org/">Geocomputation with R</a>. For now, we will stick with simple calculations, based on the kinds of things we have already been learning, just with geographic data.</p>
+</section>
+<section id="basemaps" class="level2">
+<h2 class="anchored" data-anchor-id="basemaps">Basemaps</h2>
+<p>To begin most maps, you’ll need a basemap. This is often going to be a simple map of the world, allowing readers to properly orientate themselves - so they’re not looking just at a group of points or polygons floating in space, for example.</p>
+<p>In R, the easiest way to create a basemap is using a package and a database called RNaturalEarth. RNaturalEarth allows you to connect to a database containing many different shapefiles, that is, datasets containing shape information. This includes many different borders, such as state, country, municipality etc. Depending on your needs, it may be helpful to have some of these.</p>
+<p>In other cases, you’ll just want a very simple map of the world. This is particularly the case with historical maps, because boundaries change frequently. It may not make sense to have a border of modern Germany if your historical data comes from the eighteenth century, for example. In this case, you’ll want to map coastlines instead of countries, or, you can colour your basemap so that the internal borders are the same as the fill color.</p>
+<p>As well as basic shapes of countries, you can download rivers, lakes, and other physical features.</p>
+<p>To use sf and Rnaturalearth, you’ll first need to install them, if you haven’t already. It should already be working in your Posit cloud instance, but if not, you can ‘uncomment’ the following code by removing the <code>#</code> from the beginning, and then run the cell:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages('rnaturalearth')</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages('sf')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, you would load the library:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sf_use_s2</span>(<span class="cn">FALSE</span>) <span class="co"># this last line is a fix for some problems we might encounter later...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Spherical geometry (s2) switched off</code></pre>
+</div>
+</div>
+<p>The package contains three ‘standard’ maps which can be used.</p>
+<p>The first is a dataset of country borders. to load this, you’ll need to use the function <code>ne_countries()</code>, as well as specify a few more options:</p>
+<p><code>scale =</code> , which will determine how detailed the borders should be, one of <code>small</code>, <code>medium</code>, or <code>large</code>.</p>
+<p><code>returnclass =</code>, which will specify the type of data to be downloaded from the database. In all cases, we’ll use <code>returnclass = 'sf'</code> (note the quotation marks around sf).</p>
+<p>Optionally, you can specify that the function return a single country or list of countries. This is done using the syntax <code>country = 'Netherlands'</code> or <code>country = c('Netherlands', 'Spain')</code>.</p>
+<p>The following cell will download a dataset in sf format, of all world countries:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="ot">=</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">'medium'</span>, <span class="at">returnclass =</span> <span class="st">'sf'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will download a map of just Germany:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>germanymap <span class="ot">=</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">'medium'</span>, <span class="at">returnclass =</span> <span class="st">'sf'</span>, <span class="at">country =</span> <span class="st">'Germany'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Or a map of Germany and the Netherlands:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>de_nl_map <span class="ot">=</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">'medium'</span>, <span class="at">returnclass =</span> <span class="st">'sf'</span>, <span class="at">country =</span> <span class="fu">c</span>(<span class="st">'Germany'</span>, <span class="st">'Netherlands'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The next useful map type is coastlines. This downloads a simple map of the world’s coastlines, useful if you want a map without any political borders. This is done with the function <code>ne_coastline</code>. In this case, we should specify the <code>scale</code> and <code>returnclass</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>worldcoastlines <span class="ot">=</span> <span class="fu">ne_coastline</span>(<span class="at">scale =</span> <span class="st">'medium'</span>, <span class="at">returnclass =</span> <span class="st">'sf'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once this has downloaded, open the new ‘worldmap’ object in your environment to take a look at it. You’ll see it is a dataframe with a large number of columns, with one row for each country. If you go to the very last column, you’ll see it has a ‘geometry’ column, where it stores the shapes for each country. But as well as this basic information on the shapes, the data contains continent and even some economic and demographic information.</p>
+<p>Using filter just as we have in previous weeks, you could easily filter this map to only include a certain continent or certain development index, or perhaps only countries with a population greater or smaller than a specific number. Here are a few examples:</p>
+<p>Create a map of Europe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>europemap <span class="ot">=</span> worldmap <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">'Europe'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Create a map of counties with a population of less than 5 million:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>small_countries <span class="ot">=</span> worldmap <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pop_est <span class="sc">&lt;</span> <span class="dv">5000000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualising-with-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="visualising-with-ggplot">Visualising with ggplot</h2>
+<p>Plotting and visualising these maps will also be done with a package you are familiar with: ggplot2.</p>
+<p>To draw maps instead of regular data, it just requires some small changes. To draw a map we’ll use a function starting with <code>geom_</code>, as we did with geom_col, geom_point and so forth.</p>
+<p>The geom for maps is called <code>geom_sf()</code> and it works in the exact same way as the others, except it knows to treat the data as a map.</p>
+<p>Using <code>geom_sf</code> on its own on an <code>sf</code> object will take that object and plot it as a simple two-dimensional map. Following this, you can use the rest of the ggplot syntax you learned to modify the maps. For example, you can change the fill and color of the shapes, and the size of points, using <code>fill =</code> , <code>color =</code> and <code>size =</code>. These can be mapped to specific parts of the data if you include them within <code>aes()</code>, as before.</p>
+<p>You can also use the same code as before to change the scales, add annotations, and set limits to the plot.</p>
+<p>To create a basic map from an sf object simply use ggplot() as before, but add + geom_sf() to your map:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">data =</span> worldmap) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You can use <code>filter</code> to limit the map to a single continent or region.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">'Europe'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sovereignt <span class="sc">==</span> <span class="st">'Netherlands'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="setting-limits" class="level3">
+<h3 class="anchored" data-anchor-id="setting-limits">Setting limits</h3>
+<p>Using filter might not always give satisfactory results. In the above case, it includes places which are politically at least part Europe, such as overseas territories and the entirety of Russia. In the case of the Netherlands, this makes the main part of the map very small and difficult to see(if we wanted to include this place, it may be best to add an inset, but that will have to be left to another lesson).</p>
+<p>If our data was more specifically about western Europe, we might want to pick a custom ‘square’ of the map to show. We can do this using the code <code>+ coord_sf()</code>. This should be added after the rest of the map code.</p>
+<p>Within coord_sf, we’ll set the start and end limits for the x and y axis (or longitude and latitude coordinates), using <code>xlim</code> and <code>ylim</code>, like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">25</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">60</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>A map can consist of many layers of geographic information stacked on top of each other.</p>
+<p>As well as the basic countries and coastline maps, it is also possible to download lots of other specific geographic data from RNaturalearth, using a function <code>ne_download</code>. To use this, you’ll need to specify the <code>category</code> and <code>type</code> of the map, as well as the <code>scale</code> and <code>returnclass</code> as before. The full list of categories and types is available on <a href="https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html">this page</a>, towards the end.</p>
+<p>The following example will download the ‘rivers_lake_centerlines’ data from the ‘physical’ category of maps:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>rivers <span class="ot">=</span> rnaturalearth<span class="sc">::</span><span class="fu">ne_download</span>(<span class="at">scale =</span> <span class="st">'medium'</span>,<span class="at">category =</span> <span class="st">'physical'</span>, <span class="at">type =</span> <span class="st">'rivers_lake_centerlines'</span>, <span class="at">returnclass =</span> <span class="st">'sf'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can add this river data using a new layer, with another <code>geom_sf</code> and a <code>+</code>.</p>
+<p>One thing to note is that you always need to put the <code>coord_sf()</code> after your last geom_sf, otherwise it will ignore it and give the full map:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rivers) <span class="sc">+</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">25</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">60</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can also change aspects of the map such as the fill of the shapes, and the colour of the outline. As with before, this is done using <code>color =</code> and <code>fill =</code>. To change all of the geographic data of a layer to a single color, simply type it within the <code>geom_sf</code> . If it is to be mapped to specific data, it should be enclosed within <code>aes()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="at">color =</span> <span class="st">'black'</span>, <span class="at">fill =</span> <span class="st">'lightgreen'</span>) <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rivers, <span class="at">color =</span> <span class="st">'blue'</span>) <span class="sc">+</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">25</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">60</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="geographic-data" class="level2">
+<h2 class="anchored" data-anchor-id="geographic-data">Geographic data</h2>
+<p>These maps are, essentially, just reflections of physical geography. To make a map into a data visualisation, we need to actually map some additional data on top of this, to specific aesthetics such as size and color. As mentioned above, the most common ways to do this are either choropleth or points maps. We’ll work with the latter next week.</p>
+<p>The country shapefile downloaded from RnaturalEarth has some basic data attached to it, which we can use to map. If you look at the <code>worldmap</code> object in your environment, you can see how the data has been stored in columns.</p>
+<p>In your own maps, you probably won’t have data directly attached to the polygon object.</p>
+<p>However the Rnaturalearth data is useful to practise the syntax of map data visualisations.</p>
+<p>In the RNaturalEarth data, a population count for each country is stored in the column <code>pop_est</code>. We can use this data field to color the polygons, just as we have with data in earlier classes.</p>
+<p>As before, add <code>%&gt;% ggplot()</code> and <code>geom_sf()</code> to the plot. Next, use <code>aes()</code> and then specify <code>fill = pop_est</code>, within the <code>aes()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span>pop_est))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>RNaturalEarth also includes categorical information. The object also includes a column <code>economy</code>, which assigns each country a discrete label depending on the economy type. Let’s try mapping this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>worldmap <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span>economy)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="adding-geographic-data" class="level2">
+<h2 class="anchored" data-anchor-id="adding-geographic-data">Adding geographic data</h2>
+<p>As mentioned, usually you will want to bring external data to your maps rather than use this basic information. To do this, we’ll go back to another function we learned earlier in the course - joins.</p>
+<p>As an example, take this dataset containing a count of the refugees which arrived in the US in 2015, by place of origin. You can load this with the code below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>refugees_2015_us <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'refugee_us_2015.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 113 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): origin
+dbl (1): n
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>If you look at this object, you’ll see it contains two columns: the origin country, in a column called ‘origin’, and a count of the number of arrivals, in a column called ‘n’.</p>
+<p>Using <code>left_join</code> , we can merge this with the worldmap data, so that it contains an additional column, n, with the refugee arrivals information. To do this, we need to specify that the <code>origin</code> column from the arrivals data is matched with the <code>name</code> column in the worldmap data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>worldmap_with_refugee <span class="ot">=</span> worldmap <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(refugees_2015_us, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'name'</span> <span class="ot">=</span> <span class="st">'origin'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that because of the complexities of country names, it may not match all up correctly.</p>
+<p>Lastly, we can map this data, specifying that ggplot should map the new <code>n</code> columnto the fill aesthetic:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>worldmap_with_refugee <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="digital-mapping-1_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="downloading" class="level3">
+<h3 class="anchored" data-anchor-id="downloading">Downloading</h3>
+<ul>
+<li><p>In each case, make sure you save the map to the environment, by giving each object a name using <code>&lt;objectname&gt; =</code></p></li>
+<li><p>Using <code>rnaturalearth</code>, download a full map of the countries of the world, at a medium scale.</p></li>
+<li><p>Download a new map of a region of your choice, using either <code>continent</code>, <code>region_un</code>, <code>region_wb</code>, or <code>subregion</code>.</p></li>
+<li><p>Download a new map using the function <code>ne_download()</code>. The category should be ‘cultural’, and the type should ‘urban_areas’.</p></li>
+</ul>
+</section>
+<section id="visualising" class="level3">
+<h3 class="anchored" data-anchor-id="visualising">Visualising</h3>
+<ul>
+<li><p>Using ggplot, make a basic plot of the region map.</p></li>
+<li><p>Next, restrict this map to a smaller area, using <code>coord_sf</code></p></li>
+<li><p>Change the fill of the polygons to a new color.</p></li>
+<li><p>Add the urban areas map as a second layer to your regions.</p></li>
+<li><p>Set the fill of the polygons in the region map to the <code>pop_est</code> column. Set the urban areas to a new color.</p></li>
+<li><p>Change the fill scale of this map (for example using <code>scale_fill_viridis_c()</code></p></li>
+</ul>
+</section>
+<section id="adding-data-harder-difficulty" class="level3">
+<h3 class="anchored" data-anchor-id="adding-data-harder-difficulty">Adding data (harder difficulty!)</h3>
+<p>The code cell below will download a dataset containing data on all past Nobel prize winners. Run this (or copy and paste into the notebook you’re using) to load it into the environment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>nobel_df <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/melaniewalsh/Intro-Cultural-Analytics/master/book/data/nobel-prize-winners/nobel-prize-winners.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat &lt;- vroom(...)
+  problems(dat)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 956 Columns: 26
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (19): name, bornCountry_original, bornCountry_now, bornCity_original, b...
+dbl   (5): bornLong, bornLat, diedLong, diedLat, year
+date  (2): born, died
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Get a simple count of the number of winners for each country (save it as an object such as <code>nobel_count_df</code>)</p></li>
+<li><p>Merge this new count dataset with the world map (or region map) you created above, using <code>left_join</code>.</p></li>
+<li><p>Create a new map which visualises this information. Experiment with <code>coord_sf</code> and <code>scale_fill_</code> to make the map more readable.</p></li>
+</ul>
+</section>
+<section id="tough-exercises" class="level3">
+<h3 class="anchored" data-anchor-id="tough-exercises">Tough exercises</h3>
+<ul>
+<li><p>Create a map which colors countries by the number of <strong>female Nobel winners</strong> <strong>by head of population.</strong> To do this you’ll need to use <code>filter</code>, <code>mutate</code>, along with the <code>pop_est</code> column from the countries map data.</p></li>
+<li><p>Make a visualisation which gives a series of small maps, one for each <strong>category</strong> of Nobel prize, where each country is colored by the total number of winners. You’ll need to use a function called <code>facet_wrap()</code>, which will be added to the end of your plot using <code>+</code>. You’ll need to do some independent work to find out the correct syntax for this!</p></li>
+</ul>
+</section>
+<section id="tougher-exercises" class="level3">
+<h3 class="anchored" data-anchor-id="tougher-exercises">Tougher exercises</h3>
+<p>The <code>sf</code> package can do some complicated geographic calculations. If you’re interested, you could try out some of the following. In order to do these, you’ll need to run <code>sf_use_s2(FALSE)</code> and make sure the package <code>lwgeom</code> is installed (this should already be done for you in Posit, but bear in mind in case you get errors).</p>
+<p>Restrict the <code>worldmap</code> object to only countries which are smaller than 100 million square metres. You’ll need to make use of <code>mutate()</code> and <code>st_area()</code>, and then <code>filter()</code>.</p>
+<p>By default, <code>st_area</code> will return the answer in units of metres square. If you want to filter using a simple number, you need to ‘force’ R to treat the area as a number using <code>as.numeric()</code></p>
+<p>Create a map containing only Germany and countries which border it. To do this, you’ll need to make object containing only a map of Germany, and then use <code>st_intersection</code> on both the full map and the new Germany map.</p>
+<p>Visualise this new map using some of the worldmap data!</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./data-visualisation-2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Visualisation 2</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./digital-mapping-2.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Digital Mapping 2</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

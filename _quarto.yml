@@ -1,0 +1,36 @@
+project:
+  type: book
+
+book:
+  title: "Information Visualization and the Humanities"
+  author: "Yann Ryan"
+  date: "2023-09-01"
+  chapters:
+    - index.qmd
+    - r-markdown.qmd
+    - r-intro.qmd
+    - datavis-0.qmd
+    - data-visualisation-1.qmd
+    - data-visualisation-2.qmd
+    - digital-mapping-1.qmd
+    - digital-mapping-2.qmd
+    - digital-mapping-3.qmd
+    - network-analysis.qmd
+    - design.qmd
+    - final-project.qmd
+    - assignment-1.qmd
+    - assignment-2.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    number-sections: true
+    number-depth: 1
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
