@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"out-width":"700px","classes":"","fig-width":7,"out-height":"","editor-word-wrap":"true","label":"unnamed-chunk-1","autorun":"true","warning":"true","read-only":"false","comment":"","editor-max-height":"","context":"setup","editor-quick-suggestions":"false","dpi":72,"fig-cap":"","message":"true","results":"markup","editor-font-scale":"1","fig-height":5,"output":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1},{"options":{"out-width":"700px","classes":"","fig-width":7,"out-height":"","editor-word-wrap":"true","label":"unnamed-chunk-2","autorun":"false","warning":"true","read-only":"false","comment":"","editor-max-height":"","context":"interactive","editor-quick-suggestions":"false","dpi":72,"fig-cap":"","message":"true","results":"markup","editor-font-scale":"1","fig-height":5,"output":"true"},"code":"titanic_df |>\n  summarise(count = n())","id":2},{"options":{"out-width":"700px","classes":"","fig-width":7,"out-height":"","editor-word-wrap":"true","label":"unnamed-chunk-3","autorun":"false","warning":"true","read-only":"false","comment":"","editor-max-height":"","context":"interactive","editor-quick-suggestions":"false","dpi":72,"fig-cap":"","message":"true","results":"markup","editor-font-scale":"1","fig-height":5,"output":"true"},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = FALSE))","id":3}];
+globalThis.qwebrCellDetails = [{"options":{"results":"markup","editor-word-wrap":"true","classes":"","read-only":"false","output":"true","out-width":"700px","dpi":72,"label":"unnamed-chunk-1","editor-font-scale":"1","fig-height":5,"fig-width":7,"message":"true","warning":"true","editor-max-height":"","autorun":"true","comment":"","editor-quick-suggestions":"false","fig-cap":"","out-height":"","context":"setup"},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"results":"markup","editor-word-wrap":"true","classes":"","read-only":"false","output":"true","out-width":"700px","dpi":72,"label":"unnamed-chunk-2","editor-font-scale":"1","fig-height":5,"fig-width":7,"message":"true","warning":"true","editor-max-height":"","autorun":"false","comment":"","editor-quick-suggestions":"false","fig-cap":"","out-height":"","context":"interactive"},"id":2,"code":"titanic_df |>\n  summarise(count = n())"},{"options":{"results":"markup","editor-word-wrap":"true","classes":"","read-only":"false","output":"true","out-width":"700px","dpi":72,"label":"unnamed-chunk-3","editor-font-scale":"1","fig-height":5,"fig-width":7,"message":"true","warning":"true","editor-max-height":"","autorun":"false","comment":"","editor-quick-suggestions":"false","fig-cap":"","out-height":"","context":"interactive"},"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = FALSE))"}];
 
 </script>
 <script type="module">
@@ -1840,17 +1840,64 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./at-home-005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Data Visualisation 3</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_data_visualisation_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./facets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">The Facet layer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./titles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./annotations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mcpherson_final_project.html" class="sidebar-item-text sidebar-link">

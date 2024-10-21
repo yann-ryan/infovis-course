@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-width":7,"out-width":"700px","context":"setup","autorun":"true","message":"true","comment":"","label":"unnamed-chunk-1","results":"markup","warning":"true","fig-height":5,"dpi":72,"editor-max-height":"","fig-cap":"","out-height":"","editor-quick-suggestions":"false","read-only":"false","editor-word-wrap":"true","classes":"","editor-font-scale":"1","output":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"id":2,"options":{"fig-width":7,"out-width":"700px","context":"interactive","autorun":"false","message":"true","comment":"","label":"unnamed-chunk-2","results":"markup","warning":"true","fig-height":5,"dpi":72,"editor-max-height":"","fig-cap":"","out-height":"","editor-quick-suggestions":"false","read-only":"false","editor-word-wrap":"true","classes":"","editor-font-scale":"1","output":"true"},"code":"locations_df"},{"id":3,"options":{"fig-width":7,"out-width":"700px","context":"interactive","autorun":"false","message":"true","comment":"","label":"unnamed-chunk-3","results":"markup","warning":"true","fig-height":5,"dpi":72,"editor-max-height":"","fig-cap":"","out-height":"","editor-quick-suggestions":"false","read-only":"false","editor-word-wrap":"true","classes":"","editor-font-scale":"1","output":"true"},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"fig-width":7,"out-width":"700px","context":"interactive","autorun":"false","message":"true","comment":"","label":"unnamed-chunk-4","results":"markup","warning":"true","fig-height":5,"dpi":72,"editor-max-height":"","fig-cap":"","out-height":"","editor-quick-suggestions":"false","read-only":"false","editor-word-wrap":"true","classes":"","editor-font-scale":"1","output":"true"},"code":""}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"editor-word-wrap":"true","out-height":"","output":"true","editor-max-height":"","message":"true","fig-height":5,"label":"unnamed-chunk-1","context":"setup","comment":"","out-width":"700px","autorun":"true","fig-width":7,"warning":"true","editor-font-scale":"1","classes":"","editor-quick-suggestions":"false","read-only":"false","dpi":72,"results":"markup","fig-cap":""},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"id":2,"options":{"editor-word-wrap":"true","out-height":"","output":"true","editor-max-height":"","message":"true","fig-height":5,"label":"unnamed-chunk-2","context":"interactive","comment":"","out-width":"700px","autorun":"false","fig-width":7,"warning":"true","editor-font-scale":"1","classes":"","editor-quick-suggestions":"false","read-only":"false","dpi":72,"results":"markup","fig-cap":""},"code":"locations_df"},{"id":3,"options":{"editor-word-wrap":"true","out-height":"","output":"true","editor-max-height":"","message":"true","fig-height":5,"label":"unnamed-chunk-3","context":"interactive","comment":"","out-width":"700px","autorun":"false","fig-width":7,"warning":"true","editor-font-scale":"1","classes":"","editor-quick-suggestions":"false","read-only":"false","dpi":72,"results":"markup","fig-cap":""},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"editor-word-wrap":"true","out-height":"","output":"true","editor-max-height":"","message":"true","fig-height":5,"label":"unnamed-chunk-4","context":"interactive","comment":"","out-width":"700px","autorun":"false","fig-width":7,"warning":"true","editor-font-scale":"1","classes":"","editor-quick-suggestions":"false","read-only":"false","dpi":72,"results":"markup","fig-cap":""},"code":""}];
 
 </script>
 <script type="module">
@@ -1840,17 +1840,64 @@ globalThis.qwebrExecuteCode = async function (
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./at-home-005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Home Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Data Visualisation 3</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_data_visualisation_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Data Visualisation 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./facets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">The Facet layer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./titles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Titles and Labels</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Chart Themes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./annotations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mcpherson_final_project.html" class="sidebar-item-text sidebar-link">
