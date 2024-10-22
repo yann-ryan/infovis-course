@@ -455,9 +455,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Take the movie dialogue datasets from last week.</p>
+<p>Take the movie dialogue datasets from last week and do the following:</p>
 <ol type="1">
-<li><p>Using the metadata dataset, chart the average gross per year using an appropriate geom.</p></li>
+<li><p>Using the metadata dataset, chart the average gross per year using an appropriate geom.</p>
+<ol type="a">
 <li><p>Using scales (i.e.&nbsp;don’t filter the dataset first), limit the chart x axis to the years 1990 - 2000</p></li>
 <li><p>Set the axis labels on this chart to display every two years (1990, 1992, etc.)</p></li>
 <li><p>Set the color of the geom of the chart to something other than the default.</p></li>
@@ -465,12 +466,33 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Reorder the chart going from the highest to the lowest takings</p></li>
 <li><p>Flip the chart so that the movie names are on the vertical axis.</p></li>
 <li><p>(optional to practice previous week again) Give the bars a black outline, set a custom fill colour, and decrease the transparency slightly.</p></li>
-<li><p>Take the Nobel prize dataset. Create a <strong>bar chart</strong> charting the number of winners from each continent per year. Change the palette for the fill of the bars to ‘Dark2’.</p></li>
-<li><p>Using the Titanic dataset, calculate the average fare paid for each embarking location, and draw it as a bar chart. Change the default scale to a gradient starting with the colour <code>aquamarine</code> and ending with the colour <code>deepskyblue</code>. Reverse the legend bar and set the height to 10 cm.</p></li>
+</ol></li>
+<li><p>Import the Nobel Prize winners ‘Laureates’ dataset.</p>
+<ol type="a">
+<li><p>Create a bar chart charting the number of winners from each continent per year.</p></li>
+<li><p>Change the palette for the fill of the bars to ‘Dark2’.</p></li>
+<li><p>Set the major breaks on the y axis to every 20 and the minor breaks to every 5.</p></li>
+</ol></li>
+<li><p>Import the Titanic dataset and do the following:</p>
+<ol type="a">
+<li><p>calculate the average fare paid for each embarking location, and draw it as a bar chart.</p></li>
+<li><p>Change the default scale to a gradient starting with the colour <code>aquamarine</code> and ending with the colour <code>deepskyblue</code>.</p></li>
+<li><p>Reverse the legend bar and set the height to 10 cm.</p></li>
+</ol></li>
 <li><p>(slightly more challenging). Last week we looked at gender in the IMDB dataset. Can you create a chart which investigates which genres became more or less equal over time? Limit your investigations to a sensible number of the top genres to help with visualisation, or group the genres together into 6 or 7 categories. Once you’re done, change 5 scale elements.</p></li>
 </ol>
-<div class="callout-hint">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>The genres in the IMDB genre dataset list up to three genres for each movie, separated by a comma. This isn’t very helpful for data analysis or visualisation - let’s assume it would be better to treat each movie as having separate observations for each genre listed. One way to do this is by using some new functions: <code>separate()</code> and <code>pivot_longer()</code>. You may also need to clean the results slightly using <code>str_trim()</code>.</p>
+</div>
 </div>
 
 
