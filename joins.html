@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"out-height":"","results":"markup","autorun":"true","read-only":"false","editor-quick-suggestions":"false","message":"true","comment":"","output":"true","fig-width":7,"warning":"true","editor-word-wrap":"true","context":"setup","dpi":72,"editor-font-scale":"1","classes":"","fig-cap":"","fig-height":5,"out-width":"700px","label":"unnamed-chunk-1","editor-max-height":""},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","id":1},{"options":{"out-height":"","results":"markup","autorun":"false","read-only":"false","editor-quick-suggestions":"false","message":"true","comment":"","output":"true","fig-width":7,"warning":"true","editor-word-wrap":"true","context":"interactive","dpi":72,"editor-font-scale":"1","classes":"","fig-cap":"","fig-height":5,"out-width":"700px","label":"unnamed-chunk-2","editor-max-height":""},"code":"locations_df","id":2},{"options":{"out-height":"","results":"markup","autorun":"false","read-only":"false","editor-quick-suggestions":"false","message":"true","comment":"","output":"true","fig-width":7,"warning":"true","editor-word-wrap":"true","context":"interactive","dpi":72,"editor-font-scale":"1","classes":"","fig-cap":"","fig-height":5,"out-width":"700px","label":"unnamed-chunk-3","editor-max-height":""},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","id":3},{"options":{"out-height":"","results":"markup","autorun":"false","read-only":"false","editor-quick-suggestions":"false","message":"true","comment":"","output":"true","fig-width":7,"warning":"true","editor-word-wrap":"true","context":"interactive","dpi":72,"editor-font-scale":"1","classes":"","fig-cap":"","fig-height":5,"out-width":"700px","label":"unnamed-chunk-4","editor-max-height":""},"code":"","id":4}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"context":"setup","editor-word-wrap":"true","message":"true","editor-font-scale":"1","out-height":"","fig-height":5,"editor-quick-suggestions":"false","dpi":72,"results":"markup","comment":"","output":"true","label":"unnamed-chunk-1","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"out-width":"700px","autorun":"true"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)"},{"id":2,"options":{"context":"interactive","editor-word-wrap":"true","message":"true","editor-font-scale":"1","out-height":"","fig-height":5,"editor-quick-suggestions":"false","dpi":72,"results":"markup","comment":"","output":"true","label":"unnamed-chunk-2","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"out-width":"700px","autorun":"false"},"code":"locations_df"},{"id":3,"options":{"context":"interactive","editor-word-wrap":"true","message":"true","editor-font-scale":"1","out-height":"","fig-height":5,"editor-quick-suggestions":"false","dpi":72,"results":"markup","comment":"","output":"true","label":"unnamed-chunk-3","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"out-width":"700px","autorun":"false"},"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))"},{"id":4,"options":{"context":"interactive","editor-word-wrap":"true","message":"true","editor-font-scale":"1","out-height":"","fig-height":5,"editor-quick-suggestions":"false","dpi":72,"results":"markup","comment":"","output":"true","label":"unnamed-chunk-4","warning":"true","fig-cap":"","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"out-width":"700px","autorun":"false"},"code":""}];
 
 </script>
 <script type="module">
@@ -1894,20 +1894,26 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./mcpherson_final_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Women in Ancient Papyri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Women in Ancient Papyri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Hogewoning_FinalProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The Top 2000 &amp; The Evergreen Top 1000</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The Top 2000 &amp; The Evergreen Top 1000</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Polakowska-FinalProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The Impact of Tea</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">The Impact of Tea</span></span></a>
   </div>
 </li>
       </ul>
