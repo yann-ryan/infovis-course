@@ -336,7 +336,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr'];
+globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr', 'sf', 'rnaturalearth', 'rnaturalearthdata', 'usmapdata'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')\n","options":{"context":"setup","out-height":"","editor-max-height":"","message":"true","autorun":"true","label":"unnamed-chunk-1","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":2,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line()\n","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-2","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":3,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000))","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-3","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":4,"code":"","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-4","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":5,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000)) ","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-5","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":6,"code":"","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-6","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":7,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = seq(from = 1980, to = 2000, by = 2)) ","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-7","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":8,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000), \n                     minor_breaks = 1980:2000) ","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-8","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":9,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000), \n                     minor_breaks = 1980:2000,\n                     labels = c('Year 1', 'Year 2', 'Year 3')) ","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-9","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":10,"code":"gapminder_df |>\n  filter(country %in% c('Peru', 'Argentina', 'Brazil','Mexico', 'Chile', 'Colombia', 'Bolivia')) |> \n  filter(year == 2002) |>\n  ggplot(aes(x = country, y = gdpPercap )) +\n  geom_col()","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-10","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":11,"code":"gapminder_df |>\n  filter(country %in% c('Peru', 'Argentina', 'Brazil','Mexico', 'Chile', 'Colombia', 'Bolivia')) |> \n  filter(year == 2002) |>\n  ggplot(aes(x = reorder(country,desc(gdpPercap)), y = gdpPercap )) +\n  geom_col()","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-11","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}},{"id":12,"code":"gapminder_df |>\n  filter(continent == \"Americas\") |> \n  filter(year == 2002) |>\n  ggplot(aes(x = reorder(country,gdpPercap), y = gdpPercap )) +\n  geom_col() + coord_flip()","options":{"context":"interactive","out-height":"","editor-max-height":"","message":"true","autorun":"false","label":"unnamed-chunk-12","fig-width":7,"out-width":"700px","dpi":72,"fig-cap":"","editor-font-scale":"1","editor-quick-suggestions":"false","editor-word-wrap":"true","output":"true","read-only":"false","classes":"","comment":"","warning":"true","results":"markup","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"options":{"context":"setup","editor-quick-suggestions":"false","message":"true","autorun":"true","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-1","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":1,"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')\n"},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-2","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":2,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line()\n"},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-3","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":3,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000))"},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-4","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":4,"code":""},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-5","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":5,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000)) "},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-6","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":6,"code":""},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-7","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":7,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = seq(from = 1980, to = 2000, by = 2)) "},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-8","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":8,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000), \n                     minor_breaks = 1980:2000) "},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-9","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":9,"code":"gapminder_df |>\n  filter(country == \"Netherlands\") |>\n  ggplot(aes(x = year, y = gdpPercap )) +\n  geom_line() + \n  scale_x_continuous(limits = c(1980, 2000), \n                     breaks = c(1980, 1990, 2000), \n                     minor_breaks = 1980:2000,\n                     labels = c('Year 1', 'Year 2', 'Year 3')) "},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-10","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":10,"code":"gapminder_df |>\n  filter(country %in% c('Peru', 'Argentina', 'Brazil','Mexico', 'Chile', 'Colombia', 'Bolivia')) |> \n  filter(year == 2002) |>\n  ggplot(aes(x = country, y = gdpPercap )) +\n  geom_col()"},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-11","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":11,"code":"gapminder_df |>\n  filter(country %in% c('Peru', 'Argentina', 'Brazil','Mexico', 'Chile', 'Colombia', 'Bolivia')) |> \n  filter(year == 2002) |>\n  ggplot(aes(x = reorder(country,desc(gdpPercap)), y = gdpPercap )) +\n  geom_col()"},{"options":{"context":"interactive","editor-quick-suggestions":"false","message":"true","autorun":"false","output":"true","dpi":72,"warning":"true","comment":"","read-only":"false","out-width":"700px","editor-word-wrap":"true","fig-cap":"","fig-width":7,"out-height":"","label":"unnamed-chunk-12","results":"markup","classes":"","fig-height":5,"editor-font-scale":"1","editor-max-height":""},"id":12,"code":"gapminder_df |>\n  filter(continent == \"Americas\") |> \n  filter(year == 2002) |>\n  ggplot(aes(x = reorder(country,gdpPercap), y = gdpPercap )) +\n  geom_col() + coord_flip()"}];
 
 </script>
 <script type="module">
@@ -1886,7 +1886,7 @@ globalThis.qwebrExecuteCode = async function (
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Data Visualisation 4</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1894,26 +1894,96 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./fair.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./accessibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./at-home-006.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Digital Mapping 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_digital_mapping_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maps_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basemaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./visualising.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extra_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Links to extra practice exercises</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mcpherson_final_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Women in Ancient Papyri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Women in Ancient Papyri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Hogewoning_FinalProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The Top 2000 &amp; The Evergreen Top 1000</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">The Top 2000 &amp; The Evergreen Top 1000</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Polakowska-FinalProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">The Impact of Tea</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">The Impact of Tea</span></span></a>
   </div>
 </li>
       </ul>

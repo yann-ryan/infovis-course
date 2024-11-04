@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>28&nbsp; Date scales – Information Visualization and the Humanities: Course Book</title>
+<title>37&nbsp; Home Exercise – Information Visualization and the Humanities: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./colour.html" rel="next">
-<link href="./position.html" rel="prev">
+<link href="./10_digital_mapping_1.html" rel="next">
+<link href="./accessibility.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8_data_visualisation_2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./date_scales.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fair.html">Data Visualisation 4</a></li><li class="breadcrumb-item"><a href="./at-home-006.html"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercise</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -377,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./date_scales.html" class="sidebar-item-text sidebar-link active">
+  <a href="./date_scales.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
@@ -453,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./at-home-006.html" class="sidebar-item-text sidebar-link">
+  <a href="./at-home-006.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
@@ -545,19 +545,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dates" id="toc-dates" class="nav-link active" data-scroll-target="#dates">Dates</a>
-  <ul class="collapse">
-  <li><a href="#date-minor-breaks" id="toc-date-minor-breaks" class="nav-link" data-scroll-target="#date-minor-breaks">Date minor breaks</a></li>
-  </ul></li>
+  <li><a href="#in-class-and-home-exercise" id="toc-in-class-and-home-exercise" class="nav-link active" data-scroll-target="#in-class-and-home-exercise">In class and home exercise</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8_data_visualisation_2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./date_scales.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fair.html">Data Visualisation 4</a></li><li class="breadcrumb-item"><a href="./at-home-006.html"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercise</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></h1>
+<h1 class="title"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercise</span></h1>
 </div>
 
 
@@ -574,82 +571,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="dates" class="level2">
-<h2 class="anchored" data-anchor-id="dates">Dates</h2>
-<p>Scales for dates and times are a bit more complicated but worth understanding because they are so widely used in humanities data.</p>
-<p>Dates in R are stored as a special Date class. If R has recognised a column in this date format, you can format the axis labels and tick marks in ways which make more sense for dates.</p>
-<p>The Bellevue Almshouse dataset we used previously stores dates in this class:</p>
-<p>Let’s make a line chart of the date of admission:</p>
+<section id="in-class-and-home-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-and-home-exercise">In class and home exercise</h2>
+<p>You’ve been asked to make a chart to accompany an article about the Nobel Prize awards and laureates. You leave it until the last minute and shamelessly recreate a chart you found <a href="https://www.statista.com/chart/2805/nobel-prize-winners-by-gender/">here</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>bellevue_dataset <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'bellevue_almshouse_modified.csv'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>prizes_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'prize_df.csv'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> bellevue_dataset <span class="sc">|&gt;</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date_in) <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>laureates_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'laureates_df.csv'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> laureates_df <span class="sc">|&gt;</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(gender, prize_id)  <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(prizes_df, <span class="at">by =</span> <span class="st">'prize_id'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(gender)) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, category) <span class="sc">|&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>reorder_by_female <span class="ot">=</span> plot_df <span class="sc">|&gt;</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">'female'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(category)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> plot_df <span class="sc">|&gt;</span> </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">category =</span> <span class="fu">factor</span>(category, <span class="at">levels =</span> reorder_by_female))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plot_df <span class="sc">|&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> n, <span class="at">fill =</span> gender)) <span class="sc">+</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">'dodge'</span>) <span class="sc">+</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> n <span class="sc">+</span> <span class="dv">10</span>, <span class="at">label =</span> n), <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>)) <span class="sc">+</span> </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"The Nobel Prize Gender Gap"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Nobel Prize winners between 1901 and 2024</span><span class="sc">\n</span><span class="st">by category and gender"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="at-home-006_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>ggplot picks a set of axis ticks and labels it thinks will work best for this scale. To change these we use the default scale for dates, <code>scale_x_date</code>.</p>
-<p>As with <code>scale_x_continuous</code>, we can set the minor and major breaks, except we can use more ‘date friendly’ units. Using the <code>date_breaks</code> argument in <code>scale_x_continuous</code>, you can pass any number and date unit to the scale axis. For instance, we could specify that every two months are shown with the following:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="date-minor-breaks" class="level3">
-<h3 class="anchored" data-anchor-id="date-minor-breaks">Date minor breaks</h3>
-<p>Simililarly, we can set the minor breaks to any date unit, using the argument <code>date_minor_breaks</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">date_minor_breaks =</span> <span class="st">'1 week'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="labels" class="level4">
-<h4 class="anchored" data-anchor-id="labels">Labels</h4>
-<p>Finally, you can highly customise the way that dates are labelled in the axis, by passing a set of codes to the argument <code>date_labels</code>. For instance, you can specify that the axis should show the abbreviated month plus the year without the century, with the following:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">date_labels =</span> <span class="st">"%b %y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The full list of labels is available <a href="https://ggplot2-book.org/scales-position#sec-date-labels">here</a>.</p>
+<p>The editor gets back to you and says it’s great (phew!), but requests that you make the chart more accessible, particularly for those with vision impairments, but generally just easier to read in a small online format.</p>
+<ul>
+<li>Start by saving the image and uploading to a <a href="https://www.color-blindness.com/coblis-color-blindness-simulator/">CVD simulator</a> Do you think the colour combination would be difficult to distinguish for any types of CVD?</li>
+</ul>
+<p>Copy and paste the code for the chart into a new cell and make adjustments.</p>
+<ul>
+<li><p>Choose a better palette of fill colours using <code>scale_fill_</code>.</p></li>
+<li><p>Make adjustments to the bars so they are easier to distinguish from the background.</p></li>
+<li><p>Adjust the theme to make elements easier to read: for example the font size and face, the contrast between the panel background, the rotation of the axis text.</p></li>
+<li><p>Write an alt text description, following the guidelines on the previous page.</p></li>
+<li><p>When you’re done, upload again to the colour blind checker to confirm this version meets the requirements.</p></li>
+</ul>
+<p>In the Markdown document, write a very short description of your changes and why they improve accessibility.</p>
+<p><strong>The data and code are already made for you in ‘Home Exercise 7’ on Posit cloud.</strong></p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1075,13 +1050,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./position.html" class="pagination-link" aria-label="Position scales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Position scales</span></span>
+      <a href="./accessibility.html" class="pagination-link" aria-label="Data Visualisation and Accessibility Considerations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./colour.html" class="pagination-link" aria-label="Colour and size scales">
-        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10_digital_mapping_1.html" class="pagination-link" aria-label="Digital mapping overview">
+        <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

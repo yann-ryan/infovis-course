@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>21&nbsp; Using ggplot2 – Information Visualization and the Humanities: Course Book</title>
+<title>39&nbsp; Making maps with R – Information Visualization and the Humanities: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chart_types.html" rel="next">
-<link href="./7_data_visualisation_1.html" rel="prev">
+<link href="./basemaps.html" rel="next">
+<link href="./10_digital_mapping_1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(readr)\n\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"setup","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-1","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"true","fig-height":5,"fig-width":7}},{"code":"library(dplyr)\nlibrary(ggplot2)","id":2,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-2","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"df <- titanic_df |>\n  group_by(sex) |>\n  summarise(n = n())\n  \ndf\n  ","id":3,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-3","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"ggplot(data = df, aes(x = sex, y = n)) \n  ","id":4,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-4","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"ggplot(data = df, aes(x = sex, y = n)) + \n  geom_col()","id":5,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-5","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"ggplot(data = df, aes(x = sex, y = n)) + \n  geom_col(fill = 'red')","id":6,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-6","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"","id":7,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-7","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"df2 = titanic_df |>\n  group_by(sex, embarked) |>\n  summarise(n = n())\n\ndf2","id":8,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-8","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"ggplot(data = df2, aes(x = sex, y = n, fill = embarked)) + \n  geom_col()","id":9,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-9","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"","id":10,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-10","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"df3 <- titanic_df |>\n  group_by(embarked) |>\n  summarise(avg_paid = mean(fare, na.rm = TRUE), n = n())","id":11,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-11","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}},{"code":"ggplot(data = df3, aes(x = embarked, y =n, fill = avg_paid)) + \n  geom_col()","id":12,"options":{"classes":"","results":"markup","out-height":"","comment":"","read-only":"false","out-width":"700px","dpi":72,"context":"interactive","editor-word-wrap":"true","editor-max-height":"","editor-font-scale":"1","fig-cap":"","label":"unnamed-chunk-12","warning":"true","output":"true","message":"true","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"fig-width":7}}];
+globalThis.qwebrCellDetails = [{"code":"library(sf)\nlibrary(tidyverse)\nlibrary(rnaturalearth)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf')\n","options":{"context":"setup","message":"true","output":"true","editor-font-scale":"1","autorun":"true","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-word-wrap":"true","results":"markup","fig-width":7,"dpi":72,"classes":"","comment":"","editor-max-height":"","fig-height":5,"label":"unnamed-chunk-1","out-width":"700px","read-only":"false","fig-cap":""},"id":1},{"code":"worldmap %>% \n  filter(name %in% c('Netherlands', 'Spain')) %>% \n  ggplot() + geom_sf() +\n  coord_sf(xlim = c(-10, 7.5), ylim = c(36, 54)) +\n  theme_void()","options":{"context":"interactive","message":"true","output":"true","editor-font-scale":"1","autorun":"false","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-word-wrap":"true","results":"markup","fig-width":7,"dpi":72,"classes":"","comment":"","editor-max-height":"","fig-height":5,"label":"unnamed-chunk-2","out-width":"700px","read-only":"false","fig-cap":""},"id":2}];
 
 </script>
 <script type="module">
@@ -1568,7 +1568,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./7_data_visualisation_1.html">Data Visualisation 1</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Using ggplot2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_digital_mapping_1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./maps_in_r.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1777,7 +1777,7 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Using ggplot2</span></span></a>
   </div>
 </li>
@@ -1929,7 +1929,7 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maps_in_r.html" class="sidebar-item-text sidebar-link">
+  <a href="./maps_in_r.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></span></a>
   </div>
 </li>
@@ -1998,17 +1998,11 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-ggplot2-package" id="toc-the-ggplot2-package" class="nav-link active" data-scroll-target="#the-ggplot2-package">The ggplot2 package</a>
+  <li><a href="#creating-maps-in-r" id="toc-creating-maps-in-r" class="nav-link active" data-scroll-target="#creating-maps-in-r"><span class="header-section-number">40</span> Creating maps in R</a>
   <ul class="collapse">
-  <li><a href="#the-grammar-of-graphics" id="toc-the-grammar-of-graphics" class="nav-link" data-scroll-target="#the-grammar-of-graphics">The <em>Grammar of Graphics</em></a></li>
-  </ul></li>
-  <li><a href="#demonstration---making-a-bar-chart" id="toc-demonstration---making-a-bar-chart" class="nav-link" data-scroll-target="#demonstration---making-a-bar-chart">Demonstration - making a bar chart</a>
-  <ul class="collapse">
-  <li><a href="#summarising-the-data" id="toc-summarising-the-data" class="nav-link" data-scroll-target="#summarising-the-data">Summarising the data</a></li>
-  <li><a href="#making-a-plot" id="toc-making-a-plot" class="nav-link" data-scroll-target="#making-a-plot">Making a plot</a></li>
-  <li><a href="#adding-other-aesthetics-to-the-chart" id="toc-adding-other-aesthetics-to-the-chart" class="nav-link" data-scroll-target="#adding-other-aesthetics-to-the-chart">Adding other aesthetics to the chart</a></li>
-  <li><a href="#try-it-yourself" id="toc-try-it-yourself" class="nav-link" data-scroll-target="#try-it-yourself">Try it yourself:</a></li>
-  <li><a href="#categorical-vs-continuous-variables" id="toc-categorical-vs-continuous-variables" class="nav-link" data-scroll-target="#categorical-vs-continuous-variables">Categorical vs continuous variables</a></li>
+  <li><a href="#coordinate-reference-system-crs" id="toc-coordinate-reference-system-crs" class="nav-link" data-scroll-target="#coordinate-reference-system-crs">Coordinate Reference System (CRS)</a></li>
+  <li><a href="#projections" id="toc-projections" class="nav-link" data-scroll-target="#projections">Projections</a></li>
+  <li><a href="#working-with-maps-the-sf-package" id="toc-working-with-maps-the-sf-package" class="nav-link" data-scroll-target="#working-with-maps-the-sf-package">Working with maps: the sf package</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2300,9 +2294,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./7_data_visualisation_1.html">Data Visualisation 1</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Using ggplot2</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_digital_mapping_1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./maps_in_r.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Using ggplot2</span></h1>
+<h1 class="title"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></h1>
 </div>
 
 
@@ -2319,130 +2313,41 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>So, that’s the basic theory behind how data visualisations work - we simply map aspects of our data to chosen aesthetics, which must at least include positions - generally at least x and y dimensions.</p>
-<section id="the-ggplot2-package" class="level2">
-<h2 class="anchored" data-anchor-id="the-ggplot2-package">The ggplot2 package</h2>
-<p>R has a very widely-used plotting library called <code>ggplot2</code>, and this is what we will use to pass our data to various geometries and aesthetics to make plots. ggplot2 is very customiseable - it will let you create almost anything as long as you can feed it data and tell it what it should draw with it.</p>
+<section id="creating-maps-in-r" class="level1" data-number="40">
+<h1 data-number="40"><span class="header-section-number">40</span> Creating maps in R</h1>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>The basis of all <code>ggplot2</code> visualisations is a function called <code>ggplot()</code>. Think of this as the foundation of your visualisation. You’ll tell the <code>ggplot()</code> function what data it should use and which attributes of that data it should map to specific aesthetics.</p>
-<section id="the-grammar-of-graphics" class="level3">
-<h3 class="anchored" data-anchor-id="the-grammar-of-graphics">The <em>Grammar of Graphics</em></h3>
-<p>This uses a philosophy of visualisation called the ‘grammar of graphics’ (hence the ‘gg’ in the name). Essentially, this encompasses a set of rules by which we can construct visualisations, using a standard set of terms and features. Every type of of visualisation in ggplot uses this same set of grammar rules, making it very easy to make many different chart types with very little extra code.</p>
-<p>It’s best to think of this grammar of graphics in terms of layers. We start with the function <code>ggplot</code>, and then supply a dataset and map this data to <strong>aesthetics</strong> : you tell ggplot how to map your numeric data to different visual features like shapes, size, and colours. The next layer is one or more <strong>geometries</strong>: these are the basic visual shapes like bars, points, and lines which make up data visualisations. Optionally you can supply scales, and other elements like facets.</p>
+<p>When we want to create maps with computers, using a Geographic Information System, or GIS, the computer needs to know what to map. Essentially, it needs some data which tell it how to draw shapes. This is usually in the form of a list of coordinates, which make up a polygon. Each individual polygon (or set of polygons, to show separate islands and so forth) might represent a country, region, or municipality, such as this one of these of the country borders of Spain and the Netherlands:</p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Because this is vector data, we can read it into R and make changes to it, for example adjusting the ‘fill’ color, and changing the color and thickness of the border lines.</p>
+<section id="coordinate-reference-system-crs" class="level3">
+<h3 class="anchored" data-anchor-id="coordinate-reference-system-crs">Coordinate Reference System (CRS)</h3>
+<p>These polygons are not just regular shapes, because they contain geographic information, which consists of information relating to position on the earth’s surface. In the previous example, we need to know how the two shapes relate to each other on the earth, and if we wanted to add more data, we would need to be sure it was using the same system.</p>
+<p>This position is usually expressed as latitude and longitude coordinates. A set of latitude/longitude coordinates relate to a single position. For example, the coordinates 52.160114, 4.497010 refer to a point which is 52.160114 degrees North of the Equator, and 4.49 degrees East of the prime meridian (Greenwich in London).</p>
+<p>There is one further complication with maps. Because they are not a flat surface but a sphere, and, furthermore, that sphere is not perfect but has a slightly different set of distortions depending on where you are in the world.</p>
+<p>To account for this, any geographic object also needs a coordinate reference system or CRS. This tells the map maker or map-making software how to interpret the coordinates on a sphere. It can also include information on the projection to be used. We won’t need to worry too much about the specifics of this when creating our own maps, except to know that if we want to combine multiple geographic sources, they must use the same CRS.</p>
+</section>
+<section id="projections" class="level3">
+<h3 class="anchored" data-anchor-id="projections">Projections</h3>
+<p>A second complication arises when we try to turn a 3D object (the earth) into a flat, two-dimensional one (a map). In order to do this, mapmakers have to decide how to do it, using a technique called a projection, which projects a 3D object onto a 2D plane.</p>
+<p>There are lots of ways of doing this, and they can be controversial. Essentially, when making projections, mapmakers have to balance accurate shapes with accurate areas.</p>
+<p>The most famous and widely-used projection is Mercator. This preserves the shape of the world quite well, but it distorts the areas quite a bit, depending on how far or close they are to the equator. Consequently, this projection makes countries in the global south much smaller than they are in reality. This is a good example of how the decisions on how maps are made, and who made them (in this case, western Europeans), can have a huge effect on the perception on places.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/allisonhorst/stats-illustrations?tab=readme-ov-file"><img src="images/ggplot2_masterpiece.png" class="img-fluid figure-img" width="500" alt="By Allison Horst, CC-BY-4.0"></a></p>
-<figcaption>By Allison Horst, CC-BY-4.0</figcaption>
+<p><img src="images/lo8s9pt3frr11.png" class="img-fluid figure-img"></p>
+<figcaption>The mercator projection, with the ‘true’ size of countries overlaid in darker blue</figcaption>
 </figure>
 </div>
 </section>
-</section>
-<section id="demonstration---making-a-bar-chart" class="level2">
-<h2 class="anchored" data-anchor-id="demonstration---making-a-bar-chart">Demonstration - making a bar chart</h2>
-<p>It’s easier to demonstrate how it works. Before you use the package, you’ll need to load it, along with the other packages we use to wrangle the data:</p>
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>As an example, let’s draw a simple bar chart using ggplot2. We want to make a simple bar chart from the Titanic dataset we have been using. The workflow looks like this: first we clean and filter the data (if necessary), then we summarise it along the lines which we want, and finally visualise it using ggplot.</p>
-<section id="summarising-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="summarising-the-data">Summarising the data</h3>
-<p>The first step is to produce the summary of the data we would like to visualise. Let’s try something very simple: the total number of male and female passengers. We’ll use <code>group_by()</code> and <code>summarise()</code>, as in the previous lesson:</p>
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Now we have a dataset with two columns: <code>sex</code>, listing either male or female, and <code>n</code>, containing a count of the total number of each of those passengers. We save this as a new object called <code>df</code>, though if you want you can simply use the ‘pipe’ and pass it along to ggplot.</p>
-</section>
-<section id="making-a-plot" class="level3">
-<h3 class="anchored" data-anchor-id="making-a-plot">Making a plot</h3>
-<p>We can make a plot by building up at least four layers:</p>
-<section id="ggplot" class="level4">
-<h4 class="anchored" data-anchor-id="ggplot">1. ggplot()</h4>
-<p>First, create a new ggplot object with the code <code>ggplot()</code>.</p>
-</section>
-<section id="data" class="level4">
-<h4 class="anchored" data-anchor-id="data">2. Data</h4>
-<p>Next, give it our new summary dataframe to work with, using the argument <code>data = df</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can also use the pipe operator and pass your summarised data to ggplot, without saving it as a new object. In that case, you don’t need to use the <code>data =</code> argument. It’s up to you what to do in your own code - I prefer to create a new object if I am using it repeatedly, as here. A good principle in coding is that if you find yourself copying and pasting the same piece of code, there’s probably a better way of doing it!</p>
-</div>
-</div>
-</section>
-<section id="aesthetics" class="level4">
-<h4 class="anchored" data-anchor-id="aesthetics">3. Aesthetics</h4>
-<p>Next we tell ggplot which columns it should use, and which aesthetics it should map these colums to. This is also done by passing the names as parameters to <code>x</code> and <code>y</code>. First, type a comma after the <code>data = df</code> code. Then, insert the code <code>aes()</code>. <strong>This tells ggplot it should interpret anything within these parentheses as aesthetic mappings.</strong> Finally, <em>within</em> the <code>aes()</code>, we’ll add the columns and aesthetics: <code>x = sex, y = n</code>.</p>
-<p>The code for this looks like the following:</p>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="geometry" class="level4">
-<h4 class="anchored" data-anchor-id="geometry">4. Geometry</h4>
-<p>At this point, we have an empty visualisation which specifies the aesthetics which should be mapped. In order to draw the correct geom, or visualisation shape, we need to add it as a layer on top of the ggplot() function.</p>
-<p>In ggplot, a bar chart is created using the geom <code>geom_col()</code>. <code>geom_col()</code>, like all geoms, has a set of aesthetics which must be specified. In this case, we must at least specific the <code>x</code> and <code>y</code> aesthetics. These correspond to the horizontal and vertical position of the bars. When we give these aesthetics to geom_col, it will automatically figure out what to do with them.</p>
-<p>To do this, we add a plus sign (<code>+</code>) followed by the geometry <code>geom_col()</code>, resulting in a simple bar chart:</p>
-<div id="qwebr-insertion-location-5"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Adding each layer (anything after a + sign) on a new line makes the code easier to read, though it’s not strictly necessary.</p>
-</div>
-</div>
-<p><strong>We’ll learn about the rest of the layers next week.</strong></p>
-</section>
-</section>
-<section id="adding-other-aesthetics-to-the-chart" class="level3">
-<h3 class="anchored" data-anchor-id="adding-other-aesthetics-to-the-chart">Adding other aesthetics to the chart</h3>
-<p>Each chart type will allow you to manipulate different aesthetics, depending on what makes sense for that particular shape. If you are working in Posit/RStudio, you can check all of the options for a function by typing <code>?</code> before it, e.g.&nbsp;<code>?geom_col</code>, in to the console (the bottom left pane).</p>
-<p>For <code>geom_col</code>, we <em>have to</em> set <code>x</code> and <code>y</code> and we can <em>optionally</em> set <code>alpha</code> (the transparency), <code>colour</code> (the color of the outline of the bars), <code>fill</code> (the color of the inside of the bars), and <code>linetype</code> and <code>linewidth</code> (allowing you to customise the look of the outline further.</p>
-<section id="within-aes-or-outside-aes" class="level4">
-<h4 class="anchored" data-anchor-id="within-aes-or-outside-aes">Within aes() or outside aes()?</h4>
-<p>These attributes do different things depending on whether you put them <em>inside</em> the <code>aes()</code> function or outside. When <em>outside</em> the aes() function, they allow you to set an attribute to an absolute value. For example, to set the fill of the bars in our previous example to the colour red, you can do the following:</p>
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><strong>Try it yourself:</strong> Set the outline of this bar chart to black (first copy and paste the existing code), and the linewidth to 2:</p>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>If you set an attribute <em>within</em> the aes(), you will <em>set that aesthetic to a value from your dataframe.</em></p>
-<p>To demonstrate this, we need to make a new summary of the titanic dataset. Let’s make a new dataframe, which will now count the number of passengers who embarked at each location, for each sex, and call it <code>df2</code>.</p>
-<div id="qwebr-insertion-location-8"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Now we have three columns in the summary dataset instead of two: <code>sex</code>, <code>embarked</code>, and <code>n</code>.</p>
-<p>If we make the same chart as before with the <code>df2</code> dataset, except now set the <code>fill</code> attribute to the <code>embarked</code> column, <em>within</em> the aes(), it will assign fill colours to each category:</p>
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-</section>
-<section id="try-it-yourself" class="level3">
-<h3 class="anchored" data-anchor-id="try-it-yourself">Try it yourself:</h3>
-<p>Recreate the chart above, and set the <code>linetype</code> aesthetic to the <code>embarked</code> category:</p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="categorical-vs-continuous-variables" class="level3">
-<h3 class="anchored" data-anchor-id="categorical-vs-continuous-variables">Categorical vs continuous variables</h3>
-<p>Let’s calculate another summary of the dataset.</p>
-<div id="qwebr-insertion-location-11"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>In the last example, we provided a column containing a string (either a Q, a C, or an S) to the <code>fill</code> aesthetic. ggplot interprets these as <em>categorical variables</em>, and automatically assigns colours to them, with the aim of making them as distinctive as possible.</p>
-<p>If we pass a numerical column, this will be interpreted as a <em>continuous variable</em>. Now, ggplot will automatically map a colour scale, running from the darkest (lower number) to the highest (highest number), with a smooth gradient in between. As in this example:</p>
-<div id="qwebr-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>We learn a bit more about scales next week. Turn to the next page to find out about more chart types and their most common attributes.</p>
+<section id="working-with-maps-the-sf-package" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-maps-the-sf-package">Working with maps: the sf package</h2>
+<p>To build a map, we need to import special data into R. To do this we’ll use a package called sf. sf stands for simple features. It is a data format specially made for geographic data. Essentially, a simple features object looks like the dataframes (the rows and columns) we have been working with all along, except with one new column, called geometry. Each row of the data can be considered a ‘feature’, meaning a single point, line, or polygon.</p>
+<p>So each row contains a single feature. Usually, these will have additional information about them. For example, one ‘feature’ might be a polygon shape for a single country. This might have a row of information with the country name, ISO code, even population and so forth.</p>
+<p>The special ‘geometry’ column is what makes it geographic information. This contains the geographic information for that feature. In the case of a polygon shape for a country, it will contain a list of the points which, joined together, make up the shape of that polygon. A points feature will contain a single set of geographic coordinates, and a line will contain a list of points, but it won’t be joined-up, like a polygon. Each sf object will only contain one type of feature.</p>
+<p>As well as this geometry column, each sf object will have a further piece of information attached to it - a CRS or coordinate reference system. Often, if you download a map file from the internet, it may already have one of these embedded. If you make your own set of features (a set of points, for example), then you will need to add a CRS yourself. In order to add maps together (for example, to have a baselayer of polygons and a layer of points over that), they’ll both need to have the same CRS. We’ll learn how to add this later.</p>
+<p>The good news about sf objects is that they behave just like dataframes. This means that we can apply all the techniques and code we learned over the past few weeks to these objects. For example, if you have a sf object which is a list of countries and you want to map only a few of them, you could do this with filter(). Or, you can use group_by() and summarise() if you have a group of points and you want to group them all together.</p>
+<p>sf also has many additional features to to complicated calculations and transformations of geographic data. If you are interested in learning more, I highly recommend reading all or part of <a href="https://r.geocompx.org/">Geocomputation with R</a>. For now, we will stick with simple calculations, based on the kinds of things we have already been learning, just with geographic data.</p>
 
 
 </section>
@@ -2871,13 +2776,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./7_data_visualisation_1.html" class="pagination-link" aria-label="Data Visualisation Basics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Data Visualisation Basics</span></span>
+      <a href="./10_digital_mapping_1.html" class="pagination-link" aria-label="Digital mapping overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chart_types.html" class="pagination-link" aria-label="More chart types">
-        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">More chart types</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./basemaps.html" class="pagination-link" aria-label="Working with Shapefiles">
+        <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

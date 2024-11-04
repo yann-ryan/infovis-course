@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>28&nbsp; Date scales – Information Visualization and the Humanities: Course Book</title>
+<title>35&nbsp; Reproducibility and FAIR data – Information Visualization and the Humanities: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./colour.html" rel="next">
-<link href="./position.html" rel="prev">
+<link href="./accessibility.html" rel="next">
+<link href="./annotations.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8_data_visualisation_2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./date_scales.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fair.html">Data Visualisation 4</a></li><li class="breadcrumb-item"><a href="./fair.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -377,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./date_scales.html" class="sidebar-item-text sidebar-link active">
+  <a href="./date_scales.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
@@ -441,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fair.html" class="sidebar-item-text sidebar-link">
+  <a href="./fair.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
@@ -545,19 +511,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dates" id="toc-dates" class="nav-link active" data-scroll-target="#dates">Dates</a>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link active" data-scroll-target="#reproducibility">Reproducibility</a>
   <ul class="collapse">
-  <li><a href="#date-minor-breaks" id="toc-date-minor-breaks" class="nav-link" data-scroll-target="#date-minor-breaks">Date minor breaks</a></li>
+  <li><a href="#reproducibility-with-r" id="toc-reproducibility-with-r" class="nav-link" data-scroll-target="#reproducibility-with-r">Reproducibility with R</a></li>
   </ul></li>
+  <li><a href="#fair-data" id="toc-fair-data" class="nav-link" data-scroll-target="#fair-data">FAIR Data</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8_data_visualisation_2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./date_scales.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fair.html">Data Visualisation 4</a></li><li class="breadcrumb-item"><a href="./fair.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></h1>
+<h1 class="title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></h1>
 </div>
 
 
@@ -574,82 +541,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="dates" class="level2">
-<h2 class="anchored" data-anchor-id="dates">Dates</h2>
-<p>Scales for dates and times are a bit more complicated but worth understanding because they are so widely used in humanities data.</p>
-<p>Dates in R are stored as a special Date class. If R has recognised a column in this date format, you can format the axis labels and tick marks in ways which make more sense for dates.</p>
-<p>The Bellevue Almshouse dataset we used previously stores dates in this class:</p>
-<p>Let’s make a line chart of the date of admission:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>bellevue_dataset <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'bellevue_almshouse_modified.csv'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> bellevue_dataset <span class="sc">|&gt;</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date_in) <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
+<p>An important principle in working with code and data is <strong>reproducibility.</strong> Reproducibility is a key part of scientific analysis: the idea that we should do work with the aim that anyone, given the same code. data, and methods, should be able to reproduce our work. This allows others to verify what we have done - that we haven’t accidentally (or maliciously) come to false conclusions.</p>
+<p>To do this, we should generally publically share the code and data in exactly the same formats, so others can recreate the exact same conditions.</p>
+<section id="reproducibility-with-r" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibility-with-r">Reproducibility with R</h3>
+<p>Luckily, our workflow makes this quite easy. R Markdown files will only ‘knit’ if they have access to the data andwhen the code works from beginning to end. To make the project reproducible, you can simply ensure that all data used is included along with the code. In a ‘live’ project, you would make this publicly available (checking copyright restrictions), on a code repository, usually <a href="https://github.com/">Github</a> or <a href="https://zenodo.org/">Zenodo</a>.</p>
+<p>For your final project, think about packaging everything up so that it is fully reproducible - so that I or anyone else could open the folder and run the code from start to finish and end up with an exact copy of your visualisation. Include your datasets in the .zip file with the Markdown. If you created any additional datasets, for example to help with data cleaning, make sure you include these too. If possible, download your data from online sources rather than loading it directly from the web. Include basic comments on your code, particularly anything which you think is unclear or might need explaining.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Versioning
 </div>
 </div>
-</div>
-<p>ggplot picks a set of axis ticks and labels it thinks will work best for this scale. To change these we use the default scale for dates, <code>scale_x_date</code>.</p>
-<p>As with <code>scale_x_continuous</code>, we can set the minor and major breaks, except we can use more ‘date friendly’ units. Using the <code>date_breaks</code> argument in <code>scale_x_continuous</code>, you can pass any number and date unit to the scale axis. For instance, we could specify that every two months are shown with the following:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="callout-body-container callout-body">
+<p>A further aspect of reproducibility is ‘versioning’. R versions and packages change and this can cause problems for others running your code later on. To fix this you can use something called <em>version control.</em> R has a package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> to help with this. It essentially creates a fixed snapshot of R and its packages as you used them at the time you wrote your code, which others can download and use to run your code too. Practicing this is outside the scope of this course, but good to be aware of.</p>
 </div>
 </div>
-</div>
-<section id="date-minor-breaks" class="level3">
-<h3 class="anchored" data-anchor-id="date-minor-breaks">Date minor breaks</h3>
-<p>Simililarly, we can set the minor breaks to any date unit, using the argument <code>date_minor_breaks</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">date_minor_breaks =</span> <span class="st">'1 week'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="labels" class="level4">
-<h4 class="anchored" data-anchor-id="labels">Labels</h4>
-<p>Finally, you can highly customise the way that dates are labelled in the axis, by passing a set of codes to the argument <code>date_labels</code>. For instance, you can specify that the axis should show the abbreviated month plus the year without the century, with the following:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">date_labels =</span> <span class="st">"%b %y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The full list of labels is available <a href="https://ggplot2-book.org/scales-position#sec-date-labels">here</a>.</p>
-
-
 </section>
 </section>
+<section id="fair-data" class="level2">
+<h2 class="anchored" data-anchor-id="fair-data">FAIR Data</h2>
+<p>When working with data, you will often hear about how to make it FAIR. FAIR is a set of principles developed to make data as reuable as possible. The principles are:</p>
+<ul>
+<li><p><strong>Findable</strong>. This means making it easy to find your data, usually by adding keywords and making sure it is openly available and described correctly.</p></li>
+<li><p><strong>Accessible</strong>. In this context, accessible means making data publically available, where possible.</p></li>
+<li><p><strong>Interoperable</strong>. Data should use existing standards and formats, so others can easily use or interact with it.</p></li>
+<li><p><strong>Reusable.</strong> Research data should be reusable by others - if data follows the above principles, plus is well documented, this will be the case.</p></li>
+</ul>
+<p>How does this affect your own work? Primarily, you will be working on existing datasets when making visualisations on this course, but in many cases (on your own research project, for example), you might be responsible for creating datasets.</p>
+<p>However, it’s worth bearing in mind the FAIR principles because they can be relevant in how you make your own work reusable. In most cases, you are the ‘end user’ of FAIR data, rather than creating it yourself. However you can ensure that the work you do also results in FAIR data, for example by describing and documenting your own work, and how you analysed or cleaned data.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1075,13 +1002,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./position.html" class="pagination-link" aria-label="Position scales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Position scales</span></span>
+      <a href="./annotations.html" class="pagination-link" aria-label="Annotations and Highlights">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./colour.html" class="pagination-link" aria-label="Colour and size scales">
-        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./accessibility.html" class="pagination-link" aria-label="Data Visualisation and Accessibility Considerations">
+        <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

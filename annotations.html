@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data.html" rel="next">
+<link href="./fair.html" rel="next">
 <link href="./themes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -336,7 +336,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr'];
+globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr', 'sf', 'rnaturalearth', 'rnaturalearthdata', 'usmapdata'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-1","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"setup","classes":"","editor-max-height":"","fig-height":5,"autorun":"true","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')\n\ndf <- gapminder_df |>\n  filter(year == 2007) |>\n  mutate(pop_millions = pop/1000000)|>\n  filter(continent == 'Europe')","id":1},{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-2","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"interactive","classes":"","editor-max-height":"","fig-height":5,"autorun":"false","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\") + scale_size_area()","id":2},{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-3","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"interactive","classes":"","editor-max-height":"","fig-height":5,"autorun":"false","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'text', x = 76, y = 45000, label = \"Netherlands\")","id":3},{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-4","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"interactive","classes":"","editor-max-height":"","fig-height":5,"autorun":"false","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'text', x = 76, y = 45000, label = \"Netherlands\") +  \n  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, \n           arrow = arrow(type = 'closed', length = unit(2, 'mm')))","id":4},{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-5","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"interactive","classes":"","editor-max-height":"","fig-height":5,"autorun":"false","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'text', x = 76, y = 45000, label = \"Netherlands\") +  \n  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, \n           arrow = arrow(type = 'closed', length = unit(2, 'mm')))","id":5},{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-6","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"interactive","classes":"","editor-max-height":"","fig-height":5,"autorun":"false","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>\n  ggplot(aes(x = year, y =gdpPercap, color = country))  + \n  geom_line() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'segment', x = 1982, xend = 1982, y = 0, yend = Inf, linetype = 'dashed')","id":6},{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-7","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"interactive","classes":"","editor-max-height":"","fig-height":5,"autorun":"false","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>\n  ggplot(aes(x = year, y =gdpPercap, color = country))  + \n  geom_line() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) +\n  geom_vline(xintercept = 1982)","id":7},{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-8","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"interactive","classes":"","editor-max-height":"","fig-height":5,"autorun":"false","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>\n  ggplot(aes(x = year, y =gdpPercap, color = country))  + \n  geom_line() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'rect', xmin = 1960, xmax = 1980, ymin = 0, ymax = Inf, alpha = .5, linetype = 'dashed', color = 'black')","id":8},{"options":{"fig-width":7,"out-width":"700px","editor-font-scale":"1","label":"unnamed-chunk-9","results":"markup","comment":"","editor-word-wrap":"true","out-height":"","output":"true","context":"interactive","classes":"","editor-max-height":"","fig-height":5,"autorun":"false","fig-cap":"","read-only":"false","dpi":72,"message":"true","editor-quick-suggestions":"false","warning":"true"},"code":"df_highlight = df %>% filter(country %in% c('Ireland', \"Netherlands\", \"France\"))\n\ndf |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions))  + \n  geom_point(color = 'gray50', alpha = .8) + \n  geom_point(data = df_highlight, color = 'red') + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'text', x = 76, y = 45000, label = \"Netherlands\") +  \n  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, \n           arrow = arrow(type = 'closed', length = unit(2, 'mm')))","id":9}];
+globalThis.qwebrCellDetails = [{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"setup","autorun":"true","results":"markup","comment":"","classes":"","label":"unnamed-chunk-1","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"library(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nurl <- \"https://raw.githubusercontent.com/jennybc/gapminder/refs/heads/main/data-raw/04_gap-merged.tsv\"\ndownload.file(url, \"gapminder_df.csv\")\n\ngapminder_df =  read_tsv('gapminder_df.csv') |> filter(continent!= 'FSU')\n\ndf <- gapminder_df |>\n  filter(year == 2007) |>\n  mutate(pop_millions = pop/1000000)|>\n  filter(continent == 'Europe')","id":1},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-2","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\") + scale_size_area()","id":2},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-3","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'text', x = 76, y = 45000, label = \"Netherlands\")","id":3},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-4","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'text', x = 76, y = 45000, label = \"Netherlands\") +  \n  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, \n           arrow = arrow(type = 'closed', length = unit(2, 'mm')))","id":4},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-5","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'text', x = 76, y = 45000, label = \"Netherlands\") +  \n  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, \n           arrow = arrow(type = 'closed', length = unit(2, 'mm')))","id":5},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-6","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":" df |> filter(country == \"United States\")","id":6},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-7","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":" df |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions, color = continent))  + \n  geom_point() ","id":7},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-8","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>\n  ggplot(aes(x = year, y =gdpPercap, color = country))  + \n  geom_line() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'segment', x = 1982, xend = 1982, y = 0, yend = Inf, linetype = 'dashed')","id":8},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-9","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>\n  ggplot(aes(x = year, y =gdpPercap, color = country))  + \n  geom_line() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) +\n  geom_vline(xintercept = 1982)","id":9},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-10","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"gapminder_df |> \n  filter(country %in% c('Netherlands', 'France', 'Ireland', 'Germany', 'Spain')) |>\n  ggplot(aes(x = year, y =gdpPercap, color = country))  + \n  geom_line() + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'rect', xmin = 1960, xmax = 1980, ymin = 0, ymax = Inf, alpha = .5, linetype = 'dashed', color = 'black')","id":10},{"options":{"editor-quick-suggestions":"false","dpi":72,"out-height":"","read-only":"false","message":"true","warning":"true","editor-font-scale":"1","editor-max-height":"","context":"interactive","autorun":"false","results":"markup","comment":"","classes":"","label":"unnamed-chunk-11","output":"true","fig-cap":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"out-width":"700px"},"code":"df_highlight = df %>% filter(country %in% c('Ireland', \"Netherlands\", \"France\"))\n\ndf |> \n  ggplot(aes(x = lifeExp, y =gdpPercap, size = pop_millions))  + \n  geom_point(color = 'gray50', alpha = .8) + \n  geom_point(data = df_highlight, color = 'red') + \n  labs(title = \"GDP and Life\\nExpectancy\",\n       x = NULL) + \n  annotate(geom = 'text', x = 76, y = 45000, label = \"Netherlands\") +  \n  annotate(geom = 'curve', x = 76, y = 44000, xend = 79.76, yend = 36797, \n           arrow = arrow(type = 'closed', length = unit(2, 'mm')))","id":11}];
 
 </script>
 <script type="module">
@@ -1886,7 +1886,7 @@ globalThis.qwebrExecuteCode = async function (
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Data Visualisation 4</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -1894,26 +1894,96 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./fair.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./accessibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./at-home-006.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Digital Mapping 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_digital_mapping_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maps_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basemaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./visualising.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extra_exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Links to extra practice exercises</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mcpherson_final_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Women in Ancient Papyri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Women in Ancient Papyri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Hogewoning_FinalProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The Top 2000 &amp; The Evergreen Top 1000</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">The Top 2000 &amp; The Evergreen Top 1000</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Polakowska-FinalProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">The Impact of Tea</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">The Impact of Tea</span></span></a>
   </div>
 </li>
       </ul>
@@ -2279,6 +2349,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>Finally we can specify an arrow with a special arrow() function. Pay attention here because the arrow syntax is a little unintuitive. We can specify an arrow type, for instance ‘closed’ and a length. However the length is not a simple number but a ‘unit’ object, where we need to put the value within the function unit() and specify a unit, such as ‘mm’. You can also specify the arrow <code>angle</code> as a number between 0 and 90.</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Try it yourself:</strong> Add a label, line, and arrow pointing to the United States. Run the first cell to get the relevant values as a starting point.</p>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Now add the text, curve, and arrow to the chart:</p>
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 </section>
 <section id="other-geoms-with-annotate" class="level3">
@@ -2287,7 +2363,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <section id="lines" class="level4">
 <h4 class="anchored" data-anchor-id="lines">Lines</h4>
 <p>Add a line to your plot using ‘segment’. For a vertical line set the x and xend to the desired value. To draw the line the whole way across the plot set y to 0 and yend to Inf (infinite).</p>
-<div id="qwebr-insertion-location-6"></div>
+<div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -2300,14 +2376,14 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>There’s actually a separate layer, geom_vline(), which you can use instead.</p>
-<div id="qwebr-insertion-location-7"></div>
+<div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
 </section>
 <section id="rectangles" class="level4">
 <h4 class="anchored" data-anchor-id="rectangles">Rectangles</h4>
-<div id="qwebr-insertion-location-8"></div>
+<div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><strong>Try it yourself:</strong> Create an annotated area which highlights the early nineties recession between 1990 and 1993. Draw a label and an arrow for it. Set a color, alpha and one other aesthetic value.</p>
 </section>
@@ -2321,7 +2397,7 @@ Tip
 <li><p>Add these as layers to your existing chart</p></li>
 <li><p>Change the colors of these new elements</p></li>
 </ol>
-<div id="qwebr-insertion-location-9"></div>
+<div id="qwebr-insertion-location-11"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 
@@ -2756,8 +2832,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data.html" class="pagination-link" aria-label="Where to find humanities data">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./fair.html" class="pagination-link" aria-label="Reproducibility and FAIR data">
+        <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

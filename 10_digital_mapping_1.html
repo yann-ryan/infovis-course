@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>28&nbsp; Date scales – Information Visualization and the Humanities: Course Book</title>
+<title>38&nbsp; Digital mapping overview – Information Visualization and the Humanities: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./colour.html" rel="next">
-<link href="./position.html" rel="prev">
+<link href="./maps_in_r.html" rel="next">
+<link href="./at-home-006.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8_data_visualisation_2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./date_scales.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_digital_mapping_1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./10_digital_mapping_1.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -377,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./date_scales.html" class="sidebar-item-text sidebar-link active">
+  <a href="./date_scales.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></span></a>
   </div>
 </li>
@@ -470,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_digital_mapping_1.html" class="sidebar-item-text sidebar-link">
+  <a href="./10_digital_mapping_1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
@@ -545,9 +511,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dates" id="toc-dates" class="nav-link active" data-scroll-target="#dates">Dates</a>
+  <li><a href="#what-exactly-is-digital-mapping" id="toc-what-exactly-is-digital-mapping" class="nav-link active" data-scroll-target="#what-exactly-is-digital-mapping">What exactly is digital mapping?</a></li>
+  <li><a href="#creating-digital-maps" id="toc-creating-digital-maps" class="nav-link" data-scroll-target="#creating-digital-maps">Creating digital maps</a>
   <ul class="collapse">
-  <li><a href="#date-minor-breaks" id="toc-date-minor-breaks" class="nav-link" data-scroll-target="#date-minor-breaks">Date minor breaks</a></li>
+  <li><a href="#types-of-maps" id="toc-types-of-maps" class="nav-link" data-scroll-target="#types-of-maps">Types of maps</a></li>
+  </ul></li>
+  <li><a href="#mapping-also-involves-mapping-aesthetics-to-values" id="toc-mapping-also-involves-mapping-aesthetics-to-values" class="nav-link" data-scroll-target="#mapping-also-involves-mapping-aesthetics-to-values">Mapping also involves mapping aesthetics to values</a>
+  <ul class="collapse">
+  <li><a href="#points-map" id="toc-points-map" class="nav-link" data-scroll-target="#points-map">Points Map</a></li>
+  </ul></li>
+  <li><a href="#using-aesthetics-to-map-data" id="toc-using-aesthetics-to-map-data" class="nav-link" data-scroll-target="#using-aesthetics-to-map-data">Using aesthetics to map data</a>
+  <ul class="collapse">
+  <li><a href="#choropleth-maps" id="toc-choropleth-maps" class="nav-link" data-scroll-target="#choropleth-maps">Choropleth maps</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -555,9 +530,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8_data_visualisation_2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./date_scales.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_digital_mapping_1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./10_digital_mapping_1.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Date scales</span></h1>
+<h1 class="title"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></h1>
 </div>
 
 
@@ -574,81 +549,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="dates" class="level2">
-<h2 class="anchored" data-anchor-id="dates">Dates</h2>
-<p>Scales for dates and times are a bit more complicated but worth understanding because they are so widely used in humanities data.</p>
-<p>Dates in R are stored as a special Date class. If R has recognised a column in this date format, you can format the axis labels and tick marks in ways which make more sense for dates.</p>
-<p>The Bellevue Almshouse dataset we used previously stores dates in this class:</p>
-<p>Let’s make a line chart of the date of admission:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>bellevue_dataset <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'bellevue_almshouse_modified.csv'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> bellevue_dataset <span class="sc">|&gt;</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date_in) <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
+<section id="what-exactly-is-digital-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="what-exactly-is-digital-mapping">What exactly is digital mapping?</h3>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://xkcd.com/1472/"><img src="https://imgs.xkcd.com/comics/geography.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="https://xkcd.com/1472/"></a></p>
 </figure>
 </div>
-</div>
-</div>
-<p>ggplot picks a set of axis ticks and labels it thinks will work best for this scale. To change these we use the default scale for dates, <code>scale_x_date</code>.</p>
-<p>As with <code>scale_x_continuous</code>, we can set the minor and major breaks, except we can use more ‘date friendly’ units. Using the <code>date_breaks</code> argument in <code>scale_x_continuous</code>, you can pass any number and date unit to the scale axis. For instance, we could specify that every two months are shown with the following:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>https://xkcd.com/1472/</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<section id="date-minor-breaks" class="level3">
-<h3 class="anchored" data-anchor-id="date-minor-breaks">Date minor breaks</h3>
-<p>Simililarly, we can set the minor breaks to any date unit, using the argument <code>date_minor_breaks</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">date_minor_breaks =</span> <span class="st">'1 week'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="labels" class="level4">
-<h4 class="anchored" data-anchor-id="labels">Labels</h4>
-<p>Finally, you can highly customise the way that dates are labelled in the axis, by passing a set of codes to the argument <code>date_labels</code>. For instance, you can specify that the axis should show the abbreviated month plus the year without the century, with the following:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date_in, <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"2 months"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">date_labels =</span> <span class="st">"%b %y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="date_scales_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The full list of labels is available <a href="https://ggplot2-book.org/scales-position#sec-date-labels">here</a>.</p>
-
-
+<p>In this part of the course, we’ll learn how to create digital maps. More specifically, we’ll create maps which visualise data, meaning maps in which geographic elements, such as points, lines, and polygons, are mapped to external data, for instance cultural or political data. These kinds of maps have become very familiar and widely used in digital history, data journalism and infographics in recent years.</p>
+<p>Maps are useful because some data or information has inherently spatial aspects - <em>where</em> the data is from is as important as <em>what.</em> We might want to understand geographic patterns of a phenomenon, for instance how language is used in different regions, or the demographic and economic patterns of particular places, and so forth.</p>
+<p>On benefit of a map is that they can be useful cognitive shortcuts. Because we all have models of maps in our head already (think about how you know certain pieces of information about the borders of the provinces or positions of towns in your home country), we can often grasp very quickly lots of information. If you know the rough positions of the towns and provinces of the Netherlands, for instance, you will probably be able to understand some data about them more quickly than if the same information was presented to you in the form of a list or table.</p>
+<p>Data maps also help us to see patterns which are specifically geographic in nature - we might see, for example, that a certain data point is more common on coasts, or in particular regions, or notice differences between the centre and periphery.</p>
 </section>
+<section id="creating-digital-maps" class="level2">
+<h2 class="anchored" data-anchor-id="creating-digital-maps">Creating digital maps</h2>
+<p>Digital mapping has its own set of techniques, as there are different methods by which we can represent geographic and physical features of the ‘real’ world as computer code.</p>
+<section id="types-of-maps" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-maps">Types of maps</h3>
+<p>The two most common formats for doing this are called <strong>raster maps</strong> and <strong>vector maps</strong>. On this course we will work exclusively with raster maps but it is useful to know the difference between the two.</p>
+<section id="raster-maps" class="level4">
+<h4 class="anchored" data-anchor-id="raster-maps">Raster maps</h4>
+<p>A raster map represents the physical elements as individual pixels. This is commonly used when we digitise a physical map - each pixel on a map will be shaded and coloured differently, and this shade will mean something. Another example of a raster map is an elevation map. Each pixel is colored by the elevation of that point, i.e.</p>
+<p><img src="images/Contour-map-of-the-Netherlands-legend-elevation-in-m-below-or-above-sea-level-Map.png" class="img-fluid" width="360"></p>
+<p>This kind of map can be read by a computer, to calculate things like travel times, or to understand ecological differences, and so forth.</p>
+</section>
+<section id="vector-maps" class="level4">
+<h4 class="anchored" data-anchor-id="vector-maps">Vector maps</h4>
+<p>The other kind of map is called a vector map. A vector map represents geographic elements as a series of numerical values. These geographic elements are generally points, lines, or polygons. For instance, a point is represented by a set of two coordinates, giving the latitude and longitude on earth. A line would be represented by a series of numbers, which when joined together make up a line on a map.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="vector.svg" class="img-fluid figure-img" width="472"></p>
+<figcaption>A vector map containing rivers, cities, and country borders</figcaption>
+</figure>
+</div>
+<p>The main difference between the two is that vector maps contain shapes which can be specifically read by computer code. Unlike a raster map, with vector data, we can outline the shape of a river or road, or the outline of a province or other political border. This makes vector data particularly useful for creating data visualisations.</p>
+</section>
+</section>
+</section>
+<section id="mapping-also-involves-mapping-aesthetics-to-values" class="level2">
+<h2 class="anchored" data-anchor-id="mapping-also-involves-mapping-aesthetics-to-values">Mapping also involves mapping aesthetics to values</h2>
+<p>As with all data visualisation, the process involves mapping aesthetics to values. The key difference between maps and other data visualisations is that position is usually based on geographic position, i.e.&nbsp;a real physical location on earth. The most common kinds of data maps you’ll find will use <strong>position</strong>, <strong>size</strong>, <strong>color</strong>, and <strong>shape</strong> to draw <strong>points</strong> on a map, or will use position and color (and perhaps patterns) to fill in <strong>polygons</strong>.</p>
+<p>Which is used is usually dependent on the specific kind of geographic data you have. Points ‘point’ to specific, precise places on a map, for instance a town, village, or even an exact address. Polygons are widely used when the data we have relates to political or cultural regions and borders.</p>
+<section id="points-map" class="level3">
+<h3 class="anchored" data-anchor-id="points-map">Points Map</h3>
+<p>This first graphic is an example of simply using position to create a data visualisation. Each covid death has been drawn as a single tiny black point, and through the placement of millions of these points, we can see precisely where the death toll from Covid was highest.</p>
+<p><img src="images/one-million.jpg" class="img-fluid" width="555"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This map of covid deaths demonstrates one weakness of mapping data: often, a map simply duplicates population distribution rather than revealing any useful patterns.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://xkcd.com/1138/"><img src="https://imgs.xkcd.com/comics/heatmap.png" class="img-fluid figure-img" width="400" alt="https://xkcd.com/1138/"></a></p>
+<figcaption>https://xkcd.com/1138/</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="using-aesthetics-to-map-data" class="level2">
+<h2 class="anchored" data-anchor-id="using-aesthetics-to-map-data">Using aesthetics to map data</h2>
+<p>Just like the earlier data visualisations we made on this course, we can also map further aesthetics as well as position to the data. In this next example from the New York Times, data on weather records was mapped. The authors drew points using both colour (a categorical colour scale, either red for heat or blue for cold records) and size (the amount by which the previous record was broken) to communicate the areas where temperature records had been most extreme in that year.</p>
+<p><img src="images/nyt_weather.png" class="img-fluid" width="748"></p>
+<section id="choropleth-maps" class="level3">
+<h3 class="anchored" data-anchor-id="choropleth-maps">Choropleth maps</h3>
+<p>A classic use of mapping data to polygons are election maps. This is because election results are usually counted by region, municipality, or other political border. In this example from the 2011 election in the Netherlands, each municipality is represented by a polygon. Each polygon is then coloured by the winning party. A discrete colour scale is used, because this is categorical data (each region has exactly one winning party).</p>
+<p><img src="images/nlelection.png" class="img-fluid" width="420"></p>
+<p>A map where colour is used to present statistical data through polygon shapes is known as a <strong>choropleth</strong> <strong>map</strong>. These maps tend to be useful when we have data which is not related to a single point (such as a town or city), but is connected to regions, such as countries, municipalities and so forth.</p>
+<p>However, there are some issues we should be aware of making choropleth maps. In the example of the election map above, about half of the map is coloured blue. This might lead us to think that the VVD party received over half of the total votes. But while they were the largest party, in fact they won 112 seats out of a total of 566 - about one-fifth of the votes.</p>
+<p>This is of course because this map hides the fact that elections are related to population rather than land area. The VVD party are bigger in rural areas which tend to be sparsely populated. Generally, when creating data visualizations, it is best practice that each pixel or piece of ‘ink’ on the page represents the same amount of numerical value. This is not the case if we use geographic data like this. In this case, the numerical unit is a vote, and some votes are represented by less area than others, because of population density.</p>
+<p>One fix for this is to create a cartogram map. This attempts to distort a map so that the area better reflects the data. This example distorts the shapes of the countries of the European Union so that the area of each is related to the amount of the budget they either contribute or receive (between 2007 and 2013, and per capita).</p>
+<p><img src="images/EU_net_budget_2007-2013_per_capita_cartogram.png" class="img-fluid" width="490"></p>
+<p>Over the next few weeks, we’ll learn how to make maps from scratch using R. Starting with mapping some simple data, and moving on to importing our own separate data sources.</p>
+
+
 </section>
 </section>
 
@@ -1075,13 +1062,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./position.html" class="pagination-link" aria-label="Position scales">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Position scales</span></span>
+      <a href="./at-home-006.html" class="pagination-link" aria-label="Home Exercise">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Home Exercise</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./colour.html" class="pagination-link" aria-label="Colour and size scales">
-        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Colour and size scales</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./maps_in_r.html" class="pagination-link" aria-label="Making maps with R">
+        <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
