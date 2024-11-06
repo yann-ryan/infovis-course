@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>40&nbsp; Working with Shapefiles – Information Visualization and the Humanities: Course Book</title>
+<title>39&nbsp; Working with Shapefiles – Information Visualization and the Humanities: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./visualising.html" rel="next">
-<link href="./maps_in_r.html" rel="prev">
+<link href="./digital_mapping.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"read-only":"false","dpi":72,"classes":"","output":"true","comment":"","autorun":"false","out-height":"","context":"interactive","message":"true","editor-font-scale":"1","fig-height":5,"results":"markup","out-width":"700px","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-1","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"fig-cap":""},"code":"library(rnaturalearth)","id":1},{"options":{"read-only":"false","dpi":72,"classes":"","output":"true","comment":"","autorun":"false","out-height":"","context":"interactive","message":"true","editor-font-scale":"1","fig-height":5,"results":"markup","out-width":"700px","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-2","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"fig-cap":""},"code":"worldmap = ne_countries(scale = 'medium', returnclass = 'sf')","id":2},{"options":{"read-only":"false","dpi":72,"classes":"","output":"true","comment":"","autorun":"false","out-height":"","context":"interactive","message":"true","editor-font-scale":"1","fig-height":5,"results":"markup","out-width":"700px","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-3","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"fig-cap":""},"code":"","id":3},{"options":{"read-only":"false","dpi":72,"classes":"","output":"true","comment":"","autorun":"false","out-height":"","context":"interactive","message":"true","editor-font-scale":"1","fig-height":5,"results":"markup","out-width":"700px","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-4","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"fig-cap":""},"code":"worldcoastlines = ne_coastline(scale = 'medium', returnclass = 'sf')","id":4},{"options":{"read-only":"false","dpi":72,"classes":"","output":"true","comment":"","autorun":"false","out-height":"","context":"interactive","message":"true","editor-font-scale":"1","fig-height":5,"results":"markup","out-width":"700px","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-5","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"fig-cap":""},"code":"populated_places = ne_download(scale = 'medium', type = 'populated_places', category = 'cultural', returnclass = 'sf')","id":5},{"options":{"read-only":"false","dpi":72,"classes":"","output":"true","comment":"","autorun":"false","out-height":"","context":"interactive","message":"true","editor-font-scale":"1","fig-height":5,"results":"markup","out-width":"700px","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-6","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"fig-cap":""},"code":"","id":6},{"options":{"read-only":"false","dpi":72,"classes":"","output":"true","comment":"","autorun":"false","out-height":"","context":"interactive","message":"true","editor-font-scale":"1","fig-height":5,"results":"markup","out-width":"700px","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-7","editor-max-height":"","editor-word-wrap":"true","fig-width":7,"fig-cap":""},"code":"","id":7}];
+globalThis.qwebrCellDetails = [{"options":{"results":"markup","output":"true","fig-cap":"","classes":"","context":"interactive","out-width":"700px","warning":"true","fig-height":5,"editor-word-wrap":"true","message":"true","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-1","comment":"","editor-max-height":"","dpi":72,"autorun":"false","editor-quick-suggestions":"false","fig-width":7,"out-height":""},"code":"library(rnaturalearth)","id":1},{"options":{"results":"markup","output":"true","fig-cap":"","classes":"","context":"interactive","out-width":"700px","warning":"true","fig-height":5,"editor-word-wrap":"true","message":"true","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-2","comment":"","editor-max-height":"","dpi":72,"autorun":"false","editor-quick-suggestions":"false","fig-width":7,"out-height":""},"code":"worldmap = ne_countries(scale = 'medium', returnclass = 'sf')","id":2},{"options":{"results":"markup","output":"true","fig-cap":"","classes":"","context":"interactive","out-width":"700px","warning":"true","fig-height":5,"editor-word-wrap":"true","message":"true","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-3","comment":"","editor-max-height":"","dpi":72,"autorun":"false","editor-quick-suggestions":"false","fig-width":7,"out-height":""},"code":"","id":3},{"options":{"results":"markup","output":"true","fig-cap":"","classes":"","context":"interactive","out-width":"700px","warning":"true","fig-height":5,"editor-word-wrap":"true","message":"true","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-4","comment":"","editor-max-height":"","dpi":72,"autorun":"false","editor-quick-suggestions":"false","fig-width":7,"out-height":""},"code":"worldcoastlines = ne_coastline(scale = 'medium', returnclass = 'sf')","id":4},{"options":{"results":"markup","output":"true","fig-cap":"","classes":"","context":"interactive","out-width":"700px","warning":"true","fig-height":5,"editor-word-wrap":"true","message":"true","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-5","comment":"","editor-max-height":"","dpi":72,"autorun":"false","editor-quick-suggestions":"false","fig-width":7,"out-height":""},"code":"populated_places = ne_download(scale = 'medium', type = 'populated_places', category = 'cultural', returnclass = 'sf')","id":5},{"options":{"results":"markup","output":"true","fig-cap":"","classes":"","context":"interactive","out-width":"700px","warning":"true","fig-height":5,"editor-word-wrap":"true","message":"true","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-6","comment":"","editor-max-height":"","dpi":72,"autorun":"false","editor-quick-suggestions":"false","fig-width":7,"out-height":""},"code":"","id":6},{"options":{"results":"markup","output":"true","fig-cap":"","classes":"","context":"interactive","out-width":"700px","warning":"true","fig-height":5,"editor-word-wrap":"true","message":"true","read-only":"false","editor-font-scale":"1","label":"unnamed-chunk-7","comment":"","editor-max-height":"","dpi":72,"autorun":"false","editor-quick-suggestions":"false","fig-width":7,"out-height":""},"code":"","id":7}];
 
 </script>
 <script type="module">
@@ -1568,7 +1568,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital_mapping.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./basemaps.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital_mapping.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./basemaps.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1929,20 +1929,14 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maps_in_r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./basemaps.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./visualising.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
   </div>
 </li>
       </ul>
@@ -1999,6 +1993,7 @@ globalThis.qwebrExecuteCode = async function (
    
   <ul>
   <li><a href="#what-is-a-shapefile" id="toc-what-is-a-shapefile" class="nav-link active" data-scroll-target="#what-is-a-shapefile">What is a shapefile?</a></li>
+  <li><a href="#the-sf-package-and-simple-features-objects" id="toc-the-sf-package-and-simple-features-objects" class="nav-link" data-scroll-target="#the-sf-package-and-simple-features-objects">The sf package and ‘simple features’ objects</a></li>
   <li><a href="#r-natural-earth-package" id="toc-r-natural-earth-package" class="nav-link" data-scroll-target="#r-natural-earth-package">R Natural Earth package</a>
   <ul class="collapse">
   <li><a href="#rnaturalearth" id="toc-rnaturalearth" class="nav-link" data-scroll-target="#rnaturalearth">rnaturalearth</a></li>
@@ -2301,9 +2296,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital_mapping.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./basemaps.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital_mapping.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./basemaps.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></h1>
+<h1 class="title"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Working with Shapefiles</span></h1>
 </div>
 
 
@@ -2344,7 +2339,28 @@ Historical shapefiles
 <p>Boundaries change throughout time, and often a shapefile containing modern boundaries is not relevant. There are also many sources of historical shapefiles such as the <a href="https://datasets.iisg.amsterdam/dataset.xhtml?persistentId=hdl:10622/PGFYTM">historical GIS of the Low Countries</a> and the <a href="https://www.visionofbritain.org.uk/data/">Vision of Britain project</a>, containing information on historical national or regional boundaries, often at different points in time.</p>
 </div>
 </div>
-<p>This week we will learn how to download and map a shapefile from an external source. Next week we will use data to create our own shapefiles.</p>
+<p>There are thousands of shapefiles available to download and use freely from various databases, ranging from historical to political. This week we will learn how to download and map a shapefile using an R package, which is a very simplified workflow, but also very limited in the range and variety of shapefiles which are available. Next week we will learn how to download and import shapefiles from external resources, and use data to create and map our own.</p>
+</section>
+<section id="the-sf-package-and-simple-features-objects" class="level2">
+<h2 class="anchored" data-anchor-id="the-sf-package-and-simple-features-objects">The sf package and ‘simple features’ objects</h2>
+<p>To build a map, we need to import special data into R. To do this we’ll use a package called <code>sf.</code> <code>sf</code> stands for simple features. It is a data format specially made for geographic data. Essentially, a simple features object looks like the dataframes (the rows and columns) we have been working with all along, except with one new column, called geometry. Each row of the data can be considered a ‘feature’, meaning a single point, line, or polygon.</p>
+<p>So each row contains a single feature. Usually, these will have additional information about them. For example, one ‘feature’ might be a polygon shape for a single country. This might have a row of information with the country name, ISO code, even population and so forth.</p>
+<p>The special ‘geometry’ column is what makes it geographic information. This contains the geographic information for that feature. In the case of a polygon shape for a country, it will contain a list of the points which, joined together, make up the shape of that polygon. A points feature will contain a single set of geographic coordinates, and a line will contain a list of points, but it won’t be joined-up, like a polygon. Each sf object will only contain one type of feature.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Coordinate Reference System
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As well as this geometry column, each sf object will have a further piece of information attached to it - a CRS or <em>coordinate reference system</em>. Often, if you download a map file from the internet, it may already have one of these embedded. If you make your own set of features (a set of points, for example), then you will need to add a CRS yourself. In order to add maps together (for example, to have a baselayer of polygons and a layer of points over that), they’ll both need to have the same CRS. We’ll talk more about the CRS next week.</p>
+</div>
+</div>
+<p>The good news about sf objects is that they behave just like dataframes. This means that we can apply all the techniques and code we learned over the past few weeks to these objects. For example, if you have a sf object which is a list of countries and you want to map only a few of them, you could do this with filter(). Or, you can use group_by() and summarise() if you have a group of points and you want to group them all together.</p>
+<p>The <code>sf</code> package also has many additional features to perform complicated calculations and transformations of geographic data. If you are interested in learning more, I highly recommend reading all or part of <a href="https://r.geocompx.org/">Geocomputation with R</a>. For now, we will stick with simple calculations, based on the kinds of things we have already been learning, just with geographic data.</p>
 </section>
 <section id="r-natural-earth-package" class="level2">
 <h2 class="anchored" data-anchor-id="r-natural-earth-package">R Natural Earth package</h2>
@@ -2368,7 +2384,7 @@ Historical shapefiles
 <p>To download a shapefile of country borders, use the function <code>ne_countries()</code>. Remember to save this as an object in your environment using <code>&lt;-</code>. As well as the function itself you’ll need to specify some further parameters:</p>
 <ul>
 <li><p><code>scale =</code> , which will determine how detailed the borders should be, one of <code>small</code>, <code>medium</code>, or <code>large</code>.</p></li>
-<li><p><code>returnclass =</code>, which will specify the type of data to be downloaded from the database. In all cases, we’ll use <code>returnclass = 'sf'</code> (note the quotation marks around sf). More about why on the following page.</p></li>
+<li><p><code>returnclass =</code>, which will specify the type of data to be downloaded from the database. In all cases, we’ll use <code>returnclass = 'sf'</code> (note the quotation marks around sf). This returns the file in the format we want to work with, <strong>simple features</strong>.</p></li>
 <li><p>Optionally, you can specify that the function return a single country or list of countries. This is done using the syntax <code>country = 'Netherlands'</code> or <code>country = c('Netherlands', 'Spain')</code>.</p></li>
 </ul>
 <p>The following code will download a dataset in sf format, of all world countries:</p>
@@ -2387,17 +2403,18 @@ Historical shapefiles
 <section id="downloading-other-data" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-other-data">Downloading other data</h2>
 <p>R Natural Earth has a huge amount of other data you can download. The functions ne_countries() and ne_coastline() are there to give easy access to some of the most common shapefiles. For other data, you can use the more complex ne_download().</p>
-<p>This function works similarly, but allows you to download other data. This ranges from physical features like lakes and rivers, to cities, ports, and airports.</p>
-<p>In order to figure out this function, you need to know how the Natural Earth database stores data. Each file is one of three categories:</p>
+<p>This function works similarly, but allows you to download other data. This ranges from physical features like lakes and rivers, to cities, ports, and airports. Note however that the package is reliant on the Natural Earth database remaining the same, so occasionally you will find it does not correctly download a dataset.</p>
+<p>In order to work with this function, you need to know how the Natural Earth database stores data. Each file is one of three categories:</p>
 <ul>
 <li>cultural: meaning ‘human-created’ geographic objects such as country borders, cities, and so forth.</li>
 <li>physical: physical features such as rivers, lakes, mountains.</li>
 <li>raster: geographic data made from pixels instead of shapes. We won’t work with this on this course.</li>
 </ul>
-<p>Next, the data is at one of three scales, small, medium, and large.</p>
+<p>Next, the data is at one of three scales: - small - medium - large.</p>
+<p>On the Natural Earth data download page, you’ll see that there are links to each of these categories at each different scale.</p>
 <section id="find-a-file-on-the-database-website." class="level3">
 <h3 class="anchored" data-anchor-id="find-a-file-on-the-database-website.">Find a file on the database website.</h3>
-<p>To download a specific file, first find it on the <a href="https://www.naturalearthdata.com/downloads/">natural earth site</a>. You’ll see the data is divided into categories and sizes:</p>
+<p>To download a specific file, first find it on the <a href="https://www.naturalearthdata.com/downloads/">Natural Earth site</a>. You’ll see the data is divided into categories and sizes:</p>
 <p><img src="Screenshot 2024-10-30 at 17.17.28.png" class="img-fluid"></p>
 <p>Use the website to choose the data you’re interested in. Note the size and category you’ve chosen, for example <strong>large</strong> and <strong>cultural.</strong></p>
 <p>Clicking on a category button will bring you to a page with download links. Right click and use ‘copy link address’ and save it somewhere. It will look something like <code>https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_populated_places.zip</code>.</p>
@@ -2844,13 +2861,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./maps_in_r.html" class="pagination-link" aria-label="Making maps with R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></span>
+      <a href="./digital_mapping.html" class="pagination-link" aria-label="Digital mapping overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./visualising.html" class="pagination-link" aria-label="Wrangling and visualising map data">
-        <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
