@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./basemaps.html" rel="next">
-<link href="./10_digital_mapping_1.html" rel="prev">
+<link href="./digital_mapping.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"read-only":"false","classes":"","fig-cap":"","results":"markup","comment":"","output":"true","editor-max-height":"","context":"setup","label":"unnamed-chunk-1","message":"true","warning":"true","autorun":"true","fig-height":5,"fig-width":7,"out-width":"700px","out-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","editor-font-scale":"1","dpi":72},"code":"library(sf)\nlibrary(tidyverse)\nlibrary(rnaturalearth)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf')\n"},{"id":2,"options":{"read-only":"false","classes":"","fig-cap":"","results":"markup","comment":"","output":"true","editor-max-height":"","context":"interactive","label":"unnamed-chunk-2","message":"true","warning":"true","autorun":"false","fig-height":5,"fig-width":7,"out-width":"700px","out-height":"","editor-word-wrap":"true","editor-quick-suggestions":"false","editor-font-scale":"1","dpi":72},"code":"worldmap %>% \n  filter(name %in% c('Netherlands', 'Spain')) %>% \n  ggplot() + geom_sf() +\n  coord_sf(xlim = c(-10, 7.5), ylim = c(36, 54)) +\n  theme_void()"}];
+globalThis.qwebrCellDetails = [{"code":"library(sf)\nlibrary(tidyverse)\nlibrary(rnaturalearth)\n\nworldmap = ne_countries(scale = 'medium', returnclass = 'sf')\n","options":{"message":"true","context":"setup","fig-cap":"","results":"markup","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","warning":"true","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"read-only":"false","editor-word-wrap":"true","dpi":72,"comment":"","classes":"","editor-font-scale":"1","label":"unnamed-chunk-1","autorun":"true"},"id":1},{"code":"worldmap %>% \n  filter(name %in% c('Netherlands', 'Spain')) %>% \n  ggplot() + geom_sf() +\n  coord_sf(xlim = c(-10, 7.5), ylim = c(36, 54)) +\n  theme_void()","options":{"message":"true","context":"interactive","fig-cap":"","results":"markup","editor-max-height":"","editor-quick-suggestions":"false","out-height":"","warning":"true","output":"true","out-width":"700px","fig-width":7,"fig-height":5,"read-only":"false","editor-word-wrap":"true","dpi":72,"comment":"","classes":"","editor-font-scale":"1","label":"unnamed-chunk-2","autorun":"false"},"id":2}];
 
 </script>
 <script type="module">
@@ -1568,7 +1568,7 @@ globalThis.qwebrExecuteCode = async function (
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_digital_mapping_1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./maps_in_r.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital_mapping.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./maps_in_r.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -1923,7 +1923,7 @@ globalThis.qwebrExecuteCode = async function (
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_digital_mapping_1.html" class="sidebar-item-text sidebar-link">
+  <a href="./digital_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span></a>
   </div>
 </li>
@@ -2294,7 +2294,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 }
 </script>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_digital_mapping_1.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./maps_in_r.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital_mapping.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./maps_in_r.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Making maps with R</span></h1>
 </div>
@@ -2776,7 +2776,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./10_digital_mapping_1.html" class="pagination-link" aria-label="Digital mapping overview">
+      <a href="./digital_mapping.html" class="pagination-link" aria-label="Digital mapping overview">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Digital mapping overview</span></span>
       </a>          
   </div>
