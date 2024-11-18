@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"message":"true","output":"true","warning":"true","fig-height":5,"fig-width":7,"out-height":"","editor-font-scale":"1","context":"setup","results":"markup","out-width":"700px","label":"unnamed-chunk-1","editor-word-wrap":"true","classes":"","autorun":"true","read-only":"false","comment":"","editor-quick-suggestions":"false","editor-max-height":"","fig-cap":"","dpi":72},"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"options":{"message":"true","output":"true","warning":"true","fig-height":5,"fig-width":7,"out-height":"","editor-font-scale":"1","context":"interactive","results":"markup","out-width":"700px","label":"unnamed-chunk-2","editor-word-wrap":"true","classes":"","autorun":"false","read-only":"false","comment":"","editor-quick-suggestions":"false","editor-max-height":"","fig-cap":"","dpi":72},"id":2,"code":"titanic_df |>\n  summarise(count = n())"},{"options":{"message":"true","output":"true","warning":"true","fig-height":5,"fig-width":7,"out-height":"","editor-font-scale":"1","context":"interactive","results":"markup","out-width":"700px","label":"unnamed-chunk-3","editor-word-wrap":"true","classes":"","autorun":"false","read-only":"false","comment":"","editor-quick-suggestions":"false","editor-max-height":"","fig-cap":"","dpi":72},"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = FALSE))"}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","options":{"classes":"","comment":"","editor-word-wrap":"true","warning":"true","read-only":"false","output":"true","fig-height":5,"out-width":"700px","fig-cap":"","results":"markup","fig-width":7,"context":"setup","message":"true","out-height":"","label":"unnamed-chunk-1","editor-quick-suggestions":"false","autorun":"true","editor-font-scale":"1","editor-max-height":"","dpi":72}},{"id":2,"code":"titanic_df |>\n  summarise(count = n())","options":{"classes":"","comment":"","editor-word-wrap":"true","warning":"true","read-only":"false","output":"true","fig-height":5,"out-width":"700px","fig-cap":"","results":"markup","fig-width":7,"context":"interactive","message":"true","out-height":"","label":"unnamed-chunk-2","editor-quick-suggestions":"false","autorun":"false","editor-font-scale":"1","editor-max-height":"","dpi":72}},{"id":3,"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = FALSE))","options":{"classes":"","comment":"","editor-word-wrap":"true","warning":"true","read-only":"false","output":"true","fig-height":5,"out-width":"700px","fig-cap":"","results":"markup","fig-width":7,"context":"interactive","message":"true","out-height":"","label":"unnamed-chunk-3","editor-quick-suggestions":"false","autorun":"false","editor-font-scale":"1","editor-max-height":"","dpi":72}}];
 
 </script>
 <script type="module">
@@ -1937,6 +1937,12 @@ globalThis.qwebrExecuteCode = async function (
   <div class="sidebar-item-container"> 
   <a href="./visualising.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./at-home-007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
       </ul>

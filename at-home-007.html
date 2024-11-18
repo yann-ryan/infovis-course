@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>26&nbsp; Chart scales – Information Visualization and the Humanities: Course Book</title>
+<title>41&nbsp; Home Exercise – Information Visualization and the Humanities: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./position.html" rel="next">
-<link href="./gestalt.html" rel="prev">
+<link href="./extra_exercises.html" rel="next">
+<link href="./visualising.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8_data_visualisation_2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./scales.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Chart scales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital_mapping.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./at-home-007.html"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercise</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -331,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./scales.html" class="sidebar-item-text sidebar-link active">
+  <a href="./scales.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Chart scales</span></span></a>
   </div>
 </li>
@@ -454,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./at-home-007.html" class="sidebar-item-text sidebar-link">
+  <a href="./at-home-007.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercise</span></span></a>
   </div>
 </li>
@@ -512,22 +512,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#scales" id="toc-scales" class="nav-link active" data-scroll-target="#scales">Scales</a></li>
-  <li><a href="#aesthetics" id="toc-aesthetics" class="nav-link" data-scroll-target="#aesthetics">Aesthetics</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./8_data_visualisation_2.html">Data Visualisation 2</a></li><li class="breadcrumb-item"><a href="./scales.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Chart scales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./digital_mapping.html">Digital Mapping 1</a></li><li class="breadcrumb-item"><a href="./at-home-007.html"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercise</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Chart scales</span></h1>
+<h1 class="title"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercise</span></h1>
 </div>
 
 
@@ -544,31 +537,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>By now, I hope it is clear that when making a visualisation in ggplot, we do so by a process of mapping <strong>data</strong> to <strong>aesthetics</strong>. To give a concrete example, when we write <code>x = GDPperCAP, y = lifeExp, color = continent</code>, behind the scences ggplot is taking the values in the columns we give it, and giving them some kind of visual form. In the case of the position (x and y), by default this means that distance on the plot corresponds to equal amounts numerical values. In the case of colour, ggplot2 knows there are five distinct values, and that it should give each a distinct colour.</p>
-<section id="scales" class="level2">
-<h2 class="anchored" data-anchor-id="scales">Scales</h2>
-<p>The process by which this happens involve <strong>scales. Scales</strong> are the next ‘layer’ in our ggplot object. Scales <strong>control the mapping from data to aesthetics</strong>. Data visualisations cannot work without scales, so ggplot2 will automatically add them to your plots, but knowing how to control these and the various options they have available will allow you to have much more control over the look of your visualisations.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These scales are communicated to the viewer by means of an <strong>axis</strong> or a <strong>legend,</strong> which we’ll cover afterwards.</p>
-</div>
-</div>
-<p>We won’t go into the <a href="https://ggplot2-book.org/scales-guides">theory of how g gplot2 works with scales</a> in too much detail, but concentrate on some practical code, examples and tips which I think have the most impact on controlling the aspects of your plots you would expect to be able to do.</p>
-</section>
-<section id="aesthetics" class="level2">
-<h2 class="anchored" data-anchor-id="aesthetics">Aesthetics</h2>
-<p>Recall from last week that we learned about different aesthetics: <strong>position</strong>, <strong>colour</strong>, <strong>size</strong>, <strong>shape</strong>, <strong>linetype</strong>, linewidth, and <strong>transparency</strong>. This chapter on scales will mostly cover <strong>position</strong> and <strong>colour</strong>, and to a lesser extent, <strong>size</strong>. The scales for the other aesthetics are less interesting (you’re less likely to want to change the defaults), so we won’t look at these. But be aware they also have scales which can be overwritten or adjusted.</p>
+<ul>
+<li><p>Using the <a href="https://github.com/yann-ryan/infovis_data/tree/main/nobel">Nobel Prize Dataset</a>, visualise the number of winners for each country. Set a custom scale and theme elements.</p></li>
+<li><p>You’ll need to import the dataset yourself, either by downloading from the link above and adding as files to Posit Cloud, or reading it directly.</p></li>
+<li><p>You’ll also need to install all the necessary packages, except tidyverse.</p></li>
+</ul>
+<p><strong>Completely optional:</strong></p>
+<ul>
+<li><p>Use the tmap package to recreate the map.</p></li>
+<li><p>Change the projection</p></li>
+<li><p>Make an interactive version, again using tmap. Have something informative show up when hovering the mouse over a country.</p></li>
+</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -993,13 +974,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./gestalt.html" class="pagination-link" aria-label="Gestalt Principles">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Gestalt Principles</span></span>
+      <a href="./visualising.html" class="pagination-link" aria-label="Wrangling and visualising map data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Wrangling and visualising map data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./position.html" class="pagination-link" aria-label="Position scales">
-        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Position scales</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./extra_exercises.html" class="pagination-link" aria-label="Links to extra practice exercises">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Links to extra practice exercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
