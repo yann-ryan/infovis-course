@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","id":1,"options":{"editor-max-height":"","editor-font-scale":"1","fig-cap":"","out-height":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","comment":"","autorun":"true","results":"markup","dpi":72,"context":"setup","fig-width":7,"fig-height":5,"label":"unnamed-chunk-1","read-only":"false","output":"true","warning":"true","editor-word-wrap":"true","message":"true"}},{"code":"locations_df","id":2,"options":{"editor-max-height":"","editor-font-scale":"1","fig-cap":"","out-height":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","comment":"","autorun":"false","results":"markup","dpi":72,"context":"interactive","fig-width":7,"fig-height":5,"label":"unnamed-chunk-2","read-only":"false","output":"true","warning":"true","editor-word-wrap":"true","message":"true"}},{"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","id":3,"options":{"editor-max-height":"","editor-font-scale":"1","fig-cap":"","out-height":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","comment":"","autorun":"false","results":"markup","dpi":72,"context":"interactive","fig-width":7,"fig-height":5,"label":"unnamed-chunk-3","read-only":"false","output":"true","warning":"true","editor-word-wrap":"true","message":"true"}},{"code":"","id":4,"options":{"editor-max-height":"","editor-font-scale":"1","fig-cap":"","out-height":"","editor-quick-suggestions":"false","classes":"","out-width":"700px","comment":"","autorun":"false","results":"markup","dpi":72,"context":"interactive","fig-width":7,"fig-height":5,"label":"unnamed-chunk-4","read-only":"false","output":"true","warning":"true","editor-word-wrap":"true","message":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')\n\nlocations_df = tribble(\n  ~code, ~location_name, ~country,  ~lat, ~lng,\n  \"Q\",   \"Queenstown\", \"Ireland\", 51.85, -8.29,\n  \"S\",   \"Southampton\", \"United Kingdom\", 50.9, -1.4,\n  \"C\",   \"Cherbourg\", \"France\", 49.63, -1.62\n)","options":{"editor-font-scale":"1","fig-height":5,"context":"setup","classes":"","message":"true","read-only":"false","fig-cap":"","results":"markup","comment":"","warning":"true","dpi":72,"autorun":"true","fig-width":7,"output":"true","out-height":"","editor-word-wrap":"true","label":"unnamed-chunk-1","editor-quick-suggestions":"false","editor-max-height":"","out-width":"700px"},"id":1},{"code":"locations_df","options":{"editor-font-scale":"1","fig-height":5,"context":"interactive","classes":"","message":"true","read-only":"false","fig-cap":"","results":"markup","comment":"","warning":"true","dpi":72,"autorun":"false","fig-width":7,"output":"true","out-height":"","editor-word-wrap":"true","label":"unnamed-chunk-2","editor-quick-suggestions":"false","editor-max-height":"","out-width":"700px"},"id":2},{"code":"titanic_df |>\n  left_join(locations_df, by = c('embarked' = 'code'))","options":{"editor-font-scale":"1","fig-height":5,"context":"interactive","classes":"","message":"true","read-only":"false","fig-cap":"","results":"markup","comment":"","warning":"true","dpi":72,"autorun":"false","fig-width":7,"output":"true","out-height":"","editor-word-wrap":"true","label":"unnamed-chunk-3","editor-quick-suggestions":"false","editor-max-height":"","out-width":"700px"},"id":3},{"code":"","options":{"editor-font-scale":"1","fig-height":5,"context":"interactive","classes":"","message":"true","read-only":"false","fig-cap":"","results":"markup","comment":"","warning":"true","dpi":72,"autorun":"false","fig-width":7,"output":"true","out-height":"","editor-word-wrap":"true","label":"unnamed-chunk-4","editor-quick-suggestions":"false","editor-max-height":"","out-width":"700px"},"id":4}];
 
 </script>
 <script type="module">
@@ -1964,20 +1964,26 @@ globalThis.qwebrExecuteCode = async function (
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./final_project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Final Project</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./mcpherson_final_project.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Women in Ancient Papyri</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Women in Ancient Papyri</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Hogewoning_FinalProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">The Top 2000 &amp; The Evergreen Top 1000</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">The Top 2000 &amp; The Evergreen Top 1000</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Polakowska-FinalProject.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">The Impact of Tea</span></span></a>
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">The Impact of Tea</span></span></a>
   </div>
 </li>
       </ul>
