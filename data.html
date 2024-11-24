@@ -526,8 +526,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#datasets-for-the-final-project" id="toc-datasets-for-the-final-project" class="nav-link" data-scroll-target="#datasets-for-the-final-project">Datasets for the final project</a>
   <ul class="collapse">
   <li><a href="#individual-datasets" id="toc-individual-datasets" class="nav-link" data-scroll-target="#individual-datasets">Individual datasets</a></li>
-  <li><a href="#data-repositories" id="toc-data-repositories" class="nav-link" data-scroll-target="#data-repositories">Data repositories</a></li>
+  <li><a href="#data-repositories-or-lists" id="toc-data-repositories-or-lists" class="nav-link" data-scroll-target="#data-repositories-or-lists">Data repositories or lists</a></li>
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R Packages</a></li>
+  <li><a href="#social-media-data" id="toc-social-media-data" class="nav-link" data-scroll-target="#social-media-data">Social media data</a></li>
   </ul></li>
   <li><a href="#inspiration-for-the-final-project" id="toc-inspiration-for-the-final-project" class="nav-link" data-scroll-target="#inspiration-for-the-final-project">Inspiration for the final project</a></li>
   </ul>
@@ -559,7 +560,7 @@ ul.task-list li input[type="checkbox"] {
 <p>I’ll update it as the course goes on to contain information relevant for each of the last three graded assignments, which involve making a visualisation, making a map, and the final project.</p>
 <section id="importing-a-dataset-and-dataset-standards" class="level2">
 <h2 class="anchored" data-anchor-id="importing-a-dataset-and-dataset-standards">Importing a dataset and dataset standards</h2>
-<p>For this assignments, you’ll need to begin by importing your dataset as an object into the RStudio/Posit environment. How you do this depends a little on the standard of your dataset. As we’re working with <strong>tabular data</strong> on this course, your data should in most cases be either in one of these formats:</p>
+<p>For these assignments, you’ll need to begin by importing your dataset as an object into the RStudio/Posit environment. How you do this depends a little on the standard of your dataset. As we’re working with <strong>tabular data</strong> on this course, your data should in most cases be either in one of these formats:</p>
 <ul>
 <li><p>comma separated values (files ending in .csv). A very common tabular data format. Use <code>read_csv()</code> from the Tidyverse package <code>readr</code> (remember to load the package first) to read the file in to Posit.</p></li>
 <li><p>Tab separated values (files ending in .tsv). Another common tabular format. Use <code>read_tsv()</code> from the Tidyverse package <code>readr</code> to read the file.</p></li>
@@ -617,17 +618,36 @@ Warning
 <li>Shakespeare and Co datasets. Very nice geocoded library lending data. Article <a href="https://culturalanalytics.org/article/32551-shakespeare-and-company-project-data-sets">here</a> and the datasets are divided into <a href="https://doi.org/10.34770/8c2s-a169">members</a>, <a href="https://doi.org/10.34770/yj5r-0m59">books</a>, and <a href="https://doi.org/10.34770/nz90-ym25">events</a> (events generally mean library loans here).</li>
 <li><a href="https://bl.iro.bl.uk/concern/datasets/943bd083-6355-44a1-97eb-b8ff898f87d5">Title list of British Library Newspapers</a></li>
 <li>This <a href="https://github.com/karinavdo/RiddleData">structured literary dataset</a> made for the litRiddle project. There’s also an R package, <code>install.packages("litRiddle").</code></li>
+<li>The <a href="https://github.com/MuseumofModernArt/collection">Museum of Modern Art dataset</a>. Nice dataset for analysis of cultural heritage (more examples in the next section).</li>
 </ul>
 </section>
-<section id="data-repositories" class="level3">
-<h3 class="anchored" data-anchor-id="data-repositories">Data repositories</h3>
+<section id="data-repositories-or-lists" class="level3">
+<h3 class="anchored" data-anchor-id="data-repositories-or-lists">Data repositories or lists</h3>
+<p>There are many, many sources of datasets available online. Look for relatively simple csv and tsv files or sets of files, and avoid those that mention APIs or Linked Open Data unless you are comfortable working with these things.</p>
 <ul>
 <li><p><a href="https://opendata.cbs.nl/statline/#/CBS/nl/">CBS Statline</a>: Dutch Statistics. Also an R package <a href="https://github.com/edwindj/cbsodataR">here</a>.</p></li>
 <li><p>DANS <a href="https://ssh.datastations.nl/">Humanities and Social Sciences</a>: repository for many datasets, just be aware they may be very specific and not always be easy to use.</p></li>
 <li><p><a href="https://lab.kb.nl/products/product_type/dataset">KB Labs datasets</a> (many are text based but some are structured).</p></li>
 <li><p>The <a href="https://datasetsearch.research.google.com/">Google dataset search</a>. However make sure you can trace back the provenance!</p></li>
 <li><p><a href="https://openhumanitiesdata.metajnl.com/">Journal of Open Humanities Data</a>. Journal with open data and articles outlining possible use cases.</p></li>
+<li><p><a href="https://developer.imdb.com/non-commercial-datasets/">IMDB datasets</a>. Large-scale datasets from the IMDB website. You’ll probably need to install and run R on your local machine, because reading and analysing these will require more RAM than is available in Posit cloud.</p></li>
+<li><p>Book catalogue metadata is a nice source of structured humanities data. The <a href="https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/hathifiles/">Hathi Trust metadata files</a> contain information (not content) on all the works digitised by the Hathi Trust. Look for the most recent file starting with <code>hathi_full</code>. These are also large files and will require you to install and run R Studio on your own machine.</p></li>
+<li><p><a href="http://dhresourcesforprojectbuilding.pbworks.com/w/page/69244469/Data%20Collections%20and%20Datasets">The ‘DH toychest’ datasets</a>. In particular, follow the link and scroll down to the section ‘Datasets’.</p></li>
+<li><p><a href="http://museum-api.pbworks.com/w/page/21933420/Museum%C2%A0APIs">List of Museum APIs</a>. Also lists some datasets in regular tabular formats like tsv and csv.</p></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For very large datasets, it may also be helpful to use an R package such as data.table which is more efficient than Tidyverse for working with very large data. data.table has a very different syntax to the Tidyverse, but there is a package, tidytable, which converts between the two.</p>
+</div>
+</div>
 </section>
 <section id="r-packages" class="level3">
 <h3 class="anchored" data-anchor-id="r-packages">R Packages</h3>
@@ -636,6 +656,18 @@ Warning
 <li><p>refugees (with guidelines <a href="https://www.unhcr.org/refugee-statistics/insights/explainers/refugees-r-package.html">here</a>)</p></li>
 <li><p>A huge list <a href="https://vincentarelbundock.github.io/Rdatasets/datasets.html">here</a> - but again, try to only use those with good documentation.</p></li>
 </ul>
+<section id="r-packages-which-connect-to-an-api" class="level4">
+<h4 class="anchored" data-anchor-id="r-packages-which-connect-to-an-api">R Packages which connect to an API</h4>
+<ul>
+<li><p><a href="https://github.com/charlie86/spotifyr">spotifyr</a> allows you to download data, either public or your own listening data, from Spotify. You need to register for an API key - follow the instructions behind the link.</p></li>
+<li><p><a href="https://github.com/ivan-rivera/RedditExtractoR">RedditExtractoR</a>. I haven’t tried it, but apparently will allow you to download data from Reddit. Use at your own risk!</p></li>
+<li><p><a href="https://docs.ropensci.org/osmdata/">The osmdata package</a>. Download geographic data through R. Very fun to work with, though takes some understanding of the queries. Try a tutorial <a href="https://jcoliver.github.io/learn-r/017-open-street-map.html">here</a> if you’re interested.</p></li>
+</ul>
+</section>
+</section>
+<section id="social-media-data" class="level3">
+<h3 class="anchored" data-anchor-id="social-media-data">Social media data</h3>
+<p>Unfortunately, doing analysis on social media data has become difficult in the last few years as companies have locked down their services. There are some individual datasets of collected tweets which you could use, e.g.&nbsp;<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/I5WC7O">here</a>. There is an additional step needed with tweets - the collected data is only what are known as tweet IDs, and they must be ‘hydrated’ using software such as <a href="https://github.com/DocNow/hydrator/releases">Hydrator</a> in order to actually read and analyse them.</p>
 </section>
 </section>
 <section id="inspiration-for-the-final-project" class="level2">
@@ -648,6 +680,7 @@ Warning
 <li><p><a href="https://www.theguardian.com/australia-news/ng-interactive/2019/mar/04/massacre-map-australia-the-killing-times-frontier-wars">The Killing Times</a> project (example of an interactive visual essay, for those interested in using Shiny).</p></li>
 <li><p>Short visual essays by FiveThirtyEight such as <a href="https://projects.fivethirtyeight.com/obama-polling-trends/">this one</a>.</p></li>
 <li><p><a href="https://dsl.richmond.edu/emancipation/">Visualising Emancipation</a> (a nice example of a visual essay aimed at an academic readership).</p></li>
+<li><p><a href="http://museum-api.pbworks.com/w/page/21933412/Cool%20stuff%20made%20with%20cultural%20heritage%20APIs">Cool stuff made with cultural heritage APIs</a></p></li>
 </ul>
 
 
