@@ -336,7 +336,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr', 'sf', 'rnaturalearth', 'rnaturalearthdata', 'usmapdata'];
+globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr', 'sf', 'rnaturalearth', 'rnaturalearthdata', 'usmapdata', 'plotly'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"label":"unnamed-chunk-1","warning":"true","fig-width":7,"editor-quick-suggestions":"false","context":"interactive","fig-cap":"","dpi":72,"read-only":"false","fig-height":5,"autorun":"false","message":"true","out-width":"700px","editor-font-scale":"1","comment":"","out-height":"","output":"true","classes":"","results":"markup","editor-max-height":"","editor-word-wrap":"true"},"id":1,"code":"1 + 1"}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"results":"markup","fig-cap":"","comment":"","out-width":"700px","editor-word-wrap":"true","editor-font-scale":"1","editor-quick-suggestions":"false","editor-max-height":"","out-height":"","warning":"true","fig-width":7,"message":"true","autorun":"false","label":"unnamed-chunk-1","classes":"","dpi":72,"output":"true","read-only":"false","fig-height":5,"context":"interactive"},"code":"1 + 1"}];
 
 </script>
 <script type="module">
@@ -1950,12 +1950,35 @@ globalThis.qwebrExecuteCode = async function (
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Digital Mapping 2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./full_map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interactives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./extra_exercises.html" class="sidebar-item-text sidebar-link">
@@ -1965,7 +1988,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">

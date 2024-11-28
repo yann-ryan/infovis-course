@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>35&nbsp; Reproducibility and FAIR data – Information Visualization and the Humanities: Course Book</title>
+<title>42&nbsp; Full map workflow – Information Visualization and the Humanities: Course Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./accessibility.html" rel="next">
-<link href="./annotations.html" rel="prev">
+<link href="./interactives.html" rel="next">
+<link href="./at-home-007.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fair.html">Data Visualisation 4</a></li><li class="breadcrumb-item"><a href="./fair.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./full_map.html">Digital Mapping 2</a></li><li class="breadcrumb-item"><a href="./full_map.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Full map workflow</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -407,7 +441,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fair.html" class="sidebar-item-text sidebar-link active">
+  <a href="./fair.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></span></a>
   </div>
 </li>
@@ -471,7 +505,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./full_map.html" class="sidebar-item-text sidebar-link">
+  <a href="./full_map.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
   </div>
 </li>
@@ -540,20 +574,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link active" data-scroll-target="#reproducibility">Reproducibility</a>
+  <li><a href="#steps-to-making-a-map" id="toc-steps-to-making-a-map" class="nav-link active" data-scroll-target="#steps-to-making-a-map">9 Steps to Making a Map</a>
   <ul class="collapse">
-  <li><a href="#reproducibility-with-r" id="toc-reproducibility-with-r" class="nav-link" data-scroll-target="#reproducibility-with-r">Reproducibility with R</a></li>
+  <li><a href="#import-your-external-data" id="toc-import-your-external-data" class="nav-link" data-scroll-target="#import-your-external-data">1: Import your external data</a></li>
+  <li><a href="#figure-out-the-geographic-unit" id="toc-figure-out-the-geographic-unit" class="nav-link" data-scroll-target="#figure-out-the-geographic-unit">2: Figure out the Geographic Unit</a></li>
+  <li><a href="#find-and-read-in-a-shapefile" id="toc-find-and-read-in-a-shapefile" class="nav-link" data-scroll-target="#find-and-read-in-a-shapefile">3: Find and read in a shapefile</a></li>
+  <li><a href="#import-your-base-map-into-r" id="toc-import-your-base-map-into-r" class="nav-link" data-scroll-target="#import-your-base-map-into-r">4: Import your base map into R</a></li>
+  <li><a href="#find-a-common-field" id="toc-find-a-common-field" class="nav-link" data-scroll-target="#find-a-common-field">5: Find a Common Field</a></li>
+  <li><a href="#summarise-andor-clean-your-data" id="toc-summarise-andor-clean-your-data" class="nav-link" data-scroll-target="#summarise-andor-clean-your-data">6: Summarise and/or clean your Data</a></li>
+  <li><a href="#join-your-data-and-map-together." id="toc-join-your-data-and-map-together." class="nav-link" data-scroll-target="#join-your-data-and-map-together.">7: Join your data and map together.</a></li>
+  <li><a href="#map-with-ggplot-and-geom_sf" id="toc-map-with-ggplot-and-geom_sf" class="nav-link" data-scroll-target="#map-with-ggplot-and-geom_sf">8: Map with ggplot and geom_sf</a></li>
+  <li><a href="#finishing-touches" id="toc-finishing-touches" class="nav-link" data-scroll-target="#finishing-touches">9: Finishing Touches</a></li>
   </ul></li>
-  <li><a href="#fair-data" id="toc-fair-data" class="nav-link" data-scroll-target="#fair-data">FAIR Data</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fair.html">Data Visualisation 4</a></li><li class="breadcrumb-item"><a href="./fair.html"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./full_map.html">Digital Mapping 2</a></li><li class="breadcrumb-item"><a href="./full_map.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Full map workflow</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Reproducibility and FAIR data</span></h1>
+<h1 class="title"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Full map workflow</span></h1>
 </div>
 
 
@@ -570,42 +611,182 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
-<p>An important principle in working with code and data is <strong>reproducibility.</strong> Reproducibility is a key part of scientific analysis: the idea that we should do work with the aim that anyone, given the same code. data, and methods, should be able to reproduce our work. This allows others to verify what we have done - that we haven’t accidentally (or maliciously) come to false conclusions.</p>
-<p>To do this, we should generally publically share the code and data in exactly the same formats, so others can recreate the exact same conditions.</p>
-<section id="reproducibility-with-r" class="level3">
-<h3 class="anchored" data-anchor-id="reproducibility-with-r">Reproducibility with R</h3>
-<p>Luckily, our workflow makes this quite easy. R Markdown files will only ‘knit’ if they have access to the data andwhen the code works from beginning to end. To make the project reproducible, you can simply ensure that all data used is included along with the code. In a ‘live’ project, you would make this publicly available (checking copyright restrictions), on a code repository, usually <a href="https://github.com/">Github</a> or <a href="https://zenodo.org/">Zenodo</a>.</p>
-<p>For your final project, think about packaging everything up so that it is fully reproducible - so that I or anyone else could open the folder and run the code from start to finish and end up with an exact copy of your visualisation. Include your datasets in the .zip file with the Markdown. If you created any additional datasets, for example to help with data cleaning, make sure you include these too. If possible, download your data from online sources rather than loading it directly from the web. Include basic comments on your code, particularly anything which you think is unclear or might need explaining.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Versioning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>A further aspect of reproducibility is ‘versioning’. R versions and packages change and this can cause problems for others running your code later on. To fix this you can use something called <em>version control.</em> R has a package <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> to help with this. It essentially creates a fixed snapshot of R and its packages as you used them at the time you wrote your code, which others can download and use to run your code too. Practicing this is outside the scope of this course, but good to be aware of.</p>
-</div>
-</div>
+<section id="steps-to-making-a-map" class="level2">
+<h2 class="anchored" data-anchor-id="steps-to-making-a-map">9 Steps to Making a Map</h2>
+<ol type="1">
+<li><p>Import your geographic data</p></li>
+<li><p>Figure out the geographic unit</p></li>
+<li><p>Find a base map which corresponds</p></li>
+<li><p>Import your base map</p></li>
+<li><p>Find the common field</p></li>
+<li><p>Summarise your data</p></li>
+<li><p>Join your data and the map together</p></li>
+<li><p>Map with ggplot and sf</p></li>
+<li><p>Finishing touches</p></li>
+</ol>
+<section id="import-your-external-data" class="level3">
+<h3 class="anchored" data-anchor-id="import-your-external-data">1: Import your external data</h3>
+<p>Find the dataset you want to use. This will of course have some kind of geographic information, such as country, or state, or region, as well as further information.</p>
 </section>
+<section id="figure-out-the-geographic-unit" class="level3">
+<h3 class="anchored" data-anchor-id="figure-out-the-geographic-unit">2: Figure out the Geographic Unit</h3>
+<p>Each row of information in your data will have a geographic unit - the <em>type</em> of area on the map where it records the geographic information. These are usually based on some kind of political or geographic border. Examples include nations, regions, provinces, municipalities, election areas, and so forth. This will be recorded in a single column.</p>
+<p>Your data should only have one type of geographic unit. In other words, you shouldn’t have data which mixes more than one together. For example, if you had a ‘place’ column, it won’t work if sometimes it records the country, and sometimes the province.</p>
+<p>It can have different geographic units in <em>different</em> columns, for example one column with the country. and another with the province. If this is the case, decide which level you want to use.</p>
 </section>
-<section id="fair-data" class="level2">
-<h2 class="anchored" data-anchor-id="fair-data">FAIR Data</h2>
-<p>When working with data, you will often hear about how to make it FAIR. FAIR is a set of principles developed to make data as reuable as possible. The principles are:</p>
+<section id="find-and-read-in-a-shapefile" class="level3">
+<h3 class="anchored" data-anchor-id="find-and-read-in-a-shapefile">3: Find and read in a shapefile</h3>
+<p>You need to find a map containing features which correspond to the geographic unit you are going to use in your data. If you have a dataset where information is recorded on the country level, you’ll need a world map in which each feature is a country (as the one we used last week from R Natural Earth.</p>
+<p>If you have more specific geographic data, you’ll probably need to find a corresponding file storing geographic information. There are many different formats which store this information, and it’s important to know how to find suitable ones and read them into R. Two of the most common are <strong>shapefiles</strong> and <strong>geoJSON.</strong> There are also formats which package together multiple layers of geographic information, for example <strong>GeoPackage (.gpkg).</strong></p>
+<section id="shapefiles" class="level4">
+<h4 class="anchored" data-anchor-id="shapefiles">Shapefiles</h4>
+<p><strong>Shapefiles</strong> are a commonly supported file type for spatial data dating back to the early 1990s. Proprietary software for geographic information systems (GIS) such as <a href="https://www.esri.com/en-us/arcgis/about-arcgis/overview">ArcGIS</a> pioneered this format and helps maintain its continued usage. A shapefile encodes points, lines, and polygons in geographic space, and is actually a set of files. Shapefiles appear with a <code>.shp</code> extension, sometimes with accompanying files ending in <code>.dbf</code> and <code>.prj</code>.</p>
 <ul>
-<li><p><strong>Findable</strong>. This means making it easy to find your data, usually by adding keywords and making sure it is openly available and described correctly.</p></li>
-<li><p><strong>Accessible</strong>. In this context, accessible means making data publically available, where possible.</p></li>
-<li><p><strong>Interoperable</strong>. Data should use existing standards and formats, so others can easily use or interact with it.</p></li>
-<li><p><strong>Reusable.</strong> Research data should be reusable by others - if data follows the above principles, plus is well documented, this will be the case.</p></li>
+<li><p><code>.shp</code> stores the geographic coordinates of the geographic features (e.g.&nbsp;country, state, county)</p></li>
+<li><p><code>.dbf</code> stores data associated with the geographic features (e.g.&nbsp;unemployment rate, crime rates, percentage of votes cast for Donald Trump)</p></li>
+<li><p><code>.prj</code> stores information about the projection of the coordinates in the shapefile</p></li>
 </ul>
-<p>How does this affect your own work? Primarily, you will be working on existing datasets when making visualisations on this course, but in many cases (on your own research project, for example), you might be responsible for creating datasets.</p>
-<p>However, it’s worth bearing in mind the FAIR principles because they can be relevant in how you make your own work reusable. In most cases, you are the ‘end user’ of FAIR data, rather than creating it yourself. However you can ensure that the work you do also results in FAIR data, for example by describing and documenting your own work, and how you analysed or cleaned data.</p>
+<p><strong>The important thing to note is that while you read in the file ending in .shp, you need to have the other ‘layers’ in the same folder.</strong> Usually you will download the entire folder as a zip, which can be uploaded directly to Posit Cloud.</p>
+<p>As an example I have downloaded a file from the US census site. If we have a folder with the file <code>cb_2018_us_state_20m/cb_2018_us_state_20m.shp</code> , read this into R using <code>st_read()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>us_states_map <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">'cb_2018_us_state_20m/cb_2018_us_state_20m.shp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `cb_2018_us_state_20m' from data source 
+  `/Users/Yann/Documents/infovis_course_2024_2025/cb_2018_us_state_20m/cb_2018_us_state_20m.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 52 features and 9 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -179.1743 ymin: 17.91377 xmax: 179.7739 ymax: 71.35256
+Geodetic CRS:  NAD83</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>us_states_map <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="full_map_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>These are often released by official agencies and can be found through a search engine. For example, Dutch geo data can often be found through <a href="https://www.pdok.nl/" class="uri">https://www.pdok.nl/</a> or the <a href="https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data">CBS</a>. Shapefiles for EU regions can be found at <a href="https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics">here</a>. These use a set of boundaries called NUTS, which range from NUTS-0 (countries) to NUTS-3 (small regions).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nuts <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">'NUTS_RG_60M_2024_4326.shp/NUTS_RG_60M_2024_4326.shp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `NUTS_RG_60M_2024_4326' from data source 
+  `/Users/Yann/Documents/infovis_course_2024_2025/NUTS_RG_60M_2024_4326.shp/NUTS_RG_60M_2024_4326.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1793 features and 8 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -63.13409 ymin: -21.4001 xmax: 55.86434 ymax: 80.39754
+Geodetic CRS:  WGS 84</code></pre>
+</div>
+</div>
+<p>Remember that adminstrative units are often redrawn, so try to make sure that your data and map match as much as possible.</p>
+<p>In some cases, these shapefiles will contain all possible geographic units in one dataset. In that case, you’ll need to filter to only include the relevant ones.</p>
+<p>This is the case for the NUTS data above. All three levels are included so you will need to filter the dataset before using:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>nuts <span class="sc">|&gt;</span> <span class="fu">filter</span>(LEVL_CODE <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="full_map_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="geojson" class="level4">
+<h4 class="anchored" data-anchor-id="geojson">geoJSON</h4>
+<p>geoJSON is a new geographic standard based on JSON: a very widely-used standard for storing data.</p>
+<p>geoJSON files can be read into R simply by using <code>st_read()</code>.</p>
+</section>
+<section id="geopackages-.gpkg-files" class="level4">
+<h4 class="anchored" data-anchor-id="geopackages-.gpkg-files">Geopackages (.gpkg files)</h4>
+<p>Another common format you will find geographic information is geopackage, which you can recognise by the ending .gpkg. Geopackage files are actually an SQL database which can contain many layers of different geographic information.</p>
+<p>To read these files, use <code>st_read()</code>, but first you need to specify which layer you would like to read.</p>
+<p>To view all the layers first, use the function <code>st_layer()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_layers</span>(<span class="st">'/Users/Yann/Downloads/WijkBuurtkaart_2024_v1/wijkenbuurten_2024_v1.gpkg'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Driver: GPKG 
+Available layers:
+  layer_name geometry_type features fields            crs_name
+1    buurten Multi Polygon    14668    223 Amersfoort / RD New
+2  gemeenten Multi Polygon      424    218 Amersfoort / RD New
+3     wijken Multi Polygon     3475    220 Amersfoort / RD New</code></pre>
+</div>
+</div>
+<p>To read the correct one, simply specify the chosen layer name in the first column:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>map <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">'WijkBuurtkaart_2024_v1/wijkenbuurten_2024_v1.gpkg'</span>, <span class="at">layer =</span> <span class="st">'gemeenten'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `gemeenten' from data source 
+  `/Users/Yann/Documents/infovis_course_2024_2025/WijkBuurtkaart_2024_v1/wijkenbuurten_2024_v1.gpkg' 
+  using driver `GPKG'
+Simple feature collection with 424 features and 218 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 10425.16 ymin: 306846.2 xmax: 278026.1 ymax: 621876.3
+Projected CRS: Amersfoort / RD New</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>map <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="full_map_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="import-your-base-map-into-r" class="level3">
+<h3 class="anchored" data-anchor-id="import-your-base-map-into-r">4: Import your base map into R</h3>
+<p>Using sf, import your basemap. Usually this can be done by using st_read, and giving the location of the shapefile. Specify the layer if necessary.</p>
+</section>
+<section id="find-a-common-field" class="level3">
+<h3 class="anchored" data-anchor-id="find-a-common-field">5: Find a Common Field</h3>
+<p>Now, you need to look at your two datasets - your data and your shapefile - and figure out what field they have in common. This means, you need to find the column in each one which uses a standardised set of names.</p>
+<p>A simple example is where both have a column with country names.</p>
+<p>A good practice is to use a standardised code where one is available. For instance, both dataset may have a standardised ‘ISO’ code where the country is recorded. This is less ambiguous than a country name, which may have slight variants, or be recorded in another languages, etc.</p>
+<p>In the case of smaller regions such as EU NUTS regions, you will likely have to use a code rather than a specific name.</p>
+</section>
+<section id="summarise-andor-clean-your-data" class="level3">
+<h3 class="anchored" data-anchor-id="summarise-andor-clean-your-data">6: Summarise and/or clean your Data</h3>
+<p>Once you have your common code, you can get your dataset ready. Usually, this will mean doing a summary (such as a count, or maybe getting an average, or perhaps some kind of proportion by population) for each entry in the geographic field you are using. For example, if the field in common is an EU NUTS region code, then you would do a summary for each NUTS region.</p>
+<p>You may also have further cleaning steps, for example fixing inconsistent country names. In the case of the data we’re using today, in order to visualise it you want to turn it into ‘long’ format using the function <code>pivot_longer()</code>.</p>
+<p>If you want to draw multiple maps, one for each category, you might summarise by two variables: the category, and the region. Later, you’ll need to use facet_wrap to draw each category as a separate map.</p>
+<p>At this stage, you may also want to filter your data. This might be to restrict the data to a certain year or timeframe. You will also need to filter your data if you have multiple geographic units in the same column. For instance, your data may have a ‘region’ column, where it records not just NUTS level 2, but also NUTS level 1 and 3. In this case you need to figure out how to restrict it to a single geographic unit.</p>
+</section>
+<section id="join-your-data-and-map-together." class="level3">
+<h3 class="anchored" data-anchor-id="join-your-data-and-map-together.">7: Join your data and map together.</h3>
+<p>Using left_join, you will now merge together the map with the summarised dataset. If the column names are not the same, you’ll have to specify which ones it should use (see previous lesson for this).</p>
+<p>The shapefile should be on the ‘left’ side, meaning it should come first in the <code>join</code> function, e.g.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shapefile <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(external_data, <span class="at">by =</span> <span class="st">'common_code'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="map-with-ggplot-and-geom_sf" class="level3">
+<h3 class="anchored" data-anchor-id="map-with-ggplot-and-geom_sf">8: Map with ggplot and geom_sf</h3>
+<p>Now, you can make a map! Remember to use aes() and fill = to specify how ggplot should colour your data.</p>
+</section>
+<section id="finishing-touches" class="level3">
+<h3 class="anchored" data-anchor-id="finishing-touches">9: Finishing Touches</h3>
+<p>Now, make edits to your map to make it more readable and looking better aesthetically. You’ll probably want to adjust the limits and projection of the map using <code>coord_sf</code>, and experiment with the scale using <code>scale_fill_</code>. You could also think about binning the colors (often it’s easier to interpret specific colors on maps rather than a continuous scale). This is the point where you will need to use <code>facet_wrap()</code> to draw maps separately, if you went down this route.</p>
+<p>You could also add a map scale bar and a compass using the package ggsn (you’ll need to install it separately using <code>install.packages()</code>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1031,13 +1212,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./annotations.html" class="pagination-link" aria-label="Annotations and Highlights">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Annotations and Highlights</span></span>
+      <a href="./at-home-007.html" class="pagination-link" aria-label="Home Exercise">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Home Exercise</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./accessibility.html" class="pagination-link" aria-label="Data Visualisation and Accessibility Considerations">
-        <span class="nav-page-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Data Visualisation and Accessibility Considerations</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./interactives.html" class="pagination-link" aria-label="Making Plots Interactive">
+        <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

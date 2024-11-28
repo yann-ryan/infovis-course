@@ -336,7 +336,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr', 'sf', 'rnaturalearth', 'rnaturalearthdata', 'usmapdata'];
+globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr', 'sf', 'rnaturalearth', 'rnaturalearthdata', 'usmapdata', 'plotly'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"dpi":72,"editor-max-height":"","comment":"","autorun":"true","context":"setup","results":"markup","fig-cap":"","editor-font-scale":"1","message":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","fig-width":7,"editor-quick-suggestions":"false","out-height":"","read-only":"false","output":"true","warning":"true","classes":"","label":"unnamed-chunk-1"},"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')"},{"id":2,"options":{"dpi":72,"editor-max-height":"","comment":"","autorun":"false","context":"interactive","results":"markup","fig-cap":"","editor-font-scale":"1","message":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","fig-width":7,"editor-quick-suggestions":"false","out-height":"","read-only":"false","output":"true","warning":"true","classes":"","label":"unnamed-chunk-2"},"code":"titanic_df |>\n  summarise(count = n())"},{"id":3,"options":{"dpi":72,"editor-max-height":"","comment":"","autorun":"false","context":"interactive","results":"markup","fig-cap":"","editor-font-scale":"1","message":"true","fig-height":5,"editor-word-wrap":"true","out-width":"700px","fig-width":7,"editor-quick-suggestions":"false","out-height":"","read-only":"false","output":"true","warning":"true","classes":"","label":"unnamed-chunk-3"},"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = FALSE))"}];
+globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(readr)\n\nurl <- \"https://raw.githubusercontent.com/yann-ryan/infovis-course/master/titanic_df_full.csv\"\ndownload.file(url, \"titanic_df.csv\")\n\ntitanic_df =  read_csv('titanic_df.csv')","id":1,"options":{"results":"markup","output":"true","editor-word-wrap":"true","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","context":"setup","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-1","warning":"true","autorun":"true","message":"true","fig-width":7,"fig-height":5,"read-only":"false","classes":"","out-width":"700px","comment":""}},{"code":"titanic_df |>\n  summarise(count = n())","id":2,"options":{"results":"markup","output":"true","editor-word-wrap":"true","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","context":"interactive","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-2","warning":"true","autorun":"false","message":"true","fig-width":7,"fig-height":5,"read-only":"false","classes":"","out-width":"700px","comment":""}},{"code":"titanic_df |> \n  summarise(n = sum(fare, na.rm = FALSE))","id":3,"options":{"results":"markup","output":"true","editor-word-wrap":"true","editor-quick-suggestions":"false","editor-font-scale":"1","fig-cap":"","context":"interactive","editor-max-height":"","dpi":72,"out-height":"","label":"unnamed-chunk-3","warning":"true","autorun":"false","message":"true","fig-width":7,"fig-height":5,"read-only":"false","classes":"","out-width":"700px","comment":""}}];
 
 </script>
 <script type="module">
@@ -1950,12 +1950,35 @@ globalThis.qwebrExecuteCode = async function (
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Digital Mapping 2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./full_map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interactives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./extra_exercises.html" class="sidebar-item-text sidebar-link">
@@ -1965,7 +1988,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">

@@ -336,7 +336,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr', 'sf', 'rnaturalearth', 'rnaturalearthdata', 'usmapdata'];
+globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'stringr', 'tidyr', 'sf', 'rnaturalearth', 'rnaturalearthdata', 'usmapdata', 'plotly'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  ","options":{"editor-word-wrap":"true","fig-height":5,"editor-font-scale":"1","comment":"","warning":"true","message":"true","output":"true","context":"setup","read-only":"false","fig-cap":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-1","results":"markup","autorun":"true","fig-width":7,"out-width":"700px","editor-max-height":"","dpi":72},"id":1},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  ","options":{"editor-word-wrap":"true","fig-height":5,"editor-font-scale":"1","comment":"","warning":"true","message":"true","output":"true","context":"interactive","read-only":"false","fig-cap":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-2","results":"markup","autorun":"false","fig-width":7,"out-width":"700px","editor-max-height":"","dpi":72},"id":2},{"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) ","options":{"editor-word-wrap":"true","fig-height":5,"editor-font-scale":"1","comment":"","warning":"false","message":"false","output":"true","error":"false","context":"interactive","read-only":"false","fig-cap":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-3","results":"markup","autorun":"false","fig-width":7,"out-width":"700px","editor-max-height":"","dpi":72},"id":3},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) ","options":{"editor-word-wrap":"true","fig-height":5,"editor-font-scale":"1","comment":"","warning":"true","message":"true","output":"true","context":"interactive","read-only":"false","fig-cap":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-4","results":"markup","autorun":"false","fig-width":7,"out-width":"700px","editor-max-height":"","dpi":72},"id":4},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() ","options":{"editor-word-wrap":"true","fig-height":5,"editor-font-scale":"1","comment":"","warning":"true","message":"true","output":"true","context":"interactive","read-only":"false","fig-cap":"","out-height":"","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-5","results":"markup","autorun":"false","fig-width":7,"out-width":"700px","editor-max-height":"","dpi":72},"id":5}];
+globalThis.qwebrCellDetails = [{"code":"library(tidyverse) \nlibrary(palmerpenguins)  \n\npenguins = palmerpenguins::penguins  ","options":{"editor-quick-suggestions":"false","classes":"","context":"setup","out-height":"","message":"true","fig-width":7,"comment":"","warning":"true","editor-font-scale":"1","autorun":"true","out-width":"700px","label":"unnamed-chunk-1","output":"true","editor-word-wrap":"true","editor-max-height":"","dpi":72,"results":"markup","fig-height":5,"fig-cap":"","read-only":"false"},"id":1},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = body_mass_g)) +    \n  geom_point(size = 3)  ","options":{"editor-quick-suggestions":"false","classes":"","context":"interactive","out-height":"","message":"true","fig-width":7,"comment":"","warning":"true","editor-font-scale":"1","autorun":"false","out-width":"700px","label":"unnamed-chunk-2","output":"true","editor-word-wrap":"true","editor-max-height":"","dpi":72,"results":"markup","fig-height":5,"fig-cap":"","read-only":"false"},"id":2},{"code":"df = results_2020 = read_csv('https://raw.githubusercontent.com/fivethirtyeight/election-results/refs/heads/main/election_results_presidential.csv') |> \n  filter(cycle == 2020 & stage == 'general' & candidate_name == 'Joe Biden') |>\n  select(candidate_name, state_abbrev, percent) |> \n  filter(!is.na(state_abbrev))\n\nstates_map = usmapdata::us_map(regions = 'states')\n\nstates_map |>\n  left_join(df, by = c('abbr' = 'state_abbrev')) |>\n  ggplot()  + \n  geom_sf(aes(fill = percent)) + \n  scale_fill_gradient2(low = 'red', mid = 'grey95',  high = 'blue', midpoint = 50) ","options":{"editor-quick-suggestions":"false","classes":"","context":"interactive","out-height":"","message":"false","fig-width":7,"comment":"","warning":"false","editor-font-scale":"1","autorun":"false","out-width":"700px","editor-max-height":"","label":"unnamed-chunk-3","output":"true","editor-word-wrap":"true","error":"false","dpi":72,"results":"markup","fig-height":5,"fig-cap":"","read-only":"false"},"id":3},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) ","options":{"editor-quick-suggestions":"false","classes":"","context":"interactive","out-height":"","message":"true","fig-width":7,"comment":"","warning":"true","editor-font-scale":"1","autorun":"false","out-width":"700px","label":"unnamed-chunk-4","output":"true","editor-word-wrap":"true","editor-max-height":"","dpi":72,"results":"markup","fig-height":5,"fig-cap":"","read-only":"false"},"id":4},{"code":"ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +    \n  geom_point(size = 3) + \n  theme_bw() ","options":{"editor-quick-suggestions":"false","classes":"","context":"interactive","out-height":"","message":"true","fig-width":7,"comment":"","warning":"true","editor-font-scale":"1","autorun":"false","out-width":"700px","label":"unnamed-chunk-5","output":"true","editor-word-wrap":"true","editor-max-height":"","dpi":72,"results":"markup","fig-height":5,"fig-cap":"","read-only":"false"},"id":5}];
 
 </script>
 <script type="module">
@@ -1950,12 +1950,35 @@ globalThis.qwebrExecuteCode = async function (
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Digital Mapping 2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./full_map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Full map workflow</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interactives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Making Plots Interactive</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./extra_exercises.html" class="sidebar-item-text sidebar-link">
@@ -1965,7 +1988,7 @@ globalThis.qwebrExecuteCode = async function (
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Where to find humanities data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Data and Inspiration for the Final Project</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
